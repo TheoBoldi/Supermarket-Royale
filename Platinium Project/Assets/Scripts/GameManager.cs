@@ -6,22 +6,23 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     //GameLogicManager for Super Market Royale by Dorian Gélas 2019-2020
-
+   
     [System.Serializable]
     public class GameItem
     {
-        public int id;
+        public enum ItemType { Empty = 0, Chips = 1, Soda = 2, Water = 3, Meat = 4 };
+        public ItemType ID;
         public int score;
         public float durationOfGrab;
         private bool isInCart = false;
         private int cartSlotPosition = 0;
-        public GameItem(int _id = 0, int _score = 0, float _durationOfGrab = 1f)
+        public GameItem(ItemType _id = ItemType.Empty, int _score = 0, float _durationOfGrab = 1f)
         {
-            id = _id;
+            ID = _id;
             score = _score;
             durationOfGrab = _durationOfGrab;
         }
-             
+
     }
     [System.Serializable]
     public class Cart
@@ -59,11 +60,14 @@ public class GameManager : MonoBehaviour
     #endregion
     #region GestionObjets
     [Header("Item ID Managment")]
-    [Range(1, 4)]
+    [Range(1, 10)]
     public int itemsTotal = 3;
     public GameItem empty = new GameItem();
-    public GameItem chips = new GameItem(1, 10, 1);
-    public List<GameItem> itemTotaList = new List<GameItem>();
+    public GameItem chips = new GameItem(GameItem.ItemType.Chips, 10, 1);
+    public GameItem eau = new GameItem(GameItem.ItemType.Water, 10, 1);
+    public GameItem meat = new GameItem(GameItem.ItemType.Meat, 10, 1);
+    public GameItem cola = new GameItem(GameItem.ItemType.Chips, 10, 1);
+    public List<GameItem> itemTotaList;
     #endregion
 
     public void GenerateItemLists(List<GameItem> listToGenrate)
@@ -78,6 +82,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         //WARNING : Not adding all the available GameItems down below, at the start of the game, can cause errors
+        itemTotaList = new List<GameItem>(itemsTotal);
         itemTotaList.Add(empty);
         itemTotaList.Add(chips);
         //End of all GameItems
@@ -123,6 +128,5 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
     }
 }
