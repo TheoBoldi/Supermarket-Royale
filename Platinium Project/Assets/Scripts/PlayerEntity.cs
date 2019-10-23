@@ -22,6 +22,7 @@ public class PlayerEntity : MonoBehaviour
     public Transform cartPos;
     public Transform nearestCaddie;
 
+
     private Vector3 _moveDir;
     private Vector3 _orientDir = Vector3.right;
     private Vector3 _velocity = Vector3.zero;
@@ -57,15 +58,6 @@ public class PlayerEntity : MonoBehaviour
 
     public void Update()
     {
-        if (ShoppingCartController.cartIsUsed)
-        {
-            CartControls();
-        }
-        else
-        {
-            PlayerControls();
-        }
-
         nearestCaddie = detection.ClosestCaddie();
     }
 
@@ -74,6 +66,15 @@ public class PlayerEntity : MonoBehaviour
         if (ShoppingCartController.isNearCart)
         {
             ShoppingCartController.cartIsUsed = !ShoppingCartController.cartIsUsed;
+        }
+
+        if (ShoppingCartController.cartIsUsed)
+        {
+            CartControls();
+        }
+        else
+        {
+            PlayerControls();
         }
     }
 
@@ -86,6 +87,7 @@ public class PlayerEntity : MonoBehaviour
         friction = 100f;
         turnFriction = 0f;
         turnSpeed = 15f;
+        nearestCaddie.transform.parent = null;
     }
 
     public void CartControls()
@@ -94,6 +96,7 @@ public class PlayerEntity : MonoBehaviour
         {
             nearestCaddie.transform.position = cartPos.position;
             nearestCaddie.transform.rotation = cartPos.rotation;
+            nearestCaddie.transform.parent = cartPos;
             acceleration = 10f;
             moveSpeedMax = 6.4f;
             friction = 10f;

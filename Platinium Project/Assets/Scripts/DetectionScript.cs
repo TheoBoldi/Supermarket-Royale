@@ -53,9 +53,9 @@ public class DetectionScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!nearestCaddie.Contains(other.gameObject.transform) && other.gameObject.name.Contains("Caddie"))
+        if (!nearestCaddie.Contains(other.gameObject.transform) && other.gameObject.transform.parent.name.Contains("Caddie"))
         {
-            nearestCaddie.Add(other.gameObject.transform);
+            nearestCaddie.Add(other.gameObject.transform.parent);
             isInFront = true;
         }
     }
