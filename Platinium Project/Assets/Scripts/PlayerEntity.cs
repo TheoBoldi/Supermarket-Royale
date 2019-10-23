@@ -10,7 +10,7 @@ public class PlayerEntity : MonoBehaviour
     public float acceleration = 20f;
     public float moveSpeedMax = 10f;
 
-    [Header("Intertie")]
+    [Header("Inertie")]
     public float friction = 30f;
     public float turnFriction = 20f;
 
