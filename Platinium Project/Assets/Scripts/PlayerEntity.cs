@@ -6,22 +6,29 @@ public class PlayerEntity : MonoBehaviour
 {
     //Script par Théo
 
+    [Header("Vitesse")]
     public float acceleration = 20f;
     public float moveSpeedMax = 10f;
+
+    [Header("Intertie")]
     public float friction = 30f;
     public float turnFriction = 20f;
+
+    [Header("Rotation")]
     public float turnSpeed = 15f;
+
+    [Header("Game Objects")]
+    public GameObject modelObj;
+    public Transform cartPos;
+    public Transform nearestCaddie;
 
     private Vector3 _moveDir;
     private Vector3 _orientDir = Vector3.right;
     private Vector3 _velocity = Vector3.zero;
 
-    public GameObject modelObj;
-    public static Transform cartPos;
-
     private Rigidbody rb;
-    public DetectionScript detection;
-    public Transform nearestCaddie;
+    private DetectionScript detection;
+
 
 
     private void Awake()
