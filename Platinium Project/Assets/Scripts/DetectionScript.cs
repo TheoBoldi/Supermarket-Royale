@@ -51,7 +51,7 @@ public class DetectionScript : MonoBehaviour
         return bestTarget;
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         if (!nearestCaddie.Contains(other.gameObject.transform) && other.gameObject.transform.parent.name.Contains("Caddie"))
         {
