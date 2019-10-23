@@ -6,11 +6,11 @@ public class PlayerEntity : MonoBehaviour
 {
     //Script par Théo
 
-    public static float acceleration = 20f;
-    public static float moveSpeedMax = 10f;
-    public static float friction = 30f;
-    public static float turnFriction = 20f;
-    public static float turnSpeed = 15f;
+    public float acceleration = 20f;
+    public float moveSpeedMax = 10f;
+    public float friction = 30f;
+    public float turnFriction = 20f;
+    public float turnSpeed = 15f;
 
     private Vector3 _moveDir;
     private Vector3 _orientDir = Vector3.right;
@@ -19,10 +19,21 @@ public class PlayerEntity : MonoBehaviour
     public GameObject modelObj;
     public static Transform cartPos;
 
+    private Rigidbody rb;
+    public DetectionScript detection;
+    public Transform nearestCaddie;
+
+
+    private void Awake()
+    {
+        rb = GetComponent<Rigidbody>();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
         cartPos = modelObj.GetComponentInChildren<Transform>().GetChild(2);
+        detection = GetComponentInChildren<DetectionScript>();
     }
 
     private void FixedUpdate()
@@ -33,7 +44,22 @@ public class PlayerEntity : MonoBehaviour
         Vector3 newPosition = transform.position;
         newPosition.x += _velocity.x * Time.fixedDeltaTime;
         newPosition.z += _velocity.z * Time.fixedDeltaTime;
-        transform.position = newPosition;
+        rb.transform.position = newPosition;
+        rb.velocity = Vector3.zero;
+    }
+
+    public void Update()
+    {
+        if (ShoppingCartController.cartIsUsed)
+        {
+            CartControls();
+        }
+        else
+        {
+            PlayerControls();
+        }
+
+        nearestCaddie = detection.ClosestCaddie();
     }
 
     public void GrabCaddie()
@@ -45,6 +71,29 @@ public class PlayerEntity : MonoBehaviour
     }
 
     #region Functions Move
+
+    public void PlayerControls()
+    {
+        acceleration = 100f;
+        moveSpeedMax = 8f;
+        friction = 100f;
+        turnFriction = 0f;
+        turnSpeed = 15f;
+    }
+
+    public void CartControls()
+    {
+        if (nearestCaddie != null)
+        {
+            nearestCaddie.transform.position = cartPos.position;
+            nearestCaddie.transform.rotation = cartPos.rotation;
+            acceleration = 10f;
+            moveSpeedMax = 6.4f;
+            friction = 10f;
+            turnFriction = 20f;
+            turnSpeed = 2.5f;
+        }
+    }
 
     private void _UpdateModelOrient()
     {
