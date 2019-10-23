@@ -10,17 +10,21 @@ public class GameManager : MonoBehaviour
     [System.Serializable]
     public class GameItem
     {
-        public enum ItemType { Empty = 0, Chips = 1, Soda = 2, Water = 3, Meat = 4 };
-        public ItemType ID;
-        public int score;
-        public float durationOfGrab;
-        private bool isInCart = false;
-        private int cartSlotPosition = 0;
-        public GameItem(ItemType _id = ItemType.Empty, int _score = 0, float _durationOfGrab = 1f)
+        public enum ItemType {Empty = 0, Chips = 1, Soda = 2, Water = 3, Meat = 4, DebugTrue = -1, DebugFalse = -2};
+        public enum ScoreCount {Empty = 0, Small = 10, Medium = 50, Big = 200, THICCDebug = 1000, smoleDebug = 1};
+        public ItemType itemType;
+        public ScoreCount score;
+        [Range(1, 10)]
+        public int durationOfGrab;
+        [System.NonSerialized]
+        public bool isInCart = false;
+        [System.NonSerialized]
+        public int cartSlotPosition = -1;
+        public GameItem(ItemType _itemType = ItemType.Empty, ScoreCount _score = ScoreCount.Empty, int _durationOfGrab = 1)
         {
-            ID = _id;
+            itemType = _itemType;
             score = _score;
-            durationOfGrab = _durationOfGrab;
+            durationOfGrab = Mathf.Clamp(_durationOfGrab, 1, 10);
         }
 
     }
@@ -28,17 +32,13 @@ public class GameManager : MonoBehaviour
     public class Cart
     {
         public float cartHP = 100f;
-        private List<GameItem> cartStorage = new List<GameItem>(6);
-        /*void PlaceInCart(int cartSlotSelcted)
+        public List<GameItem> cartStorage;
+        
+        public Cart(float _startingHealth, List<GameItem> _startingList)
         {
-            isInCart = true;
-            cartSlotPosition = cartSlotSelcted;
+            cartHP = _startingHealth;
+            cartStorage = _startingList;
         }
-    int RemoveFromCart()
-    {
-      isInCart = false;
-      return cartSlotPosition;
-    }*/
     }
 
 
@@ -53,29 +53,29 @@ public class GameManager : MonoBehaviour
     [Header("Required Item List")]
     [Range(1, 4)]
     public int listSize = 3;
-    public List<GameItem> player1Itemlist;
-    public List<GameItem> player2Itemlist;
-    public List<GameItem> player3Itemlist;
-    public List<GameItem> player4Itemlist;
+    public List<GameItem.ItemType> player1Itemlist;
+    public List<GameItem.ItemType> player2Itemlist;
+    public List<GameItem.ItemType> player3Itemlist;
+    public List<GameItem.ItemType> player4Itemlist;
     #endregion
     #region GestionObjets
     [Header("Item ID Managment")]
     [Range(1, 10)]
     public int itemsTotal = 3;
     public GameItem empty = new GameItem();
-    public GameItem chips = new GameItem(GameItem.ItemType.Chips, 10, 1);
-    public GameItem eau = new GameItem(GameItem.ItemType.Water, 10, 1);
-    public GameItem meat = new GameItem(GameItem.ItemType.Meat, 10, 1);
-    public GameItem cola = new GameItem(GameItem.ItemType.Chips, 10, 1);
+    public GameItem chips = new GameItem(GameItem.ItemType.Chips, GameItem.ScoreCount.Small, 1);
+    public GameItem eau = new GameItem(GameItem.ItemType.Water, GameItem.ScoreCount.Small, 1);
+    public GameItem meat = new GameItem(GameItem.ItemType.Meat, GameItem.ScoreCount.Big, 1);
+    public GameItem cola = new GameItem(GameItem.ItemType.Chips, GameItem.ScoreCount.Medium, 1);
     public List<GameItem> itemTotaList;
     #endregion
 
-    public void GenerateItemLists(List<GameItem> listToGenrate)
+    public void GenerateItemLists(List<GameItem.ItemType> listToGenrate)
     {
         listToGenrate.Clear();
         for (int selecteur = 0; selecteur > listToGenrate.Capacity; selecteur++)
         {
-            listToGenrate[selecteur] = itemTotaList[Mathf.Clamp(((UnityEngine.Random.Range(0, itemsTotal))), 0, itemsTotal)];
+            listToGenrate[selecteur] = itemTotaList[Mathf.Clamp(UnityEngine.Random.Range(0, itemsTotal), 0, itemsTotal)].itemType;
         }
     }
 
@@ -86,10 +86,10 @@ public class GameManager : MonoBehaviour
         itemTotaList.Add(empty);
         itemTotaList.Add(chips);
         //End of all GameItems
-        player1Itemlist = new List<GameItem>(listSize);
-        player2Itemlist = new List<GameItem>(listSize);
-        player3Itemlist = new List<GameItem>(listSize);
-        player4Itemlist = new List<GameItem>(listSize);
+        player1Itemlist = new List<GameItem.ItemType>(listSize);
+        player2Itemlist = new List<GameItem.ItemType>(listSize);
+        player3Itemlist = new List<GameItem.ItemType>(listSize);
+        player4Itemlist = new List<GameItem.ItemType>(listSize);
 
     }
 
@@ -120,9 +120,20 @@ public class GameManager : MonoBehaviour
 
     }
 
-    public bool CompareItems(GameItem itemtoCheck, List<GameItem> checkList)
+    public bool CompareItems(GameItem itemtoCheck, List<GameItem.ItemType> checkList)
     {
-        return checkList.Contains(itemtoCheck);
+        if (itemtoCheck.itemType == GameItem.ItemType.DebugTrue)
+        {
+            return true;
+        }
+        else if(itemtoCheck.itemType == GameItem.ItemType.DebugTrue)
+        {
+            return false;
+        }
+        else
+        {
+            return checkList.Contains(itemtoCheck.itemType);
+        }
     }
 
     // Update is called once per frame

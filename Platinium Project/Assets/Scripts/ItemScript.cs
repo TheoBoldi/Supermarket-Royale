@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ItemScript: MonoBehaviour
 {
-    //GameLogic by Dorian Gélas 2019-2020*
+    //GameLogic by Dorian Gélas 2019-2020
     private GameManager _gameManager;
     private GameObject gameItem_GO;
     public GameManager.GameItem gameItem;
