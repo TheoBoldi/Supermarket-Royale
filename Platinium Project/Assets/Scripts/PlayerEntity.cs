@@ -18,11 +18,13 @@ public class PlayerEntity : MonoBehaviour
 
     public GameObject modelObj;
     public static Transform cartPos;
+    public static Vector3 gameItemPos;
 
     // Start is called before the first frame update
     void Start()
     {
         cartPos = modelObj.GetComponentInChildren<Transform>().GetChild(2);
+        gameItemPos = gameObject.GetComponentInChildren<Transform>().GetChild(3).position;
     }
 
     private void FixedUpdate()
@@ -43,7 +45,10 @@ public class PlayerEntity : MonoBehaviour
             ShoppingCartController.cartIsUsed = !ShoppingCartController.cartIsUsed;
         }
     }
-
+    public void GrabGameItem(GameObject itemToHold)
+    {
+        itemToHold.transform.position = gameItemPos;
+    }
     #region Functions Move
 
     private void _UpdateModelOrient()

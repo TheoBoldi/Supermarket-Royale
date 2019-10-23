@@ -10,6 +10,7 @@ public class DetectionScript : MonoBehaviour
 
     public List<Transform> nearestCaddie;
     public Transform closestCaddie;
+    public GameObject selectedGameItemGO;
 
     // Start is called before the first frame update
     void Start()
@@ -53,11 +54,16 @@ public class DetectionScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if(other.tag == "GameItem")
+        {
+            selectedGameItemGO = other.gameObject;
+        }
         if (!nearestCaddie.Contains(other.gameObject.transform) && other.gameObject.name.Contains("Caddie"))
         {
             nearestCaddie.Add(other.gameObject.transform);
             isInFront = true;
         }
+
     }
 
     private void OnTriggerExit(Collider other)
