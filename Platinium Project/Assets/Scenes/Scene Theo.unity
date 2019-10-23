@@ -1136,7 +1136,7 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 2
+    m_Type: 0
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -1892,10 +1892,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerEntity1
       objectReference: {fileID: 0}
+    - target: {fileID: 405692472256416611, guid: eeb87e48eaae3bf409cf78c7a6067401,
+        type: 3}
+      propertyPath: cartCollider
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 405692472256416610, guid: eeb87e48eaae3bf409cf78c7a6067401,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.697
+      value: -3.97
       objectReference: {fileID: 0}
     - target: {fileID: 405692472256416610, guid: eeb87e48eaae3bf409cf78c7a6067401,
         type: 3}
@@ -1905,7 +1910,7 @@ PrefabInstance:
     - target: {fileID: 405692472256416610, guid: eeb87e48eaae3bf409cf78c7a6067401,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -6.9280005
+      value: -9.543
       objectReference: {fileID: 0}
     - target: {fileID: 405692472256416610, guid: eeb87e48eaae3bf409cf78c7a6067401,
         type: 3}
