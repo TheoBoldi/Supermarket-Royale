@@ -126,7 +126,7 @@ public class GameManager : MonoBehaviour
         {
             return true;
         }
-        else if(itemtoCheck.itemType == GameItem.ItemType.DebugTrue)
+        else if(itemtoCheck.itemType == GameItem.ItemType.DebugFalse)
         {
             return false;
         }
