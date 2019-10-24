@@ -22,6 +22,7 @@ public class PlayerEntity : MonoBehaviour
     public Transform cartPos;
     public Transform nearestCaddie;
 
+    public bool stopMove;
 
     private Vector3 _moveDir;
     private Vector3 _orientDir = Vector3.right;
@@ -46,9 +47,12 @@ public class PlayerEntity : MonoBehaviour
 
     private void FixedUpdate()
     {
-        _UpdateMove();
-        _UpdateModelOrient();
-
+        if (!stopMove)
+        {
+            _UpdateMove();
+            _UpdateModelOrient();
+        }
+      
         Vector3 newPosition = transform.position;
         newPosition.x += _velocity.x * Time.fixedDeltaTime;
         newPosition.z += _velocity.z * Time.fixedDeltaTime;
@@ -119,6 +123,17 @@ public class PlayerEntity : MonoBehaviour
     public void Move(Vector3 dir)
     {
         _moveDir = dir;
+    }
+
+    public void StopMove()
+    {
+        stopMove = true;
+        _velocity = Vector3.zero;
+    }
+
+    public void RestartMove()
+    {
+        stopMove = false;
     }
 
     private void _UpdateMove()
