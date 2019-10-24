@@ -27,8 +27,6 @@ public class PlayerEntity : MonoBehaviour
     private Vector3 _velocity = Vector3.zero;
 
 
-    public GameObject modelObj;
-    public static Transform cartPos;
     public static Vector3 gameItemPos;
     private Rigidbody rb;
     private DetectionScript detection;
