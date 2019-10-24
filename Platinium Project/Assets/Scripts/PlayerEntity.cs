@@ -30,7 +30,7 @@ public class PlayerEntity : MonoBehaviour
     private Rigidbody rb;
     private DetectionScript detection;
 
-
+    public Animator animator;
 
     private void Awake()
     {
@@ -82,11 +82,11 @@ public class PlayerEntity : MonoBehaviour
 
     public void PlayerControls()
     {
-        acceleration = 100f;
-        moveSpeedMax = 8f;
-        friction = 100f;
-        turnFriction = 0f;
-        turnSpeed = 15f;
+        acceleration = 1000f;
+        moveSpeedMax = 4f;
+        friction = 1000f;
+        turnFriction = 1000f;
+        turnSpeed = 20f;
         nearestCaddie.transform.parent = null;
     }
 
@@ -125,6 +125,19 @@ public class PlayerEntity : MonoBehaviour
     {
         if (_moveDir != Vector3.zero)
         {
+            //play walk
+
+            if (!ShoppingCartController.cartIsUsed)
+            {
+                animator.SetTrigger("Walk");
+            }
+            
+
+            if (ShoppingCartController.cartIsUsed)
+            {
+                animator.SetTrigger("CaddyWalk");
+            }
+
             float turnAngle = Vector3.SignedAngle(_velocity, Vector3.zero, _moveDir);
             turnAngle = Mathf.Abs(turnAngle);
             float frictionRatio = turnAngle / 360f;
@@ -152,6 +165,20 @@ public class PlayerEntity : MonoBehaviour
             else
             {
                 _velocity -= frictionDir * frictionToApply;
+                //play idle
+                
+            }
+            animator.ResetTrigger("Walk");
+            
+
+            if (!ShoppingCartController.cartIsUsed)
+            {
+                animator.SetTrigger("Idle");
+            }
+
+            if (ShoppingCartController.cartIsUsed)
+            {
+                animator.SetTrigger("CaddyIdle");
             }
         }
     }
