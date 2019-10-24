@@ -11,6 +11,7 @@ public class PlayerControllerOne : MonoBehaviour
     private Player _rewiredPlayer;
     public DetectionScript detection;
     public GameObject gameObjectToHold;
+    public ShoppingCartController _shoppingCartController;
 
 
     // Start is called before the first frame update
@@ -44,27 +45,5 @@ public class PlayerControllerOne : MonoBehaviour
         {
             entity.GrabCaddie();
         }
-        UpdateGameItemGrab();
-    }
-
-    IEnumerator ItemGrabCoroutine()
-    {
-        while (_rewiredPlayer.GetButton("GrabCaddie") && detection.selectedGameItemGO != null && detection.nearestCaddie == null)
-        {
-            entity.GrabGameItem(gameObjectToHold);
-        }
-
-        if (_rewiredPlayer.GetButtonUp("GrabCaddie") && detection.selectedGameItemGO != null)
-        {
-            if (detection.IsObjectInFront())
-            {
-
-                detection.nearestCaddie[0].GetComponent<ShoppingCartScript>().PlaceInCart(1, gameObjectToHold.GetComponent<ItemScript>().gameItem);
-                Destroy(gameObjectToHold); ;
-            }
-            gameObjectToHold = null;
-            yield return null;
-        }
-
-    }
+        
 }

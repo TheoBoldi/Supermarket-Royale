@@ -29,6 +29,7 @@ public class ShoppingCartScript : MonoBehaviour
         itemToReturn = cart.cartStorage[cartSlotSelected];
         cart.cartStorage[cartSlotSelected] = new GameManager.GameItem(GameManager.GameItem.ItemType.Empty, GameManager.GameItem.ScoreCount.Empty, 1);
         return itemToReturn;
+
     }
 
     // Update is called once per frame
