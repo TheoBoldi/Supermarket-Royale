@@ -4,10 +4,14 @@ using UnityEngine;
 
 public class CollisionScript : MonoBehaviour
 {
-    public Animation anim;
+    public Animator animator;
     public PlayerEntity entity;
+
     public float timer = 1.0f;
     public bool p2pCol;
+
+    public float recenColTimer = 2.0f;
+    public bool recentCollision;
  
     // Start is called before the first frame update
     void Start()
@@ -22,14 +26,27 @@ public class CollisionScript : MonoBehaviour
         {
             P2PCollision();
         }
+
+        if (recentCollision)
+        {
+            recenColTimer -= Time.deltaTime;
+            if(recenColTimer <= 0f)
+            {
+                recenColTimer = 2.0f;
+                recentCollision = false;
+            }
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.name.Contains("Player"))
+        if (!p2pCol && !recentCollision)
         {
-            Debug.Log("collision player-player");
-            p2pCol = true;
+            if (collision.gameObject.name.Contains("Player"))
+            {
+                Debug.Log("collision player-player");
+                p2pCol = true;
+            }
         }
     }
 
@@ -38,13 +55,16 @@ public class CollisionScript : MonoBehaviour
         //Stoper le player.move pour 1 sec
         entity.StopMove();
         //Jouer l'animation de chute
-
+        animator.SetTrigger("Fall");
         timer -= Time.deltaTime;
         if (timer <= 0f)
         {
+            animator.ResetTrigger("Fall");
+            animator.SetTrigger("Idle");
             entity.RestartMove();
             p2pCol = false;
             timer = 1.0f;
+            recentCollision = true;
         }
     }
 }
