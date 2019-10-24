@@ -11,6 +11,7 @@ public class PlayerControllerOne : MonoBehaviour
     private Player _rewiredPlayer;
     public DetectionScript detection;
 
+    public string playerName = "Player1";
     public float coef;
     public float radangle;
     public bool sign;
@@ -18,7 +19,7 @@ public class PlayerControllerOne : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _rewiredPlayer = ReInput.players.GetPlayer("Player1");
+        _rewiredPlayer = ReInput.players.GetPlayer(playerName);
         detection = entity.GetComponentInChildren<DetectionScript>();
     }
 
@@ -33,12 +34,12 @@ public class PlayerControllerOne : MonoBehaviour
 
         entity.Move(moveDir);
 
-        /*if (_rewiredPlayer.GetButtonDown("GrabCaddie") && detection.IsObjectInFront())
+        if (_rewiredPlayer.GetButtonDown("GrabCaddie") && detection.IsObjectInFront())
         {
             entity.GrabCaddie();
         }
 
-        if ((_rewiredPlayer.GetAxis("RightTrigger") > 0))
+        /*if ((_rewiredPlayer.GetAxis("RightTrigger") > 0))
         {
             Vector3 refvector = entity.GetComponentInChildren<Transform>().GetChild(0).transform.rotation.eulerAngles;
             coef = Mathf.Abs(Mathf.Sqrt((_rewiredPlayer.GetAxis("MoveHorizontal") * _rewiredPlayer.GetAxis("MoveHorizontal")) + (_rewiredPlayer.GetAxis("MoveVertical") * _rewiredPlayer.GetAxis("MoveVertical"))));

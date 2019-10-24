@@ -18,7 +18,10 @@ public class CollisionScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (p2pCol)
+        {
+            P2PCollision();
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -26,7 +29,7 @@ public class CollisionScript : MonoBehaviour
         if (collision.gameObject.name.Contains("Player"))
         {
             Debug.Log("collision player-player");
-            P2PCollision();
+            p2pCol = true;
         }
     }
 
@@ -34,9 +37,14 @@ public class CollisionScript : MonoBehaviour
     {
         //Stoper le player.move pour 1 sec
         entity.StopMove();
-
-        entity.RestartMove();
         //Jouer l'animation de chute
-        //Reactiver le player.move
+
+        timer -= Time.deltaTime;
+        if (timer <= 0f)
+        {
+            entity.RestartMove();
+            p2pCol = false;
+            timer = 1.0f;
+        }
     }
 }
