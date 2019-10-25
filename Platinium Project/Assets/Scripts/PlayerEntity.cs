@@ -32,6 +32,7 @@ public class PlayerEntity : MonoBehaviour
     private DetectionScript detection;
 
     public Animator animator;
+    public AudioSource soundCaddie;
 
     private void Awake()
     {
@@ -150,12 +151,24 @@ public class PlayerEntity : MonoBehaviour
                 if (!nearestCaddie.GetComponentInChildren<ShoppingCartController>().cartIsUsed)
                 {
                     animator.SetTrigger("Walk");
+
+                    if (_velocity == Vector3.zero)
+                    {
+                        //Couper Son Caddie
+                        soundCaddie.volume = 0;                
+                    }
                 }
 
 
                 if (nearestCaddie.GetComponentInChildren<ShoppingCartController>().cartIsUsed)
                 {
                     animator.SetTrigger("CaddyWalk");
+
+                    if (_velocity != Vector3.zero)
+                    {
+                        //Son Caddie
+                        soundCaddie.volume = 1;
+                    }
                 }
             }
 
