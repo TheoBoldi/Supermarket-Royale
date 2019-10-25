@@ -48,6 +48,11 @@ public class CollisionScript : MonoBehaviour
                 p2pCol = true;
             }
         }
+
+        /*if (collision.gameObject.CompareTag("Caddie"))
+        {
+            //Debug.Log("Player-Caddie collision");
+        }*/
     }
 
     public void P2PCollision()

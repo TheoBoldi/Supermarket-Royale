@@ -14,7 +14,7 @@ public class DetectionScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -53,7 +53,7 @@ public class DetectionScript : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (!nearestCaddie.Contains(other.gameObject.transform) && other.gameObject.transform.parent.name.Contains("Caddie"))
+        if (!nearestCaddie.Contains(other.gameObject.transform.parent) && other.gameObject.transform.parent.name.Contains("Caddie"))
         {
             nearestCaddie.Add(other.gameObject.transform.parent);
             isInFront = true;
@@ -64,7 +64,7 @@ public class DetectionScript : MonoBehaviour
     {
         if (nearestCaddie.Contains(other.gameObject.transform))
         {
-            nearestCaddie.Remove(other.gameObject.transform);
+            nearestCaddie.Remove(other.gameObject.transform.parent);
             isInFront = false;
         }
     }

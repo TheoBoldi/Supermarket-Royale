@@ -34,7 +34,7 @@ public class PlayerControllerOne : MonoBehaviour
 
         entity.Move(moveDir);
 
-        if (_rewiredPlayer.GetButtonDown("GrabCaddie") && detection.IsObjectInFront())
+        if (_rewiredPlayer.GetButtonDown("GrabCaddie") /*&& detection.IsObjectInFront()*/)
         {
             entity.GrabCaddie();
         }

@@ -67,18 +67,21 @@ public class PlayerEntity : MonoBehaviour
 
     public void GrabCaddie()
     {
-        if (ShoppingCartController.isNearCart)
+        if(nearestCaddie != null)
         {
-            ShoppingCartController.cartIsUsed = !ShoppingCartController.cartIsUsed;
-        }
+            if (nearestCaddie.GetComponentInChildren<ShoppingCartController>().isNearCart)
+            {
+                nearestCaddie.GetComponentInChildren<ShoppingCartController>().cartIsUsed = !nearestCaddie.GetComponentInChildren<ShoppingCartController>().cartIsUsed;
+            }
 
-        if (ShoppingCartController.cartIsUsed)
-        {
-            CartControls();
-        }
-        else
-        {
-            PlayerControls();
+            if (nearestCaddie.GetComponentInChildren<ShoppingCartController>().cartIsUsed)
+            {
+                CartControls();
+            }
+            else
+            {
+                PlayerControls();
+            }
         }
     }
 
@@ -86,10 +89,10 @@ public class PlayerEntity : MonoBehaviour
 
     public void PlayerControls()
     {
-        acceleration = 1000f;
-        moveSpeedMax = 4f;
-        friction = 1000f;
-        turnFriction = 1000f;
+        acceleration = 100f;
+        moveSpeedMax = 6f;
+        friction = 20f;
+        turnFriction = 100f;
         turnSpeed = 20f;
         nearestCaddie.transform.parent = null;
     }
@@ -101,11 +104,11 @@ public class PlayerEntity : MonoBehaviour
             nearestCaddie.transform.position = cartPos.position;
             nearestCaddie.transform.rotation = cartPos.rotation;
             nearestCaddie.transform.parent = cartPos;
-            acceleration = 10f;
-            moveSpeedMax = 6.4f;
-            friction = 10f;
-            turnFriction = 20f;
-            turnSpeed = 2.5f;
+            acceleration =6.4f;
+            moveSpeedMax = 3.2f;
+            friction = 2.5f;
+            turnFriction = 0.1f;
+            turnSpeed = 10f;
         }
     }
 
@@ -142,15 +145,18 @@ public class PlayerEntity : MonoBehaviour
         {
             //play walk
 
-            if (!ShoppingCartController.cartIsUsed)
+            if(nearestCaddie != null)
             {
-                animator.SetTrigger("Walk");
-            }
-            
+                if (!nearestCaddie.GetComponentInChildren<ShoppingCartController>().cartIsUsed)
+                {
+                    animator.SetTrigger("Walk");
+                }
 
-            if (ShoppingCartController.cartIsUsed)
-            {
-                animator.SetTrigger("CaddyWalk");
+
+                if (nearestCaddie.GetComponentInChildren<ShoppingCartController>().cartIsUsed)
+                {
+                    animator.SetTrigger("CaddyWalk");
+                }
             }
 
             float turnAngle = Vector3.SignedAngle(_velocity, Vector3.zero, _moveDir);
@@ -184,16 +190,19 @@ public class PlayerEntity : MonoBehaviour
                 
             }
             animator.ResetTrigger("Walk");
-            
 
-            if (!ShoppingCartController.cartIsUsed)
-            {
-                animator.SetTrigger("Idle");
-            }
 
-            if (ShoppingCartController.cartIsUsed)
+            if(nearestCaddie != null)
             {
-                animator.SetTrigger("CaddyIdle");
+                if (!nearestCaddie.GetComponentInChildren<ShoppingCartController>().cartIsUsed)
+                {
+                    animator.SetTrigger("Idle");
+                }
+
+                if (nearestCaddie.GetComponentInChildren<ShoppingCartController>().cartIsUsed)
+                {
+                    animator.SetTrigger("CaddyIdle");
+                }
             }
         }
     }

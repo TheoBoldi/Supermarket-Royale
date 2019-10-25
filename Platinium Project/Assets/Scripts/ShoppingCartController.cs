@@ -7,8 +7,8 @@ public class ShoppingCartController : MonoBehaviour
 {
     //Script par Théo
 
-    public static bool isNearCart;
-    public static bool cartIsUsed;
+    public bool isNearCart;
+    public bool cartIsUsed;
 
     // Start is called before the first frame update
     void Start()
@@ -34,7 +34,10 @@ public class ShoppingCartController : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            isNearCart = false;
+            if (!cartIsUsed)
+            {
+                isNearCart = false;
+            }
         }
     }
 }
