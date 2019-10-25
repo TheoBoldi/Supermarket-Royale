@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CaddieCollision : MonoBehaviour
 {
+    public ParticleSystem spark;
 
     // Start is called before the first frame update
     void Start()
@@ -22,6 +23,7 @@ public class CaddieCollision : MonoBehaviour
         if(other.gameObject.CompareTag("Caddie"))
         {
             Debug.Log("Collision Caddie-Caddie");
+            spark.Emit(1);
         }
     }
 }
