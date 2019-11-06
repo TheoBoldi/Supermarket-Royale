@@ -42,17 +42,12 @@ public class CollisionScript : MonoBehaviour
     {
         if (!p2pCol && !recentCollision)
         {
-            if (collision.gameObject.name.Contains("Player"))
+            if (collision.gameObject.name.Contains("Player") && !entity.haveCaddie)
             {
                 Debug.Log("collision player-player");
                 p2pCol = true;
             }
         }
-
-        /*if (collision.gameObject.CompareTag("Caddie"))
-        {
-            //Debug.Log("Player-Caddie collision");
-        }*/
     }
 
     public void P2PCollision()
@@ -60,12 +55,11 @@ public class CollisionScript : MonoBehaviour
         //Stoper le player.move pour 1 sec
         entity.StopMove();
         //Jouer l'animation de chute
-        animator.SetTrigger("Fall");
+        animator.SetBool("Fall", true);
         timer -= Time.deltaTime;
         if (timer <= 0f)
         {
-            animator.ResetTrigger("Fall");
-            animator.SetTrigger("Idle");
+            animator.SetBool("Fall", false);
             entity.RestartMove();
             p2pCol = false;
             timer = 1.0f;

@@ -6,16 +6,40 @@ public class PlayerEntity : MonoBehaviour
 {
     //Script par Théo
 
+    //Vitesse
+    private float acceleration;
+    private float moveSpeedMax;
+
+    //Inertie
+    private float friction;
+    private float turnFriction;
+
+    //Rotation
+    private float turnSpeed;
+
     [Header("Vitesse")]
-    public float acceleration = 20f;
-    public float moveSpeedMax = 10f;
+    [Header("Stats Player")]
+    public float accelerationPlayer = 20f;
+    public float moveSpeedMaxPlayer = 10f;
 
     [Header("Inertie")]
-    public float friction = 30f;
-    public float turnFriction = 20f;
+    public float frictionPlayer = 0f;
+    public float turnFrictionPlayer = 20f;
 
     [Header("Rotation")]
-    public float turnSpeed = 15f;
+    public float turnSpeedPlayer = 15f;
+
+    [Header("Vitesse")]
+    [Header("Stats Caddie")]
+    public float accelerationCaddie = 20f;
+    public float moveSpeedMaxCaddie = 10f;
+
+    [Header("Inertie")]
+    public float frictionCaddie = 0f;
+    public float turnFrictionCaddie = 20f;
+
+    [Header("Rotation")]
+    public float turnSpeedCaddie = 15f;
 
     [Header("Game Objects")]
     public GameObject modelObj;
@@ -23,6 +47,7 @@ public class PlayerEntity : MonoBehaviour
     public Transform nearestCaddie;
 
     public bool stopMove;
+    public bool haveCaddie;
 
     private Vector3 _moveDir;
     private Vector3 _orientDir = Vector3.right;
@@ -37,6 +62,11 @@ public class PlayerEntity : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        acceleration = accelerationPlayer;
+        moveSpeedMax = moveSpeedMaxPlayer;
+        friction = frictionPlayer;
+        turnFriction = turnFrictionPlayer;
+        turnSpeed = turnSpeedPlayer;
     }
 
     // Start is called before the first frame update
@@ -53,7 +83,9 @@ public class PlayerEntity : MonoBehaviour
             _UpdateMove();
             _UpdateModelOrient();
         }
-      
+
+        _UpdateAnim();
+
         Vector3 newPosition = transform.position;
         newPosition.x += _velocity.x * Time.fixedDeltaTime;
         newPosition.z += _velocity.z * Time.fixedDeltaTime;
@@ -90,12 +122,13 @@ public class PlayerEntity : MonoBehaviour
 
     public void PlayerControls()
     {
-        acceleration = 100f;
-        moveSpeedMax = 6f;
-        friction = 20f;
-        turnFriction = 100f;
-        turnSpeed = 20f;
+        acceleration = accelerationPlayer;
+        moveSpeedMax = moveSpeedMaxPlayer;
+        friction = frictionPlayer;
+        turnFriction = turnFrictionPlayer;
+        turnSpeed = turnSpeedPlayer;
         nearestCaddie.transform.parent = null;
+        haveCaddie = false;
     }
 
     public void CartControls()
@@ -105,11 +138,12 @@ public class PlayerEntity : MonoBehaviour
             nearestCaddie.transform.position = cartPos.position;
             nearestCaddie.transform.rotation = cartPos.rotation;
             nearestCaddie.transform.parent = cartPos;
-            acceleration =6.4f;
-            moveSpeedMax = 3.2f;
-            friction = 2.5f;
-            turnFriction = 0.1f;
-            turnSpeed = 10f;
+            acceleration = accelerationCaddie;
+            moveSpeedMax = moveSpeedMaxCaddie;
+            friction = frictionCaddie;
+            turnFriction = turnFrictionCaddie;
+            turnSpeed = turnSpeedCaddie;
+            haveCaddie = true;
         }
     }
 
@@ -144,33 +178,6 @@ public class PlayerEntity : MonoBehaviour
     {
         if (_moveDir != Vector3.zero)
         {
-            //play walk
-
-            if(nearestCaddie != null)
-            {
-                if (!nearestCaddie.GetComponentInChildren<ShoppingCartController>().cartIsUsed)
-                {
-                    animator.SetTrigger("Walk");
-
-                    if (_velocity == Vector3.zero)
-                    {
-                        //Couper Son Caddie
-                        soundCaddie.volume = 0;                
-                    }
-                }
-
-
-                if (nearestCaddie.GetComponentInChildren<ShoppingCartController>().cartIsUsed)
-                {
-                    animator.SetTrigger("CaddyWalk");
-
-                    if (_velocity != Vector3.zero)
-                    {
-                        //Son Caddie
-                        soundCaddie.volume = 1;
-                    }
-                }
-            }
 
             float turnAngle = Vector3.SignedAngle(_velocity, Vector3.zero, _moveDir);
             turnAngle = Mathf.Abs(turnAngle);
@@ -198,24 +205,45 @@ public class PlayerEntity : MonoBehaviour
             }
             else
             {
-                _velocity -= frictionDir * frictionToApply;
-                //play idle
-                
+                _velocity -= frictionDir * frictionToApply;               
             }
-            animator.ResetTrigger("Walk");
+        }
+    }
 
-
-            if(nearestCaddie != null)
+    private void _UpdateAnim()
+    {
+        if(_moveDir != Vector3.zero)
+        {
+            if (haveCaddie)
             {
-                if (!nearestCaddie.GetComponentInChildren<ShoppingCartController>().cartIsUsed)
-                {
-                    animator.SetTrigger("Idle");
-                }
-
-                if (nearestCaddie.GetComponentInChildren<ShoppingCartController>().cartIsUsed)
-                {
-                    animator.SetTrigger("CaddyIdle");
-                }
+                animator.SetBool("CaddieWalk", true);
+                animator.SetBool("CaddieIdle", false);
+                animator.SetBool("Idle", false);
+                animator.SetBool("Walk", false);
+            }
+            else if(!haveCaddie)
+            {
+                animator.SetBool("Walk", true);
+                animator.SetBool("Idle", false);
+                animator.SetBool("CaddieWalk", false);
+                animator.SetBool("CaddieIdle", false);
+            }
+        }
+        else if(_moveDir == Vector3.zero)
+        {
+            if (haveCaddie)
+            {
+                animator.SetBool("CaddieIdle", true);
+                animator.SetBool("Walk", false);
+                animator.SetBool("Idle", false);
+                animator.SetBool("CaddieWalk", false);
+            }
+            else if(!haveCaddie)
+            {
+                animator.SetBool("Idle", true);
+                animator.SetBool("Walk", false);
+                animator.SetBool("CaddieWalk", false);
+                animator.SetBool("CaddieIdle", false);
             }
         }
     }

@@ -6,8 +6,6 @@ public class DetectionScript : MonoBehaviour
 {
     //Script par Théo
 
-    public bool isInFront = false;
-
     public List<Transform> nearestCaddie;
     public Transform closestCaddie;
 
@@ -28,11 +26,6 @@ public class DetectionScript : MonoBehaviour
         return closestCaddie;
     }
 
-    public bool IsObjectInFront()
-    {
-        return isInFront;
-    }
-
     public Transform GetClosestObject(List<Transform> nearestObject, Transform fromThis)
     {
         Transform bestTarget = null;
@@ -51,21 +44,28 @@ public class DetectionScript : MonoBehaviour
         return bestTarget;
     }
 
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
-        if (!nearestCaddie.Contains(other.gameObject.transform.parent) && other.gameObject.transform.parent.name.Contains("Caddie"))
+        if(other.gameObject.transform.parent != null)
         {
-            nearestCaddie.Add(other.gameObject.transform.parent);
-            isInFront = true;
+            if (!nearestCaddie.Contains(other.gameObject.transform.parent) && other.gameObject.transform.parent.name.Contains("Caddie"))
+            {
+                if (nearestCaddie.Count == 0)
+                {
+                    nearestCaddie.Add(other.gameObject.transform.parent);
+                }
+            }
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (nearestCaddie.Contains(other.gameObject.transform))
+        if(other.gameObject.transform.GetComponent<ShoppingCartController>() != null)
         {
-            nearestCaddie.Remove(other.gameObject.transform.parent);
-            isInFront = false;
+            if (nearestCaddie.Contains(other.gameObject.transform.parent) && !other.gameObject.transform.GetComponent<ShoppingCartController>().cartIsUsed)
+            {
+                nearestCaddie.Remove(other.gameObject.transform.parent);
+            }
         }
     }
 }
