@@ -226,7 +226,7 @@ public class PlayerEntity : MonoBehaviour
                 animator.SetBool("Idle", false);
                 animator.SetBool("CaddieWalk", false);
                 animator.SetBool("CaddieIdle", false);
-                SoundManager.instance.StopSoundCaddie();
+                //SoundManager.instance.StopSoundCaddie();
             }
         }
         else if(_moveDir == Vector3.zero)
@@ -237,7 +237,7 @@ public class PlayerEntity : MonoBehaviour
                 animator.SetBool("Walk", false);
                 animator.SetBool("Idle", false);
                 animator.SetBool("CaddieWalk", false);
-                SoundManager.instance.StopSoundCaddie();
+                //SoundManager.instance.StopSoundCaddie();
             }
             else if(!haveCaddie)
             {
@@ -245,13 +245,20 @@ public class PlayerEntity : MonoBehaviour
                 animator.SetBool("Walk", false);
                 animator.SetBool("CaddieWalk", false);
                 animator.SetBool("CaddieIdle", false);
-                SoundManager.instance.StopSoundCaddie();
+                //SoundManager.instance.StopSoundCaddie();
             }
         }
 
         if(_velocity != Vector3.zero)
         {
-            SoundManager.instance.SoundCaddie();
+            if (haveCaddie)
+            {
+                SoundManager.instance.SoundCaddie();
+            }
+            else
+            {
+                SoundManager.instance.StopSoundCaddie();
+            }
         }
     }
     #endregion
