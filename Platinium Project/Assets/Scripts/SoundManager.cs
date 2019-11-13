@@ -5,13 +5,8 @@ using UnityEngine;
 public class SoundManager : MonoBehaviour
 {
     public static SoundManager instance;
-    public AudioSource paper;
-    public AudioSource buzzWave;
-    public AudioSource item;
-    public AudioSource bootGenerator;
-    public AudioSource accessGranted;
-    public AudioSource accessDenied;
-    public AudioSource doorOpen;
+    public AudioSource backgroundMusic;
+    public AudioSource soundCaddie;
 
     private void Awake()
     {
@@ -20,43 +15,30 @@ public class SoundManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        instance.BackgroundMusic();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
-    public void PickUpPaper()
+    public void BackgroundMusic()
     {
-        paper.Play();
+        backgroundMusic.Play();
     }
 
-    public void PickUpItem()
+    public void SoundCaddie()
     {
-        item.Play();
+        if (!soundCaddie.isPlaying)
+        {
+            soundCaddie.Play();
+        }
     }
 
-    public void BootGenerator()
+    public void StopSoundCaddie()
     {
-        bootGenerator.Play();
+        soundCaddie.Stop();
     }
-
-    public void AccessDenied()
-    {
-        accessDenied.Play();
-    }
-
-    public void AccessGranted()
-    {
-        accessGranted.Play();
-    }
-
-    public void Opendoor()
-    {
-        doorOpen.Play();
-    }
-
 }

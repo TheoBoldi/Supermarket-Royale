@@ -57,7 +57,6 @@ public class PlayerEntity : MonoBehaviour
     private DetectionScript detection;
 
     public Animator animator;
-    public AudioSource soundCaddie;
 
     private void Awake()
     {
@@ -72,7 +71,7 @@ public class PlayerEntity : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        cartPos = modelObj.GetComponentInChildren<Transform>().GetChild(2);
+        cartPos = modelObj.GetComponentInChildren<Transform>().GetChild(0);
         detection = GetComponentInChildren<DetectionScript>();
     }
 
@@ -227,6 +226,7 @@ public class PlayerEntity : MonoBehaviour
                 animator.SetBool("Idle", false);
                 animator.SetBool("CaddieWalk", false);
                 animator.SetBool("CaddieIdle", false);
+                SoundManager.instance.StopSoundCaddie();
             }
         }
         else if(_moveDir == Vector3.zero)
@@ -237,6 +237,7 @@ public class PlayerEntity : MonoBehaviour
                 animator.SetBool("Walk", false);
                 animator.SetBool("Idle", false);
                 animator.SetBool("CaddieWalk", false);
+                SoundManager.instance.StopSoundCaddie();
             }
             else if(!haveCaddie)
             {
@@ -244,7 +245,13 @@ public class PlayerEntity : MonoBehaviour
                 animator.SetBool("Walk", false);
                 animator.SetBool("CaddieWalk", false);
                 animator.SetBool("CaddieIdle", false);
+                SoundManager.instance.StopSoundCaddie();
             }
+        }
+
+        if(_velocity != Vector3.zero)
+        {
+            SoundManager.instance.SoundCaddie();
         }
     }
     #endregion
