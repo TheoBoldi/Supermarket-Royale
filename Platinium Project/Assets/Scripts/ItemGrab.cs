@@ -37,6 +37,7 @@ public class ItemGrab : MonoBehaviour
 
     public void ItemDroping()
     {
+        item.transform.parent = null;
         item.GetComponent<Rigidbody>().isKinematic = false;
         item.GetComponent<MeshCollider>().enabled = true;
         haveItem = false;
