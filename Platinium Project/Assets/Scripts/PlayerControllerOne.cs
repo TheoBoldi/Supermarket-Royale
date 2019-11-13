@@ -52,6 +52,10 @@ public class PlayerControllerOne : MonoBehaviour
         {
             itemGrab.ItemDroping();
         }
+        if (_rewiredPlayer.GetButtonDown("DropItem") && itemGrab.canDropItemInCart)
+        {
+            itemGrab.DropItemInCart();
+        }
 
         /*if ((_rewiredPlayer.GetAxis("RightTrigger") > 0))
         {
