@@ -99,21 +99,22 @@ public class PlayerEntity : MonoBehaviour
 
     public void GrabCaddie()
     {
-        if(nearestCaddie != null)
+        if(nearestCaddie != null && !nearestCaddie.GetComponentInChildren<ShoppingCartController>().cartIsUsed)
         {
             if (nearestCaddie.GetComponentInChildren<ShoppingCartController>().isNearCart)
             {
-                nearestCaddie.GetComponentInChildren<ShoppingCartController>().cartIsUsed = !nearestCaddie.GetComponentInChildren<ShoppingCartController>().cartIsUsed;
-            }
-
-            if (nearestCaddie.GetComponentInChildren<ShoppingCartController>().cartIsUsed)
-            {
+                nearestCaddie.GetComponentInChildren<ShoppingCartController>().cartIsUsed = true;
                 CartControls();
             }
-            else
-            {
-                PlayerControls();
-            }
+        }
+    }
+
+    public void DropCaddie()
+    {
+        if (nearestCaddie != null)
+        {
+            nearestCaddie.GetComponentInChildren<ShoppingCartController>().cartIsUsed = false;
+            PlayerControls();
         }
     }
 
@@ -251,13 +252,16 @@ public class PlayerEntity : MonoBehaviour
 
         if(_velocity != Vector3.zero)
         {
-            if (haveCaddie)
+            if (haveCaddie && !SoundManager.instance.soundCaddie.isPlaying)
             {
                 SoundManager.instance.SoundCaddie();
             }
-            else
+        }
+        else if(_velocity == Vector3.zero)
+        {
+            if (SoundManager.instance.soundCaddie.isPlaying)
             {
-                SoundManager.instance.StopSoundCaddie();
+                SoundManager.instance.soundCaddie.Stop();
             }
         }
     }
