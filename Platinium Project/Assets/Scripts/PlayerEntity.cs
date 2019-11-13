@@ -57,6 +57,7 @@ public class PlayerEntity : MonoBehaviour
     private DetectionScript detection;
 
     public Animator animator;
+    public AudioSource soundCaddie;
 
     private void Awake()
     {
@@ -227,7 +228,6 @@ public class PlayerEntity : MonoBehaviour
                 animator.SetBool("Idle", false);
                 animator.SetBool("CaddieWalk", false);
                 animator.SetBool("CaddieIdle", false);
-                //SoundManager.instance.StopSoundCaddie();
             }
         }
         else if(_moveDir == Vector3.zero)
@@ -238,7 +238,6 @@ public class PlayerEntity : MonoBehaviour
                 animator.SetBool("Walk", false);
                 animator.SetBool("Idle", false);
                 animator.SetBool("CaddieWalk", false);
-                //SoundManager.instance.StopSoundCaddie();
             }
             else if(!haveCaddie)
             {
@@ -246,22 +245,29 @@ public class PlayerEntity : MonoBehaviour
                 animator.SetBool("Walk", false);
                 animator.SetBool("CaddieWalk", false);
                 animator.SetBool("CaddieIdle", false);
-                //SoundManager.instance.StopSoundCaddie();
             }
         }
 
         if(_velocity != Vector3.zero)
         {
-            if (haveCaddie && !SoundManager.instance.soundCaddie.isPlaying)
+            if (haveCaddie && !soundCaddie.isPlaying)
             {
-                SoundManager.instance.SoundCaddie();
+                soundCaddie.Play();
+            }
+            else if(!haveCaddie && soundCaddie.isPlaying)
+            {
+                soundCaddie.Stop();
             }
         }
         else if(_velocity == Vector3.zero)
         {
-            if (SoundManager.instance.soundCaddie.isPlaying)
+            if (haveCaddie && soundCaddie.isPlaying)
             {
-                SoundManager.instance.soundCaddie.Stop();
+                soundCaddie.Stop();
+            }
+            else if(!haveCaddie && soundCaddie.isPlaying)
+            {
+                soundCaddie.Stop();
             }
         }
     }
