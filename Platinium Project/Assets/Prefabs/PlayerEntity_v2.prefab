@@ -774,11 +774,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 9031952961477858146}
     m_Modifications:
-    - target: {fileID: 1491368051950750213, guid: 62f3a7dd68d228045b5b5fa46ec97336,
-        type: 3}
-      propertyPath: m_Name
-      value: StarFall
-      objectReference: {fileID: 0}
     - target: {fileID: 1491368051950750212, guid: 62f3a7dd68d228045b5b5fa46ec97336,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -833,6 +828,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1491368051950750212, guid: 62f3a7dd68d228045b5b5fa46ec97336,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1491368051950750212, guid: 62f3a7dd68d228045b5b5fa46ec97336,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1491368051950750212, guid: 62f3a7dd68d228045b5b5fa46ec97336,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1491368051950750213, guid: 62f3a7dd68d228045b5b5fa46ec97336,
+        type: 3}
+      propertyPath: m_Name
+      value: StarFall
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 62f3a7dd68d228045b5b5fa46ec97336, type: 3}
