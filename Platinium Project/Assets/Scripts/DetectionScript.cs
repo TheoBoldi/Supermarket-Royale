@@ -39,6 +39,11 @@ public class DetectionScript : MonoBehaviour
             itemInCartPos3 = null;
             itemInCartPos4 = null;
         }
+
+        if(closestCaddie == null)
+        {
+            nearestCaddie.Clear();
+        }
     }
 
     public Transform ClosestCaddie()
@@ -66,14 +71,11 @@ public class DetectionScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.transform.parent != null)
+        if (other.gameObject.transform.parent != null)
         {
             if (!nearestCaddie.Contains(other.gameObject.transform.parent) && other.gameObject.transform.parent.name.Contains("Caddie"))
             {
-                if (nearestCaddie.Count == 0)
-                {
-                    nearestCaddie.Add(other.gameObject.transform.parent);
-                }
+                nearestCaddie.Add(other.gameObject.transform.parent);               
             }
         }
     }
