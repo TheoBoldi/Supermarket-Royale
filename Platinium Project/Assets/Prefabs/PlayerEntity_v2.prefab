@@ -81,7 +81,7 @@ MeshRenderer:
   m_GameObject: {fileID: 9031952960254020050}
   m_Enabled: 1
   m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
@@ -229,7 +229,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9031952961077175666}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.217, z: 0.86}
+  m_LocalPosition: {x: 0, y: -0.19, z: 0.86}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 9031952961249318623}
@@ -297,6 +297,7 @@ MonoBehaviour:
   nearestCaddie: {fileID: 0}
   stopMove: 0
   haveCaddie: 0
+  playerCollider: {fileID: 9031952961249318620}
   animator: {fileID: 9031952961477858157}
   soundCaddie: {fileID: 3417574877470244395}
 --- !u!54 &9031952961129681654
@@ -310,7 +311,7 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 116
@@ -329,6 +330,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 9031952961477858157}
   entity: {fileID: 0}
+  itemGrab: {fileID: 0}
   StarFall: {fileID: 939468003461772395}
   timer: 1
   p2pCol: 0
@@ -455,7 +457,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9031952961249318622}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.58458, z: 0}
+  m_LocalPosition: {x: 0, y: 0.705, z: -0}
   m_LocalScale: {x: 0.7467, y: 0.7467, z: 0.7467}
   m_Children:
   - {fileID: 9031952961077175667}
@@ -592,7 +594,7 @@ MeshRenderer:
   m_GameObject: {fileID: 9031952961385183078}
   m_Enabled: 1
   m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
@@ -774,6 +776,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 9031952961477858146}
     m_Modifications:
+    - target: {fileID: 1491368051950750213, guid: 62f3a7dd68d228045b5b5fa46ec97336,
+        type: 3}
+      propertyPath: m_Name
+      value: StarFall
+      objectReference: {fileID: 0}
     - target: {fileID: 1491368051950750212, guid: 62f3a7dd68d228045b5b5fa46ec97336,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -843,11 +850,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1491368051950750213, guid: 62f3a7dd68d228045b5b5fa46ec97336,
-        type: 3}
-      propertyPath: m_Name
-      value: StarFall
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 62f3a7dd68d228045b5b5fa46ec97336, type: 3}

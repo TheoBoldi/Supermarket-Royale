@@ -1082,7 +1082,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh17700
+  m_Name: pb_Mesh17708
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -3301,7 +3301,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 875942298}
   m_LocalRotation: {x: 0, y: -0.3770327, z: 0, w: 0.9262}
-  m_LocalPosition: {x: 7.36, y: 0, z: -9.14}
+  m_LocalPosition: {x: 7.93, y: 0, z: -9.73}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 154834680}
@@ -3704,7 +3704,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 986822861}
   m_LocalRotation: {x: 0, y: 0.38703287, z: 0, w: 0.9220659}
-  m_LocalPosition: {x: -3.85, y: 0, z: -8.91}
+  m_LocalPosition: {x: -4.34, y: 0, z: -9.39}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 154834680}
@@ -3759,6 +3759,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PlayerEntity3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9031952961129681651, guid: 7991860de2f10d648b54280debdb451c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9031952961129681648, guid: 7991860de2f10d648b54280debdb451c,
         type: 3}
@@ -3876,7 +3881,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh19064
+  m_Name: pb_Mesh17650
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -4660,7 +4665,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh17604
+  m_Name: pb_Mesh17608
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -7463,6 +7468,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerEntity4
       objectReference: {fileID: 0}
+    - target: {fileID: 9031952961129681651, guid: 7991860de2f10d648b54280debdb451c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9031952961129681648, guid: 7991860de2f10d648b54280debdb451c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9367,7 +9377,7 @@ PrefabInstance:
     - target: {fileID: 5833025271641035507, guid: 39ceacb91802d9343b33d809309a2d4c,
         type: 3}
       propertyPath: m_CollisionDetection
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39ceacb91802d9343b33d809309a2d4c, type: 3}
@@ -9503,6 +9513,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PlayerEntity2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9031952961129681651, guid: 7991860de2f10d648b54280debdb451c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9031952961129681648, guid: 7991860de2f10d648b54280debdb451c,
         type: 3}
@@ -9936,6 +9951,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerEntity1
       objectReference: {fileID: 0}
+    - target: {fileID: 9031952961129681651, guid: 7991860de2f10d648b54280debdb451c,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 9031952961129681648, guid: 7991860de2f10d648b54280debdb451c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9996,11 +10016,6 @@ PrefabInstance:
       propertyPath: StarFall
       value: 
       objectReference: {fileID: 1250917654}
-    - target: {fileID: 939468003461772395, guid: 7991860de2f10d648b54280debdb451c,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 939468003461772394, guid: 7991860de2f10d648b54280debdb451c,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -10015,6 +10030,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 939468003461772395, guid: 7991860de2f10d648b54280debdb451c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7991860de2f10d648b54280debdb451c, type: 3}

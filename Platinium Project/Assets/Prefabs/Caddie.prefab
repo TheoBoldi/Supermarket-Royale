@@ -9776,6 +9776,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isNearCart: 0
   cartIsUsed: 0
+  caddieCollider: {fileID: 5833025270153624669}
 --- !u!54 &5833025271641035507
 Rigidbody:
   m_ObjectHideFlags: 0
