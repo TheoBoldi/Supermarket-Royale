@@ -36,7 +36,7 @@ public class PlayerControllerOne : MonoBehaviour
 
         entity.Move(moveDir);
 
-        if (_rewiredPlayer.GetButtonDown("GrabCaddie") && !entity.haveCaddie)
+        if (_rewiredPlayer.GetButtonDown("GrabCaddie") && !entity.haveCaddie && !itemGrab.haveItem)
         {
             entity.GrabCaddie();
         }
