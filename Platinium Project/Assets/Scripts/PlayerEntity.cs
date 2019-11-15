@@ -97,11 +97,6 @@ public class PlayerEntity : MonoBehaviour
         nearestCaddie = detection.ClosestCaddie();
     }
 
-    private void OnGUI()
-    {
-        GUILayout.TextField(_velocity.ToString());
-    }
-
     public void GrabCaddie()
     {
         if(nearestCaddie != null && !nearestCaddie.GetComponentInChildren<ShoppingCartController>().cartIsUsed)
