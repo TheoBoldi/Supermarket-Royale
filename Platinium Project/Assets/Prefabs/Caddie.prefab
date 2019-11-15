@@ -119,9 +119,9 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: -876546973899608171, guid: f17ed5bf5a693564eab52bc921e63173, type: 3}
-  - {fileID: 3498384624342873181, guid: f17ed5bf5a693564eab52bc921e63173, type: 3}
-  - {fileID: -1399435198854358684, guid: f17ed5bf5a693564eab52bc921e63173, type: 3}
-  - {fileID: -1219939600184484491, guid: f17ed5bf5a693564eab52bc921e63173, type: 3}
+  - {fileID: 2100000, guid: ebd641d708dd4164b97ab9441f9479f1, type: 2}
+  - {fileID: 2100000, guid: a3f6943018206464f98f2eb93b2b4032, type: 2}
+  - {fileID: 2100000, guid: a3f6943018206464f98f2eb93b2b4032, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -9776,7 +9776,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isNearCart: 0
   cartIsUsed: 0
-  caddieCollider: {fileID: 5833025270153624669}
 --- !u!54 &5833025271641035507
 Rigidbody:
   m_ObjectHideFlags: 0
