@@ -6,6 +6,7 @@ public class CollisionScript : MonoBehaviour
 {
     public Animator animator;
     public PlayerEntity entity;
+    public ItemGrab itemGrab;
     public GameObject StarFall;
 
     public float timer = 1.0f;
@@ -18,6 +19,7 @@ public class CollisionScript : MonoBehaviour
     void Start()
     {
         entity = GetComponent<PlayerEntity>();
+        itemGrab = GetComponentInChildren<ItemGrab>();
     }
 
     // Update is called once per frame
@@ -55,6 +57,10 @@ public class CollisionScript : MonoBehaviour
     {
         //Stoper le player.move pour 1 sec
         entity.StopMove();
+        if(itemGrab.item != null && itemGrab.haveItem)
+        {
+            itemGrab.ItemDroping();
+        }
         //Jouer l'animation de chute
         animator.SetBool("Fall", true);
         StarFall.SetActive(true);

@@ -89,8 +89,7 @@ public class PlayerEntity : MonoBehaviour
         Vector3 newPosition = transform.position;
         newPosition.x += _velocity.x * Time.fixedDeltaTime;
         newPosition.z += _velocity.z * Time.fixedDeltaTime;
-        rb.transform.position = newPosition;
-        rb.velocity = Vector3.zero;
+        rb.velocity = _velocity;
     }
 
     public void Update()
