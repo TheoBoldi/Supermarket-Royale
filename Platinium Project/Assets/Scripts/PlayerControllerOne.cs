@@ -52,11 +52,14 @@ public class PlayerControllerOne : MonoBehaviour
         {
             itemGrab.ItemDroping();
         }
-        if (_rewiredPlayer.GetButtonDown("DropItem") && itemGrab.canDropItemInCart)
+        if (_rewiredPlayer.GetButtonDown("DropItem") && itemGrab.canDropItemInCart && itemGrab.haveItem)
         {
             itemGrab.DropItemInCart();
         }
-
+        else if (_rewiredPlayer.GetButtonDown("DropItem") && itemGrab.canDropItemInCart && !itemGrab.haveItem)
+        {
+            itemGrab.GrabItemFromCart();
+        }
         /*if ((_rewiredPlayer.GetAxis("RightTrigger") > 0))
         {
             Vector3 refvector = entity.GetComponentInChildren<Transform>().GetChild(0).transform.rotation.eulerAngles;
