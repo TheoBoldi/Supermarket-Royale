@@ -1,11 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public class GameItem
+public class GameItem : MonoBehaviour
 {
     //GameLogic by Dorian Gélas 2019-2020
     #region Var
-    public enum ItemType { Empty = 0, Fish = 1, Chicken_Leg = 2, Beef_Steak = 3, Turnip = 4, Egg = 5, Cheese = 6, Milk = 7, Coconut = 8, Stawberry = 9, Cherry = 10, Banana = 11, Mushroom = 12};
+    public enum ItemType { Empty = 0, Fish = 1, Chicken_Leg = 2, Beef_Steak = 3, Turnip = 4, Egg = 5, Cheese = 6, Milk = 7, Coconut = 8, Stawberry = 9, Cherry = 10, Banana = 11, Mushroom = 12, Tomato = 13};
     public ItemType ID;
     public int score;
     public float durationOfGrab;

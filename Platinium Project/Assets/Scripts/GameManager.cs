@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     private bool p2Won;
     private bool p3Won;
     private bool p4Won;
+    private CheckOutScript _checkoutscript;
     #region VariablesScore
     [Header("Score Values")]
     public int player1Score = 0;
@@ -20,10 +21,10 @@ public class GameManager : MonoBehaviour
     #endregion
     #region ListeObjectif
     [Header("Required Item List")]
-    public List<GameItem> player1Itemlist;
-    public List<GameItem> player2Itemlist;
-    public List<GameItem> player3Itemlist;
-    public List<GameItem> player4Itemlist;
+    public List<GameItem.ItemType> player1Itemlist;
+    public List<GameItem.ItemType> player2Itemlist;
+    public List<GameItem.ItemType> player3Itemlist;
+    public List<GameItem.ItemType> player4Itemlist;
     public GUIStyle guiSKIN;
     public string itemList;
     #endregion
@@ -39,16 +40,28 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         //End of all GameItems
-        player1Itemlist = new List<GameItem>(4);
-        player2Itemlist = new List<GameItem>(4);
-        player3Itemlist = new List<GameItem>(4);
-        player4Itemlist = new List<GameItem>(4);
+        player1Itemlist = new List<GameItem.ItemType>(4);
+        player2Itemlist = new List<GameItem.ItemType>(4);
+        player3Itemlist = new List<GameItem.ItemType>(4);
+        player4Itemlist = new List<GameItem.ItemType>(4);
         guiSKIN.fontSize = 20;
         guiSKIN.normal.textColor = new Color(255.0f, 0.0f, 0.0f, 1.0f);
         foreach(string s in Enum.GetNames(typeof(GameItem.ItemType)))
         {
             itemList += (s + " ");
         }
+        player1Itemlist.Add(GameItem.ItemType.Fish);
+        player1Itemlist.Add(GameItem.ItemType.Egg);
+        player1Itemlist.Add(GameItem.ItemType.Turnip);
+        player1Itemlist.Add(GameItem.ItemType.Cheese);
+        player2Itemlist.Add(GameItem.ItemType.Fish);
+        player2Itemlist.Add(GameItem.ItemType.Mushroom);
+        player2Itemlist.Add(GameItem.ItemType.Chicken_Leg);
+        player2Itemlist.Add(GameItem.ItemType.Cherry);
+        player3Itemlist.Add(GameItem.ItemType.Cherry);
+        player3Itemlist.Add(GameItem.ItemType.Beef_Steak);
+        player3Itemlist.Add(GameItem.ItemType.Milk);
+        player3Itemlist.Add(GameItem.ItemType.Coconut);
     }
 
     void OnGUI()
@@ -107,19 +120,19 @@ public class GameManager : MonoBehaviour
             //Check-in Process
             if (playerToCheck == 1)
             {
-                return listToCheck.TrueForAll(x => CompareItems(x, player1Itemlist));
+                return listToCheck.TrueForAll(x => CompareItems(x.ID, player1Itemlist));
             }
             else if (playerToCheck == 2)
             {
-                return listToCheck.TrueForAll(x => CompareItems(x, player2Itemlist));
+                return listToCheck.TrueForAll(x => CompareItems(x.ID, player2Itemlist));
             }
             else if (playerToCheck == 3)
             {
-                return listToCheck.TrueForAll(x => CompareItems(x, player3Itemlist));
+                return listToCheck.TrueForAll(x => CompareItems(x.ID, player3Itemlist));
             }
             else if (playerToCheck == 4)
             {
-                return listToCheck.TrueForAll(x => CompareItems(x, player4Itemlist));
+                return listToCheck.TrueForAll(x => CompareItems(x.ID, player4Itemlist));
             }
             else
             {
@@ -128,8 +141,17 @@ public class GameManager : MonoBehaviour
         }
         return false;
     }
-    public bool CompareItems(GameItem itemtoCheck, List<GameItem> checkList)
+    public bool CompareItems(GameItem.ItemType itemtoCheck, List<GameItem.ItemType> checkList)
     {
         return checkList.Contains(itemtoCheck);
+    }
+    private void Update()
+    {
+        foreach (Caddie caddie in GetComponents<Caddie>())
+        {
+            _checkoutscript.CheckOut(caddie, 1);
+            _checkoutscript.CheckOut(caddie, 2);
+            _checkoutscript.CheckOut(caddie, 3);
+        }
     }
 }

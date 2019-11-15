@@ -7,6 +7,7 @@ public class DetectionScript : MonoBehaviour
     //Script par Théo
 
     public List<Transform> nearestCaddie;
+    public Caddie caddie_data;
     public Transform closestCaddie;
     public Transform itemInCartPos1;
     public Transform itemInCartPos2;

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8252409776264576036}
   - component: {fileID: 4314161753691717404}
   - component: {fileID: 400429843335536456}
+  - component: {fileID: 922609500833787946}
   m_Layer: 0
   m_Name: CocoNut
   m_TagString: Item
@@ -111,3 +112,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &922609500833787946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 492522799853624082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 965abf65f05fc59459220083b5e38187, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ID: 8
+  score: 0
+  durationOfGrab: 0
+  isInCart: 0
+  cartSlotPosition: 0

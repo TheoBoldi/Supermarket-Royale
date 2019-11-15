@@ -5,7 +5,8 @@ using UnityEngine;
 public class Caddie : MonoBehaviour
 { 
     public float cartHP = 100f;
-    public List<GameItem> cartStorage = new List<GameItem>(4);
+    public List<GameItem> cartStorage;
+    private GameItem gameItem;
     public void PlaceInCart(GameItem itemtoPlace,int cartSlotSelcted)
     {
         itemtoPlace.isInCart = true;
@@ -23,14 +24,13 @@ public class Caddie : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        for(int i = 0; i <= cartStorage.Capacity; i++)
-        {
-            cartStorage[i].CreateGameItem(GameItem.ItemType.Empty);
-        }
+        cartStorage[0] = gameItem.CreateGameItem(GameItem.ItemType.Empty);
+        cartStorage[1] = gameItem.CreateGameItem(GameItem.ItemType.Empty);
+        cartStorage[2] = gameItem.CreateGameItem(GameItem.ItemType.Empty);
+        cartStorage[3] = gameItem.CreateGameItem(GameItem.ItemType.Empty);
     }
-
-    // Update is called once per frame
-    void Update()
+        // Update is called once per frame
+        void Update()
     {
         
     }
