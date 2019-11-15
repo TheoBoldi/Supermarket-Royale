@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Comment CommentText="Player class before this comment is managed by the Rewired plug-in">
+    <Position X="14.963" Y="8.127" Height="0.75" Width="1.7" />
+  </Comment>
+  <Class Name="Caddie">
+    <Position X="0.5" Y="8.75" Width="4" />
+    <TypeIdentifier>
+      <HashCode>AAQAAEAAACAAAAQAAIAAAAEAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Caddie.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="cartStorage" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="CheckOutScript">
+    <Position X="10" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\CheckOutScript.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_GameManager" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="GameManager">
+    <Position X="8.25" Y="0.75" Width="5" />
+    <Members>
+      <Field Name="player1Score" Hidden="true" />
+      <Field Name="player2Score" Hidden="true" />
+      <Field Name="player3Score" Hidden="true" />
+      <Field Name="player4Score" Hidden="true" />
+    </Members>
+    <AssociationLine Name="player2Itemlist" Type="GameItem" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="8.25" Y="1.449" />
+        <Point X="6.75" Y="1.449" />
+        <Point X="6.75" Y="1.375" />
+        <Point X="5.25" Y="1.375" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="player3Itemlist" Type="GameItem" FixedFromPoint="true">
+      <Path>
+        <Point X="8.25" Y="1.95" />
+        <Point X="5.25" Y="1.95" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="player1Itemlist" Type="GameItem" FixedFromPoint="true">
+      <Path>
+        <Point X="8.25" Y="1" />
+        <Point X="5.25" Y="1" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAACgAAACEABAIFAAAEAAAACAAAAACAAAAAAAAAAAE=</HashCode>
+      <FileName>Assets\Scripts\GameManager.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="player1Itemlist" />
+      <Field Name="player2Itemlist" />
+      <Field Name="player3Itemlist" />
+      <Field Name="player4Itemlist" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="PlayerEntity">
+    <Position X="8.75" Y="11" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>BA8IQAAIQqMAACAkAEBEAAEEAQASAAUAABAUigCACEA=</HashCode>
+      <FileName>Assets\Scripts\PlayerEntity.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="detection" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="PlayerControllerOne">
+    <Position X="12.5" Y="9.5" Width="3.25" />
+    <AssociationLine Name="entity" Type="PlayerEntity" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="12.5" Y="11.25" />
+        <Point X="12.311" Y="11.25" />
+        <Point X="12.311" Y="11.25" />
+        <Point X="11.25" Y="11.25" />
+      </Path>
+    </AssociationLine>
+    <AssociationLine Name="detection" Type="DetectionScript" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="12.5" Y="10.082" />
+        <Point X="8.288" Y="10.082" />
+        <Point X="8.288" Y="12.375" />
+        <Point X="7.75" Y="12.375" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAYAABAAACAAQAAAAAEQAAAABAAAAAAAAAAAACAAAAA=</HashCode>
+      <FileName>Assets\Scripts\PlayerControllerOne.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="entity" />
+      <Field Name="_rewiredPlayer" />
+      <Field Name="detection" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="GameItem">
+    <Position X="0.5" Y="0.75" Width="4.75" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Enum Name="GameItem.ItemType">
+        <TypeIdentifier>
+          <NewMemberFileName>Assets\Scripts\GameItem.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAAAAAgAAAAAAoAAAACAAAAAAIAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\GameItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CollisionScript">
+    <Position X="12.5" Y="12.25" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>BAQAABAAACAAAAAAAAAAAAACAAAAQAAIAAIAAACAAAA=</HashCode>
+      <FileName>Assets\Scripts\CollisionScript.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="entity" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="ShoppingCartController">
+    <Position X="2.5" Y="11" Width="2" />
+    <TypeIdentifier>
+      <HashCode>ABQAAAAAACCAAAAAAAAAAAAAAAAAAIAAQAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\ShoppingCartController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DetectionScript">
+    <Position X="5.25" Y="11.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AASAAAAAACAAAAAAAABAAAAAAAAAAIACQAAAAAAAgAA=</HashCode>
+      <FileName>Assets\Scripts\DetectionScript.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Rewired.Player" Collapsed="true">
+    <Position X="13.25" Y="8.25" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="CaddieCollision">
+    <Position X="2.5" Y="13.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAAAAAAAAAAAAAAAAAAAEQAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\CaddieCollision.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
