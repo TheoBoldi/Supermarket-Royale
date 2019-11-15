@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -152,6 +153,16 @@ public class GameManager : MonoBehaviour
             _checkoutscript.CheckOut(caddie, 1);
             _checkoutscript.CheckOut(caddie, 2);
             _checkoutscript.CheckOut(caddie, 3);
+        }
+
+        Restart();
+    }
+
+    public void Restart()
+    {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            SceneManager.LoadScene(0);
         }
     }
 }
