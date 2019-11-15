@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1348430715008231158
+--- !u!1 &5249216903798827175
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,45 +8,47 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4051397510489638236}
-  - component: {fileID: 3893128719914718929}
-  - component: {fileID: 6669050720560106851}
+  - component: {fileID: 7071448222100012189}
+  - component: {fileID: 2359129367928377481}
+  - component: {fileID: 938296205444308591}
+  - component: {fileID: 4275988184191970806}
+  - component: {fileID: 4327106967752538976}
   m_Layer: 0
-  m_Name: Sphere.002
-  m_TagString: Untagged
+  m_Name: Turnip
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4051397510489638236
+--- !u!4 &7071448222100012189
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1348430715008231158}
-  m_LocalRotation: {x: -0, y: -0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0}
-  m_LocalScale: {x: 0.9555472, y: 0.9555472, z: 0.9555472}
+  m_GameObject: {fileID: 5249216903798827175}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 7071448222100012189}
+  m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &3893128719914718929
+--- !u!33 &2359129367928377481
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1348430715008231158}
+  m_GameObject: {fileID: 5249216903798827175}
   m_Mesh: {fileID: 4300000, guid: 1e5362fa3f58ebe41aa356c619c8dbaf, type: 2}
---- !u!23 &6669050720560106851
+--- !u!23 &938296205444308591
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1348430715008231158}
+  m_GameObject: {fileID: 5249216903798827175}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -57,10 +59,10 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 24a67471843f370409e5ce6ecb992eb3, type: 2}
-  - {fileID: 2100000, guid: afc923455c1561441862410c7ede658b, type: 2}
-  - {fileID: 2100000, guid: 1931cac642f46364bbcf852c0510041c, type: 2}
-  - {fileID: 2100000, guid: 3570e28fd320cb2478cda333a7ab2bb0, type: 2}
+  - {fileID: 2100000, guid: ad5ebd9814b45ea4989071c5f3765894, type: 2}
+  - {fileID: 2100000, guid: ad5ebd9814b45ea4989071c5f3765894, type: 2}
+  - {fileID: 2100000, guid: 0ea0994556dfffe4797d81cc9e265e63, type: 2}
+  - {fileID: 2100000, guid: 2d9543a2fe4553547b133d7ab6b7edd8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -81,34 +83,33 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!1 &5249216903798827175
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 7071448222100012189}
-  m_Layer: 0
-  m_Name: Turnip
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &7071448222100012189
-Transform:
+--- !u!64 &4275988184191970806
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5249216903798827175}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 4051397510489638236}
-  m_Father: {fileID: 0}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300000, guid: 1e5362fa3f58ebe41aa356c619c8dbaf, type: 2}
+--- !u!54 &4327106967752538976
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5249216903798827175}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0

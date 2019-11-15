@@ -6,7 +6,6 @@ public class SoundManager : MonoBehaviour
 {
     public static SoundManager instance;
     public AudioSource backgroundMusic;
-    public AudioSource soundCaddie;
 
     private void Awake()
     {
@@ -27,18 +26,5 @@ public class SoundManager : MonoBehaviour
     public void BackgroundMusic()
     {
         backgroundMusic.Play();
-    }
-
-    public void SoundCaddie()
-    {
-        if (!soundCaddie.isPlaying)
-        {
-            soundCaddie.Play();
-        }
-    }
-
-    public void StopSoundCaddie()
-    {
-        soundCaddie.Stop();
     }
 }

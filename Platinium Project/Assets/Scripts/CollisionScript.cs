@@ -6,6 +6,7 @@ public class CollisionScript : MonoBehaviour
 {
     public Animator animator;
     public PlayerEntity entity;
+    public GameObject StarFall;
 
     public float timer = 1.0f;
     public bool p2pCol;
@@ -56,10 +57,12 @@ public class CollisionScript : MonoBehaviour
         entity.StopMove();
         //Jouer l'animation de chute
         animator.SetBool("Fall", true);
+        StarFall.SetActive(true);
         timer -= Time.deltaTime;
         if (timer <= 0f)
         {
             animator.SetBool("Fall", false);
+            StarFall.SetActive(false);
             entity.RestartMove();
             p2pCol = false;
             timer = 1.0f;

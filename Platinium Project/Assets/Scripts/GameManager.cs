@@ -6,42 +6,11 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     //GameLogicManager for Super Market Royale by Dorian Gélas 2019-2020
-   
-    [System.Serializable]
-    public class GameItem
-    {
-        public enum ItemType { Empty = 0, Chips = 1, Soda = 2, Water = 3, Meat = 4 };
-        public ItemType ID;
-        public int score;
-        public float durationOfGrab;
-        private bool isInCart = false;
-        private int cartSlotPosition = 0;
-        public GameItem(ItemType _id = ItemType.Empty, int _score = 0, float _durationOfGrab = 1f)
-        {
-            ID = _id;
-            score = _score;
-            durationOfGrab = _durationOfGrab;
-        }
-
-    }
-    [System.Serializable]
-    public class Cart
-    {
-        public float cartHP = 100f;
-        private List<GameItem> cartStorage = new List<GameItem>(6);
-        /*void PlaceInCart(int cartSlotSelcted)
-        {
-            isInCart = true;
-            cartSlotPosition = cartSlotSelcted;
-        }
-    int RemoveFromCart()
-    {
-      isInCart = false;
-      return cartSlotPosition;
-    }*/
-    }
-
-
+    public bool isDebug;
+    private bool p1Won;
+    private bool p2Won;
+    private bool p3Won;
+    private bool p4Won;
     #region VariablesScore
     [Header("Score Values")]
     public int player1Score = 0;
@@ -51,82 +20,116 @@ public class GameManager : MonoBehaviour
     #endregion
     #region ListeObjectif
     [Header("Required Item List")]
-    [Range(1, 4)]
-    public int listSize = 3;
     public List<GameItem> player1Itemlist;
     public List<GameItem> player2Itemlist;
     public List<GameItem> player3Itemlist;
     public List<GameItem> player4Itemlist;
+    public GUIStyle guiSKIN;
+    public string itemList;
     #endregion
-    #region GestionObjets
-    [Header("Item ID Managment")]
-    [Range(1, 10)]
-    public int itemsTotal = 3;
-    public GameItem empty = new GameItem();
-    public GameItem chips = new GameItem(GameItem.ItemType.Chips, 10, 1);
-    public GameItem eau = new GameItem(GameItem.ItemType.Water, 10, 1);
-    public GameItem meat = new GameItem(GameItem.ItemType.Meat, 10, 1);
-    public GameItem cola = new GameItem(GameItem.ItemType.Chips, 10, 1);
-    public List<GameItem> itemTotaList;
-    #endregion
-
-    public void GenerateItemLists(List<GameItem> listToGenrate)
+    /*public void GenerateItemLists(List<GameItem> listToGenrate)
     {
         listToGenrate.Clear();
         for (int selecteur = 0; selecteur > listToGenrate.Capacity; selecteur++)
         {
             listToGenrate[selecteur] = itemTotaList[Mathf.Clamp(((UnityEngine.Random.Range(0, itemsTotal))), 0, itemsTotal)];
         }
-    }
+    }*/
 
     void Start()
     {
-        //WARNING : Not adding all the available GameItems down below, at the start of the game, can cause errors
-        itemTotaList = new List<GameItem>(itemsTotal);
-        itemTotaList.Add(empty);
-        itemTotaList.Add(chips);
         //End of all GameItems
-        player1Itemlist = new List<GameItem>(listSize);
-        player2Itemlist = new List<GameItem>(listSize);
-        player3Itemlist = new List<GameItem>(listSize);
-        player4Itemlist = new List<GameItem>(listSize);
-
+        player1Itemlist = new List<GameItem>(4);
+        player2Itemlist = new List<GameItem>(4);
+        player3Itemlist = new List<GameItem>(4);
+        player4Itemlist = new List<GameItem>(4);
+        guiSKIN.fontSize = 20;
+        guiSKIN.normal.textColor = new Color(255.0f, 0.0f, 0.0f, 1.0f);
+        foreach(string s in Enum.GetNames(typeof(GameItem.ItemType)))
+        {
+            itemList += (s + " ");
+        }
     }
 
+    void OnGUI()
+    {
+        if (isDebug)
+        {
+            GUI.Label(new Rect(10.0f, Screen.height - 25.0f, 1000.0f, Screen.width), itemList, guiSKIN);
+        }
+        if (p1Won) 
+        {
+            GUI.Label(new Rect(10.0f, 10.0f, 900.0f, Screen.width), "Player 1 Completed his list", guiSKIN);
+        }
+        if (p2Won)
+        {
+            GUI.Label(new Rect(10.0f, 30.0f, 900.0f, Screen.width), "Player 2 Completed his list", guiSKIN);
+        }
+        if (p3Won)
+        {
+            GUI.Label(new Rect(10.0f, 50.0f, 900.0f, Screen.width), "Player 3 Completed his list", guiSKIN);
+        }
+        if (p4Won)
+        {
+            GUI.Label(new Rect(10.0f, 70.0f, 900.0f, Screen.width), "Player 4 Completed his list", guiSKIN);
+        }
+    }
+    public void ValidateList(int playerWhoValidated)
+    {
+        switch (playerWhoValidated)
+        {
+            case 1:
+                {
+                    p1Won = true;
+                }
+                break;
+            case 2:
+                {
+                    p2Won = true;
+                }
+                break;
+            case 3:
+                {
+                    p3Won = true;
+                }
+                break;
+            case 4:
+                {
+                    p4Won = true;
+                }
+                break;
+        }
+    }
     public bool CheckCart(List<GameItem> listToCheck, int playerToCheck)
     {
-        
-        //Check-in Process
-        if(playerToCheck == 1)
+        if (listToCheck.Count == 4)
         {
-            return listToCheck.TrueForAll(x => CompareItems(x, player1Itemlist));
+            //Check-in Process
+            if (playerToCheck == 1)
+            {
+                return listToCheck.TrueForAll(x => CompareItems(x, player1Itemlist));
+            }
+            else if (playerToCheck == 2)
+            {
+                return listToCheck.TrueForAll(x => CompareItems(x, player2Itemlist));
+            }
+            else if (playerToCheck == 3)
+            {
+                return listToCheck.TrueForAll(x => CompareItems(x, player3Itemlist));
+            }
+            else if (playerToCheck == 4)
+            {
+                return listToCheck.TrueForAll(x => CompareItems(x, player4Itemlist));
+            }
+            else
+            {
+                return false;
+            }
         }
-        else if (playerToCheck == 2)
-        {
-            return listToCheck.TrueForAll(x => CompareItems(x, player2Itemlist));
-        }
-        else if (playerToCheck == 3)
-        {
-            return listToCheck.TrueForAll(x => CompareItems(x, player3Itemlist));
-        }
-        else if (playerToCheck == 4)
-        {
-            return listToCheck.TrueForAll(x => CompareItems(x, player4Itemlist));
-        }
-        else
-        {
-            return false;
-        }
-
+        return false;
     }
-
     public bool CompareItems(GameItem itemtoCheck, List<GameItem> checkList)
     {
         return checkList.Contains(itemtoCheck);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
     }
 }

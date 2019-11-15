@@ -57,6 +57,7 @@ public class PlayerEntity : MonoBehaviour
     private DetectionScript detection;
 
     public Animator animator;
+    public AudioSource soundCaddie;
 
     private void Awake()
     {
@@ -99,21 +100,22 @@ public class PlayerEntity : MonoBehaviour
 
     public void GrabCaddie()
     {
-        if(nearestCaddie != null)
+        if(nearestCaddie != null && !nearestCaddie.GetComponentInChildren<ShoppingCartController>().cartIsUsed)
         {
             if (nearestCaddie.GetComponentInChildren<ShoppingCartController>().isNearCart)
             {
-                nearestCaddie.GetComponentInChildren<ShoppingCartController>().cartIsUsed = !nearestCaddie.GetComponentInChildren<ShoppingCartController>().cartIsUsed;
-            }
-
-            if (nearestCaddie.GetComponentInChildren<ShoppingCartController>().cartIsUsed)
-            {
+                nearestCaddie.GetComponentInChildren<ShoppingCartController>().cartIsUsed = true;
                 CartControls();
             }
-            else
-            {
-                PlayerControls();
-            }
+        }
+    }
+
+    public void DropCaddie()
+    {
+        if (nearestCaddie != null)
+        {
+            nearestCaddie.GetComponentInChildren<ShoppingCartController>().cartIsUsed = false;
+            PlayerControls();
         }
     }
 
@@ -226,7 +228,6 @@ public class PlayerEntity : MonoBehaviour
                 animator.SetBool("Idle", false);
                 animator.SetBool("CaddieWalk", false);
                 animator.SetBool("CaddieIdle", false);
-                //SoundManager.instance.StopSoundCaddie();
             }
         }
         else if(_moveDir == Vector3.zero)
@@ -237,7 +238,6 @@ public class PlayerEntity : MonoBehaviour
                 animator.SetBool("Walk", false);
                 animator.SetBool("Idle", false);
                 animator.SetBool("CaddieWalk", false);
-                //SoundManager.instance.StopSoundCaddie();
             }
             else if(!haveCaddie)
             {
@@ -245,19 +245,29 @@ public class PlayerEntity : MonoBehaviour
                 animator.SetBool("Walk", false);
                 animator.SetBool("CaddieWalk", false);
                 animator.SetBool("CaddieIdle", false);
-                //SoundManager.instance.StopSoundCaddie();
             }
         }
 
         if(_velocity != Vector3.zero)
         {
-            if (haveCaddie)
+            if (haveCaddie && !soundCaddie.isPlaying)
             {
-                SoundManager.instance.SoundCaddie();
+                soundCaddie.Play();
             }
-            else
+            else if(!haveCaddie && soundCaddie.isPlaying)
             {
-                SoundManager.instance.StopSoundCaddie();
+                soundCaddie.Stop();
+            }
+        }
+        else if(_velocity == Vector3.zero)
+        {
+            if (haveCaddie && soundCaddie.isPlaying)
+            {
+                soundCaddie.Stop();
+            }
+            else if(!haveCaddie && soundCaddie.isPlaying)
+            {
+                soundCaddie.Stop();
             }
         }
     }

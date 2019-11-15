@@ -10,6 +10,7 @@ public class PlayerControllerOne : MonoBehaviour
     public PlayerEntity entity;
     private Player _rewiredPlayer;
     public DetectionScript detection;
+    public ItemGrab itemGrab;
 
     public string playerName = "Player1";
     public float coef;
@@ -21,6 +22,7 @@ public class PlayerControllerOne : MonoBehaviour
     {
         _rewiredPlayer = ReInput.players.GetPlayer(playerName);
         detection = entity.GetComponentInChildren<DetectionScript>();
+        itemGrab = entity.GetComponentInChildren<ItemGrab>();
     }
 
     // Update is called once per frame
@@ -34,11 +36,30 @@ public class PlayerControllerOne : MonoBehaviour
 
         entity.Move(moveDir);
 
-        if (_rewiredPlayer.GetButtonDown("GrabCaddie") /*&& detection.IsObjectInFront()*/)
+        if (_rewiredPlayer.GetButtonDown("GrabCaddie") && !entity.haveCaddie)
         {
             entity.GrabCaddie();
         }
-
+        else if (_rewiredPlayer.GetButtonDown("GrabCaddie") && entity.haveCaddie)
+        {
+            entity.DropCaddie();
+        }
+        if (_rewiredPlayer.GetButtonDown("GrabItem") && !itemGrab.haveItem)
+        {
+            itemGrab.ItemGrabing();
+        }
+        else if (_rewiredPlayer.GetButtonDown("GrabItem") && itemGrab.haveItem)
+        {
+            itemGrab.ItemDroping();
+        }
+        if (_rewiredPlayer.GetButtonDown("DropItem") && itemGrab.canDropItemInCart && itemGrab.haveItem)
+        {
+            itemGrab.DropItemInCart();
+        }
+        else if (_rewiredPlayer.GetButtonDown("DropItem") && itemGrab.canDropItemInCart && !itemGrab.haveItem)
+        {
+            itemGrab.GrabItemFromCart();
+        }
         /*if ((_rewiredPlayer.GetAxis("RightTrigger") > 0))
         {
             Vector3 refvector = entity.GetComponentInChildren<Transform>().GetChild(0).transform.rotation.eulerAngles;

@@ -8,6 +8,11 @@ public class DetectionScript : MonoBehaviour
 
     public List<Transform> nearestCaddie;
     public Transform closestCaddie;
+    public Transform itemInCartPos1;
+    public Transform itemInCartPos2;
+    public Transform itemInCartPos3;
+    public Transform itemInCartPos4;
+
 
     // Start is called before the first frame update
     void Start()
@@ -19,6 +24,26 @@ public class DetectionScript : MonoBehaviour
     void Update()
     {
         closestCaddie = GetClosestObject(nearestCaddie, this.transform);
+
+        if(closestCaddie != null)
+        {
+            itemInCartPos1 = closestCaddie.GetChild(4);
+            itemInCartPos2 = closestCaddie.GetChild(5);
+            itemInCartPos3 = closestCaddie.GetChild(6);
+            itemInCartPos4 = closestCaddie.GetChild(7);
+        }
+        else if(closestCaddie == null)
+        {
+            itemInCartPos1 = null;
+            itemInCartPos2 = null;
+            itemInCartPos3 = null;
+            itemInCartPos4 = null;
+        }
+
+        if(closestCaddie == null)
+        {
+            nearestCaddie.Clear();
+        }
     }
 
     public Transform ClosestCaddie()
@@ -46,14 +71,11 @@ public class DetectionScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.transform.parent != null)
+        if (other.gameObject.transform.parent != null)
         {
             if (!nearestCaddie.Contains(other.gameObject.transform.parent) && other.gameObject.transform.parent.name.Contains("Caddie"))
             {
-                if (nearestCaddie.Count == 0)
-                {
-                    nearestCaddie.Add(other.gameObject.transform.parent);
-                }
+                nearestCaddie.Add(other.gameObject.transform.parent);               
             }
         }
     }
