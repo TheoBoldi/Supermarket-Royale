@@ -5,38 +5,20 @@ using UnityEngine;
 public class Caddie : MonoBehaviour
 { 
     public float cartHP = 100f;
-    public List<GameItem> cartStorage;
-    public GameItem gameItem;
+    public List<GameItem.ItemType> cartStorage;
+    private GameItem _gameItem;
     public void PlaceInCart(GameItem itemtoPlace,int cartSlotSelcted)
     {
         itemtoPlace.isInCart = true;
         itemtoPlace.cartSlotPosition = cartSlotSelcted;
-        cartStorage[cartSlotSelcted] = itemtoPlace;
+        cartStorage[cartSlotSelcted] = itemtoPlace.ID;
     }
     public GameItem RemoveFromCart(int cartSlotSelcted)
     {
-        GameItem gameItemToReturn = cartStorage[cartSlotSelcted];
-        cartStorage[cartSlotSelcted] = null;
+        GameItem gameItemToReturn = _gameItem.CreateGameItem(cartStorage[cartSlotSelcted]);
+        cartStorage[cartSlotSelcted] = GameItem.ItemType.Empty;
         gameItemToReturn.cartSlotPosition = 0;
         gameItemToReturn.isInCart = false;
         return gameItemToReturn;
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-        cartStorage = new List<GameItem>(4);
-        gameItem = GetComponent<GameItem>();
-        if(cartStorage != null)
-        {
-            cartStorage.Add(gameItem.CreateGameItem(GameItem.ItemType.Empty));
-            cartStorage.Add(gameItem.CreateGameItem(GameItem.ItemType.Empty));
-            cartStorage.Add(gameItem.CreateGameItem(GameItem.ItemType.Empty));
-            cartStorage.Add(gameItem.CreateGameItem(GameItem.ItemType.Empty));
-        }
-    }
-        // Update is called once per frame
-        void Update()
-    {
-        
     }
 }
