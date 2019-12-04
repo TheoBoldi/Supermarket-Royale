@@ -70,11 +70,11 @@ public class DetectionScript : MonoBehaviour
         return bestTarget;
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         if (other.gameObject.transform.parent != null)
         {
-            if (!nearestCaddie.Contains(other.gameObject.transform.parent) && other.gameObject.transform.parent.name.Contains("Caddie"))
+            if (nearestCaddie.Count <= 0 && other.gameObject.transform.parent.name.Contains("Caddie"))
             {
                 nearestCaddie.Add(other.gameObject.transform.parent);               
             }
@@ -83,12 +83,17 @@ public class DetectionScript : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if(other.gameObject.transform.GetComponent<ShoppingCartController>() != null)
+        if (nearestCaddie.Count > 0)
         {
-            if (nearestCaddie.Contains(other.gameObject.transform.parent) && !other.gameObject.transform.GetComponent<ShoppingCartController>().cartIsUsed)
-            {
-                nearestCaddie.Remove(other.gameObject.transform.parent);
-            }
+            nearestCaddie.Clear();
         }
+
+        /*if (other.gameObject.transform.GetComponent<ShoppingCartController>() != null)
+        {
+            if (nearestCaddie.Count > 0 && !other.gameObject.transform.GetComponent<ShoppingCartController>().cartIsUsed)
+            {
+
+            }
+        }*/
     }
 }
