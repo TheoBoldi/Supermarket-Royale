@@ -27,42 +27,51 @@ public class GameManager : MonoBehaviour
     public List<GameItem.ItemType> player3Itemlist;
     public List<GameItem.ItemType> player4Itemlist;
     public GUIStyle guiSKIN;
-    public string itemList;
+    private string itemList;
+    private string player1Itemliststr;
+    private string player2Itemliststr;
+    private string player3Itemliststr;
+    private string player4Itemliststr;
     #endregion
-    /*public void GenerateItemLists(List<GameItem> listToGenrate)
+
+    public void GenerateItemLists(List<GameItem.ItemType> listToGenrate)
     {
         listToGenrate.Clear();
-        for (int selecteur = 0; selecteur > listToGenrate.Capacity; selecteur++)
+        for (int selecteur = 0; selecteur <=4 ; selecteur++)
         {
-            listToGenrate[selecteur] = itemTotaList[Mathf.Clamp(((UnityEngine.Random.Range(0, itemsTotal))), 0, itemsTotal)];
+            listToGenrate[selecteur] = (GameItem.ItemType)UnityEngine.Random.Range(0, 13);
         }
-    }*/
+    }
 
-    void Start()
+    void Awake()
     {
         //End of all GameItems
+        guiSKIN.fontSize = 20;
+        guiSKIN.normal.textColor = new Color(255.0f, 0.0f, 0.0f, 1.0f);
+        foreach (string s in Enum.GetNames(typeof(GameItem.ItemType)))
+        {
+            itemList += (s + " ");
+        }
+        foreach (string s in Enum.GetNames(typeof(GameItem.ItemType)))
+        {
+            player1Itemliststr += (s + " ");
+        }
+        foreach (string s in Enum.GetNames(typeof(GameItem.ItemType)))
+        {
+            player2Itemliststr += (s + " ");
+        }
+        foreach (string s in Enum.GetNames(typeof(GameItem.ItemType)))
+        {
+            player3Itemliststr += (s + " ");
+        }
+        foreach (string s in Enum.GetNames(typeof(GameItem.ItemType)))
+        {
+            player4Itemliststr += (s + " ");
+        }
         player1Itemlist = new List<GameItem.ItemType>(4);
         player2Itemlist = new List<GameItem.ItemType>(4);
         player3Itemlist = new List<GameItem.ItemType>(4);
         player4Itemlist = new List<GameItem.ItemType>(4);
-        guiSKIN.fontSize = 20;
-        guiSKIN.normal.textColor = new Color(255.0f, 0.0f, 0.0f, 1.0f);
-        foreach(string s in Enum.GetNames(typeof(GameItem.ItemType)))
-        {
-            itemList += (s + " ");
-        }
-        player1Itemlist.Add(GameItem.ItemType.Fish);
-        player1Itemlist.Add(GameItem.ItemType.Egg);
-        player1Itemlist.Add(GameItem.ItemType.Turnip);
-        player1Itemlist.Add(GameItem.ItemType.Cheese);
-        player2Itemlist.Add(GameItem.ItemType.Fish);
-        player2Itemlist.Add(GameItem.ItemType.Mushroom);
-        player2Itemlist.Add(GameItem.ItemType.Chicken_Leg);
-        player2Itemlist.Add(GameItem.ItemType.Cherry);
-        player3Itemlist.Add(GameItem.ItemType.Cherry);
-        player3Itemlist.Add(GameItem.ItemType.Beef_Steak);
-        player3Itemlist.Add(GameItem.ItemType.Milk);
-        player3Itemlist.Add(GameItem.ItemType.Coconut);
     }
 
     void OnGUI()
@@ -114,26 +123,26 @@ public class GameManager : MonoBehaviour
                 break;
         }
     }
-    public bool CheckCart(List<GameItem> listToCheck, int playerToCheck)
+    public bool CheckCart(List<GameItem.ItemType> listToCheck, int playerToCheck)
     {
         if (listToCheck.Count == 4)
         {
             //Check-in Process
             if (playerToCheck == 1)
             {
-                return listToCheck.TrueForAll(x => CompareItems(x.ID, player1Itemlist));
+                return listToCheck.TrueForAll(x => CompareItems(x, player1Itemlist));
             }
             else if (playerToCheck == 2)
             {
-                return listToCheck.TrueForAll(x => CompareItems(x.ID, player2Itemlist));
+                return listToCheck.TrueForAll(x => CompareItems(x, player2Itemlist));
             }
             else if (playerToCheck == 3)
             {
-                return listToCheck.TrueForAll(x => CompareItems(x.ID, player3Itemlist));
+                return listToCheck.TrueForAll(x => CompareItems(x, player3Itemlist));
             }
             else if (playerToCheck == 4)
             {
-                return listToCheck.TrueForAll(x => CompareItems(x.ID, player4Itemlist));
+                return listToCheck.TrueForAll(x => CompareItems(x, player4Itemlist));
             }
             else
             {
@@ -148,19 +157,17 @@ public class GameManager : MonoBehaviour
     }
     private void Update()
     {
-        foreach (Caddie caddie in GetComponents<Caddie>())
-        {
-            _checkoutscript.CheckOut(caddie, 1);
-            _checkoutscript.CheckOut(caddie, 2);
-            _checkoutscript.CheckOut(caddie, 3);
-        }
-
-        Restart();
+        SysShortcuts();
     }
 
-    public void Restart()
+    public void SysShortcuts()
     {
         if (Input.GetKeyDown(KeyCode.R))
+        {
+            SceneManager.LoadScene(1);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             SceneManager.LoadScene(0);
         }
