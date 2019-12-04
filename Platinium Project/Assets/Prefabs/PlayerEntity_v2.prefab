@@ -168,8 +168,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.40205422, y: 0.7516018, z: 0.412692}
-  m_Center: {x: 0.008829016, y: 0.4351384, z: 0.40416628}
+  m_Size: {x: 0.35010263, y: 0.95337456, z: 0.36906496}
+  m_Center: {x: 0.006162326, y: 0.33424902, z: 0.3823543}
 --- !u!114 &9031952960573654681
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -183,6 +183,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nearestCaddie: []
+  caddie_data: {fileID: 0}
   closestCaddie: {fileID: 0}
   itemInCartPos1: {fileID: 0}
   itemInCartPos2: {fileID: 0}
@@ -297,7 +298,6 @@ MonoBehaviour:
   nearestCaddie: {fileID: 0}
   stopMove: 0
   haveCaddie: 0
-  playerCollider: {fileID: 9031952961249318620}
   animator: {fileID: 9031952961477858157}
   soundCaddie: {fileID: 3417574877470244395}
 --- !u!54 &9031952961129681654
