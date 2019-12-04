@@ -46,6 +46,8 @@ public class PlayerEntity : MonoBehaviour
     public Transform cartPos;
     public Transform nearestCaddie;
 
+    public GameObject CaddieCollider;
+
     public bool stopMove;
     public bool haveCaddie;
 
@@ -122,6 +124,8 @@ public class PlayerEntity : MonoBehaviour
 
     public void PlayerControls()
     {
+        nearestCaddie.GetComponent<Rigidbody>().isKinematic = false;
+        CaddieCollider.SetActive(false);
         acceleration = accelerationPlayer;
         moveSpeedMax = moveSpeedMaxPlayer;
         friction = frictionPlayer;
@@ -138,6 +142,8 @@ public class PlayerEntity : MonoBehaviour
             nearestCaddie.transform.position = cartPos.position;
             nearestCaddie.transform.rotation = cartPos.rotation;
             nearestCaddie.transform.parent = cartPos;
+            nearestCaddie.GetComponent<Rigidbody>().isKinematic = true;
+            CaddieCollider.SetActive(true);
             acceleration = accelerationCaddie;
             moveSpeedMax = moveSpeedMaxCaddie;
             friction = frictionCaddie;
