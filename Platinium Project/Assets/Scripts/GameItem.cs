@@ -3,21 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 public class GameItem : MonoBehaviour
 {
-    private float _scaleX;
-    private float _scaleY;
-    private float _scaleZ;
-
-    private void Awake()
-    {
-        _scaleX = transform.lossyScale.x;
-        _scaleY = transform.lossyScale.y;
-        _scaleZ = transform.lossyScale.z;
-    }
-
-    private void Update()
-    {
-        transform.localScale = new Vector3(_scaleX, _scaleY, _scaleZ);
-    }
 
     //GameLogic by Dorian Gélas 2019-2020
     #region Var

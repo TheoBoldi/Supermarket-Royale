@@ -52,7 +52,7 @@ public class PlayerEntity : MonoBehaviour
     public bool haveCaddie;
 
     private Vector3 _moveDir;
-    private Vector3 _orientDir = Vector3.right;
+    private Vector3 _orientDir = Vector3.back;
     private Vector3 _velocity = Vector3.zero;
 
     private Rigidbody rb;
