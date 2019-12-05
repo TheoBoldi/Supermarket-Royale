@@ -19,7 +19,10 @@ public class ShoppingCartController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (!cartIsUsed)
+        {
+            this.gameObject.transform.parent.eulerAngles = new Vector3(0, this.gameObject.transform.parent.eulerAngles.y, 0);
+        }
     }
 
     private void OnTriggerEnter(Collider other)
