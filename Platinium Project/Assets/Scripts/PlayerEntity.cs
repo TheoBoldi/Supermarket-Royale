@@ -124,6 +124,7 @@ public class PlayerEntity : MonoBehaviour
 
     public void PlayerControls()
     {
+        nearestCaddie.GetComponent<BoxCollider>().isTrigger = false;
         nearestCaddie.GetComponent<Rigidbody>().isKinematic = false;
         CaddieCollider.SetActive(false);
         acceleration = accelerationPlayer;
@@ -142,6 +143,7 @@ public class PlayerEntity : MonoBehaviour
             nearestCaddie.transform.position = cartPos.position;
             nearestCaddie.transform.rotation = cartPos.rotation;
             nearestCaddie.transform.parent = cartPos;
+            nearestCaddie.GetComponent<BoxCollider>().isTrigger = true;
             nearestCaddie.GetComponent<Rigidbody>().isKinematic = true;
             CaddieCollider.SetActive(true);
             acceleration = accelerationCaddie;
