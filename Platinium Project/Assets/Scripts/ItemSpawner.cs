@@ -11,7 +11,7 @@ public class ItemSpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -32,7 +32,7 @@ public class ItemSpawner : MonoBehaviour
         }
     }
 
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Item") && item == null)
         {
@@ -42,7 +42,7 @@ public class ItemSpawner : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (item)
+        if (other.gameObject.GetComponent<ItemGrab>().itemPos.GetChild(0).name.Contains(item.name))
         {
             isOnShelf = false;
         }
