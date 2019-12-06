@@ -17,6 +17,8 @@ public class PlayerControllerOne : MonoBehaviour
     public float radangle;
     public bool sign;
 
+    private bool canPick = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -39,10 +41,12 @@ public class PlayerControllerOne : MonoBehaviour
         if (_rewiredPlayer.GetButtonDown("GrabCaddie") && !entity.haveCaddie && !itemGrab.haveItem)
         {
             entity.GrabCaddie();
+            canPick = true;
         }
         else if (_rewiredPlayer.GetButtonDown("GrabCaddie") && entity.haveCaddie)
         {
             entity.DropCaddie();
+            canPick = false;
         }
         if (_rewiredPlayer.GetButtonDown("GrabItem") && !itemGrab.haveItem && !itemGrab.canDropItemInCart)
         {
@@ -56,10 +60,11 @@ public class PlayerControllerOne : MonoBehaviour
         {
             itemGrab.DropItemInCart();
         }
-        else if (_rewiredPlayer.GetButtonDown("DropItem") && itemGrab.canDropItemInCart && !itemGrab.haveItem)
+        else if (_rewiredPlayer.GetButtonDown("DropItem") && itemGrab.canDropItemInCart && !itemGrab.haveItem && !entity.haveCaddie && canPick)
         {
             itemGrab.GrabItemFromCart();
         }
+
         /*if ((_rewiredPlayer.GetAxis("RightTrigger") > 0))
         {
             Vector3 refvector = entity.GetComponentInChildren<Transform>().GetChild(0).transform.rotation.eulerAngles;
