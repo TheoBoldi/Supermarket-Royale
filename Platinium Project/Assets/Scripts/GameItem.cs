@@ -6,7 +6,7 @@ public class GameItem : MonoBehaviour
 
     //GameLogic by Dorian Gélas 2019-2020
     #region Var
-    public enum ItemType { Empty = 0, Fish = 1, Chicken_Leg = 2, Beef_Steak = 3, Turnip = 4, Egg = 5, Cheese = 6, Milk = 7, Coconut = 8, Stawberry = 9, Cherry = 10, Banana = 11, Mushroom = 12, Tomato = 13};
+    public enum ItemType { Empty = 0, Fish = 1, Chicken_Leg = 2, Beef_Steak = 3, Turnip = 4, Egg = 5, Cheese = 6, Milk = 7, Coconut = 8, Cherry = 9, Banana = 10, Mushroom = 11, Tomato = 12, Carrot = 13, Cookie = 14, Hotdog = 15, Kiwi = 16, Pear = 17, Leek = 18, Sushi = 19, Yoghurt = 20};
     public ItemType ID;
     public int score;
     public float durationOfGrab;
@@ -77,11 +77,6 @@ public class GameItem : MonoBehaviour
             case ItemType.Mushroom:
                 {
                     gameItemInstance = new GameItem(GameItem.ItemType.Mushroom, 0, 0);
-                }
-                break;
-            case ItemType.Stawberry:
-                {
-                    gameItemInstance = new GameItem(GameItem.ItemType.Stawberry, 0, 0);
                 }
                 break;
             case ItemType.Turnip:

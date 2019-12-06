@@ -4,18 +4,14 @@ using UnityEngine;
 
 public class CheckOutScript : MonoBehaviour
 {
-    private GameManager _GameManager;
-
-    public void CheckOut(Caddie cartToCheck, int playerNumber)
-    {
-        if (!cartToCheck.cartStorage.Contains(GameItem.ItemType.Empty))
+    public GameManager _gamemanager;
+        public void CheckOut(Caddie cartToCheck, int playerNumber)
         {
-            if (_GameManager.CheckCart(cartToCheck.cartStorage, playerNumber))
+            if (_gamemanager.CheckCart(cartToCheck.cartStorage, playerNumber))
             {
-                _GameManager.ValidateList(playerNumber);
+                _gamemanager.ValidateList(playerNumber);
             }
         }
-    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -46,5 +42,10 @@ public class CheckOutScript : MonoBehaviour
             }
             CheckOut(cartToCheck, playerNumber);
         }
+    }
+
+    private void Awake()
+    {
+        _gamemanager = GetComponent<GameManager>();
     }
 }
