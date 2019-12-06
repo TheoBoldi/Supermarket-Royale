@@ -781,7 +781,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7658555490186213207}
   - component: {fileID: 5520268421006185970}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: CaddieCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -813,8 +813,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.56869817, y: 0.5594489, z: 0.9765706}
-  m_Center: {x: 0.0031149087, y: 0.22027585, z: 0.80822444}
+  m_Size: {x: 0.66, y: 0.5399021, z: 1.0213906}
+  m_Center: {x: 0.0031135522, y: 0.23004934, z: 0.8306347}
 --- !u!1001 &5014488180943181884
 PrefabInstance:
   m_ObjectHideFlags: 0

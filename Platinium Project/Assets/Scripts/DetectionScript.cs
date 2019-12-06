@@ -28,10 +28,10 @@ public class DetectionScript : MonoBehaviour
 
         if(closestCaddie != null)
         {
-            itemInCartPos1 = closestCaddie.GetChild(4);
-            itemInCartPos2 = closestCaddie.GetChild(5);
-            itemInCartPos3 = closestCaddie.GetChild(6);
-            itemInCartPos4 = closestCaddie.GetChild(7);
+            itemInCartPos1 = closestCaddie.GetChild(3);
+            itemInCartPos2 = closestCaddie.GetChild(4);
+            itemInCartPos3 = closestCaddie.GetChild(5);
+            itemInCartPos4 = closestCaddie.GetChild(6);
         }
         else if(closestCaddie == null)
         {
