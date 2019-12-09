@@ -142,9 +142,9 @@ public class GameManager : MonoBehaviour
     }
     private void Update()
     {
-        SysShortcuts();
+        //SysShortcuts();
     }
-    public void SysShortcuts()
+   /* public void SysShortcuts()
     {
         if (Input.GetKeyDown(KeyCode.R))
         {
@@ -155,5 +155,5 @@ public class GameManager : MonoBehaviour
         {
             SceneManager.LoadScene(0);
         }
-    }
+    }*/
 }

@@ -782,7 +782,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7658555490186213207}
   - component: {fileID: 5520268421006185970}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CaddieCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}

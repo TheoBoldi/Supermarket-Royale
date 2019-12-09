@@ -7,6 +7,11 @@ public class ItemSpawner : MonoBehaviour
     public float timer = 5.0f;
     public bool isOnShelf = true;
     public GameObject item;
+
+    private float scaleX;
+    private float scaleY;
+    private float scaleZ;
+    
     
     // Start is called before the first frame update
     void Start()
@@ -24,8 +29,10 @@ public class ItemSpawner : MonoBehaviour
             {
                 GameObject b = Instantiate(item) as GameObject;
                 b.GetComponent<Rigidbody>().isKinematic = true;
+                b.GetComponent<MeshCollider>().convex = true;
                 b.transform.position = this.transform.position;
                 b.transform.rotation = this.transform.rotation;
+                b.transform.localScale = new Vector3(scaleX, scaleY, scaleZ);
                 isOnShelf = true;
                 timer = 5.0f;
             }
@@ -37,6 +44,9 @@ public class ItemSpawner : MonoBehaviour
         if (other.CompareTag("Item") && item == null)
         {
             item = other.gameObject;
+            scaleX = item.transform.localScale.x;
+            scaleY = item.transform.localScale.y;
+            scaleZ = item.transform.localScale.z;
         }
     }
 
