@@ -82,6 +82,7 @@ MonoBehaviour:
   detection: {fileID: 0}
   haveItem: 0
   canDropItemInCart: 0
+  itemScaler: 1.5
 --- !u!1 &2412580639382729889
 GameObject:
   m_ObjectHideFlags: 0
