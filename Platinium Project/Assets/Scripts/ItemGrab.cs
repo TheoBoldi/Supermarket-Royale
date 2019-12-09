@@ -9,6 +9,8 @@ public class ItemGrab : MonoBehaviour
     public DetectionScript detection;
     public bool haveItem = false;
     public bool canDropItemInCart = false;
+
+    public float itemScaler = 2.0f;
     
     // Start is called before the first frame update
     void Start()
@@ -54,7 +56,7 @@ public class ItemGrab : MonoBehaviour
                 item.transform.position = detection.itemInCartPos1.transform.position;
                 item.transform.rotation = detection.itemInCartPos1.transform.rotation;
                 item.transform.parent = detection.itemInCartPos1;
-                item.transform.localScale = new Vector3((item.transform.lossyScale.x / 2), (item.transform.lossyScale.y / 2), (item.transform.lossyScale.z / 2));
+                item.transform.localScale = new Vector3((item.transform.lossyScale.x / itemScaler), (item.transform.lossyScale.y / itemScaler), (item.transform.lossyScale.z / itemScaler));
                 item = null;
                 //detection.GetComponent<Caddie>().PlaceInCart(item.GetComponent<GameItem>(), 0);
                 
@@ -65,7 +67,7 @@ public class ItemGrab : MonoBehaviour
                 item.transform.position = detection.itemInCartPos2.transform.position;
                 item.transform.rotation = detection.itemInCartPos2.transform.rotation;
                 item.transform.parent = detection.itemInCartPos2;
-                item.transform.localScale = new Vector3((item.transform.lossyScale.x / 2), (item.transform.lossyScale.y / 2), (item.transform.lossyScale.z / 2));
+                item.transform.localScale = new Vector3((item.transform.lossyScale.x / itemScaler), (item.transform.lossyScale.y / itemScaler), (item.transform.lossyScale.z / itemScaler));
                 item = null;
                 //detection.GetComponent<Caddie>().PlaceInCart(item.GetComponent<GameItem>(), 1);
             }
@@ -75,7 +77,7 @@ public class ItemGrab : MonoBehaviour
                 item.transform.position = detection.itemInCartPos3.transform.position;
                 item.transform.rotation = detection.itemInCartPos3.transform.rotation;
                 item.transform.parent = detection.itemInCartPos3;
-                item.transform.localScale = new Vector3((item.transform.lossyScale.x / 2), (item.transform.lossyScale.y / 2), (item.transform.lossyScale.z / 2));
+                item.transform.localScale = new Vector3((item.transform.lossyScale.x / itemScaler), (item.transform.lossyScale.y / itemScaler), (item.transform.lossyScale.z / itemScaler));
                 item = null;
                 //detection.GetComponent<Caddie>().PlaceInCart(item.GetComponent<GameItem>(), 2);
             }
@@ -85,7 +87,7 @@ public class ItemGrab : MonoBehaviour
                 item.transform.position = detection.itemInCartPos4.transform.position;
                 item.transform.rotation = detection.itemInCartPos4.transform.rotation;
                 item.transform.parent = detection.itemInCartPos4;
-                item.transform.localScale = new Vector3((item.transform.lossyScale.x / 2), (item.transform.lossyScale.y / 2), (item.transform.lossyScale.z / 2));
+                item.transform.localScale = new Vector3((item.transform.lossyScale.x / itemScaler), (item.transform.lossyScale.y / itemScaler), (item.transform.lossyScale.z / itemScaler));
                 item = null;
                 //detection.GetComponent<Caddie>().PlaceInCart(item.GetComponent<GameItem>(), 3);
             }
@@ -104,7 +106,7 @@ public class ItemGrab : MonoBehaviour
                 detection.itemInCartPos4.GetChild(0).transform.parent = itemPos;
                 //detection.GetComponent<Caddie>().RemoveFromCart(3);
                 item = itemPos.GetChild(0).gameObject;
-                item.transform.localScale = new Vector3((item.transform.lossyScale.x * 2), (item.transform.lossyScale.y * 2), (item.transform.lossyScale.z * 2));
+                item.transform.localScale = new Vector3((item.transform.lossyScale.x * itemScaler), (item.transform.lossyScale.y * itemScaler), (item.transform.lossyScale.z * itemScaler));
             }
             else if (detection.itemInCartPos3.childCount > 0)
             {
@@ -114,7 +116,7 @@ public class ItemGrab : MonoBehaviour
                 detection.itemInCartPos3.GetChild(0).transform.parent = itemPos;
                 //detection.GetComponent<Caddie>().RemoveFromCart(2);
                 item = itemPos.GetChild(0).gameObject;
-                item.transform.localScale = new Vector3((item.transform.lossyScale.x * 2), (item.transform.lossyScale.y * 2), (item.transform.lossyScale.z * 2));
+                item.transform.localScale = new Vector3((item.transform.lossyScale.x * itemScaler), (item.transform.lossyScale.y * itemScaler), (item.transform.lossyScale.z * itemScaler));
             }
             else if (detection.itemInCartPos2.childCount > 0)
             {
@@ -124,7 +126,7 @@ public class ItemGrab : MonoBehaviour
                 detection.itemInCartPos2.GetChild(0).transform.parent = itemPos;
                 //detection.GetComponent<Caddie>().RemoveFromCart(1);
                 item = itemPos.GetChild(0).gameObject;
-                item.transform.localScale = new Vector3((item.transform.lossyScale.x * 2), (item.transform.lossyScale.y * 2), (item.transform.lossyScale.z * 2));
+                item.transform.localScale = new Vector3((item.transform.lossyScale.x * itemScaler), (item.transform.lossyScale.y * itemScaler), (item.transform.lossyScale.z * itemScaler));
             }
             else if (detection.itemInCartPos1.childCount > 0)
             {
@@ -134,7 +136,7 @@ public class ItemGrab : MonoBehaviour
                 detection.itemInCartPos1.GetChild(0).transform.parent = itemPos;
                 //detection.GetComponent<Caddie>().RemoveFromCart(0);
                 item = itemPos.GetChild(0).gameObject;
-                item.transform.localScale = new Vector3((item.transform.lossyScale.x * 2), (item.transform.lossyScale.y * 2), (item.transform.lossyScale.z * 2));
+                item.transform.localScale = new Vector3((item.transform.lossyScale.x * itemScaler), (item.transform.lossyScale.y * itemScaler), (item.transform.lossyScale.z * itemScaler));
             }
         }
     }
