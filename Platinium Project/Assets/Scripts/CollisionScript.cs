@@ -14,6 +14,8 @@ public class CollisionScript : MonoBehaviour
 
     public float recenColTimer = 2.0f;
     public bool recentCollision;
+
+    private GameObject otherPlayer;
  
     // Start is called before the first frame update
     void Start()
@@ -48,6 +50,7 @@ public class CollisionScript : MonoBehaviour
             if (collision.gameObject.name.Contains("Player") && !entity.haveCaddie)
             {
                 Debug.Log("collision player-player");
+                otherPlayer = collision.gameObject;
                 p2pCol = true;
             }
         }
@@ -57,10 +60,12 @@ public class CollisionScript : MonoBehaviour
     {
         //Stoper le player.move pour 1 sec
         entity.StopMove();
+
         if(itemGrab.item != null && itemGrab.haveItem)
         {
             itemGrab.ItemDroping();
         }
+
         //Jouer l'animation de chute
         animator.SetBool("Fall", true);
         StarFall.SetActive(true);
@@ -72,6 +77,7 @@ public class CollisionScript : MonoBehaviour
             entity.RestartMove();
             p2pCol = false;
             timer = 1.0f;
+            otherPlayer = null;
             recentCollision = true;
         }
     }
