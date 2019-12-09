@@ -21,7 +21,15 @@ public class ItemGrab : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (haveItem)
+        {
+            item.transform.GetChild(0).gameObject.SetActive(false);
+        }
+
+        if(item == null)
+        {
+            item.transform.GetChild(0).gameObject.SetActive(false);
+        }
     }
 
     public void ItemGrabing()
@@ -149,6 +157,7 @@ public class ItemGrab : MonoBehaviour
             if (!haveItem)
             {
                 item = other.gameObject;
+                item.transform.GetChild(0).gameObject.SetActive(true);
             }
         }
         else if (other.gameObject.CompareTag("Caddie"))
@@ -161,6 +170,7 @@ public class ItemGrab : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Item") && !haveItem)
         {
+            item.transform.GetChild(0).gameObject.SetActive(false);
             item = null;
         }
         else if (other.gameObject.CompareTag("Caddie"))

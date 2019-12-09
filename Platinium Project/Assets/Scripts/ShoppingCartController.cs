@@ -23,6 +23,11 @@ public class ShoppingCartController : MonoBehaviour
         {
             this.gameObject.transform.parent.eulerAngles = new Vector3(0, this.gameObject.transform.parent.eulerAngles.y, 0);
         }
+
+        if (cartIsUsed)
+        {
+            this.transform.GetChild(0).gameObject.SetActive(false);
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -30,6 +35,7 @@ public class ShoppingCartController : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             isNearCart = true;
+            this.transform.GetChild(0).gameObject.SetActive(true);
         }
     }
 
@@ -39,6 +45,7 @@ public class ShoppingCartController : MonoBehaviour
         {
             if (!cartIsUsed)
             {
+                this.transform.GetChild(0).gameObject.SetActive(false);
                 isNearCart = false;
             }
         }
