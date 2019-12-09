@@ -28,6 +28,7 @@ public class ItemSpawner : MonoBehaviour
             if(timer <= 0)
             {
                 GameObject b = Instantiate(item) as GameObject;
+                b.transform.GetChild(0).gameObject.SetActive(false);
                 b.GetComponent<Rigidbody>().isKinematic = true;
                 b.GetComponent<MeshCollider>().convex = true;
                 b.transform.position = this.transform.position;
