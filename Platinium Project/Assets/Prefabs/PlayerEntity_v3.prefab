@@ -82,6 +82,7 @@ MonoBehaviour:
   detection: {fileID: 0}
   haveItem: 0
   canDropItemInCart: 0
+  itemScaler: 2
 --- !u!1 &2412580639382729889
 GameObject:
   m_ObjectHideFlags: 0
@@ -781,7 +782,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7658555490186213207}
   - component: {fileID: 5520268421006185970}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CaddieCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
