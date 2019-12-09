@@ -3,11 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
 public class GameManager : MonoBehaviour
 {
     //GameLogicManager for Super Market Royale by Dorian Gélas 2019-2020
-    public bool isDebug;
+    public bool isDebug = false;
+    private ListListener _listListener;
     private bool p1Won;
     private bool p2Won;
     private bool p3Won;
@@ -26,52 +26,33 @@ public class GameManager : MonoBehaviour
     public List<GameItem.ItemType> player2Itemlist;
     public List<GameItem.ItemType> player3Itemlist;
     public List<GameItem.ItemType> player4Itemlist;
+    [HideInInspector]
     public GUIStyle guiSKIN;
     private string itemList;
-    private string player1Itemliststr;
-    private string player2Itemliststr;
-    private string player3Itemliststr;
-    private string player4Itemliststr;
     #endregion
-
     public void GenerateItemLists(List<GameItem.ItemType> listToGenrate)
     {
         listToGenrate.Clear();
-        for (int selecteur = 0; selecteur <=4 ; selecteur++)
+        List<GameItem.ItemType> itemIgnoreList = new List<GameItem.ItemType>();
+        GameItem.ItemType generatedGameItem;
+        while (listToGenrate.Count < 4)
         {
-            listToGenrate[selecteur] = (GameItem.ItemType)UnityEngine.Random.Range(0, 13);
+            generatedGameItem = (GameItem.ItemType)((int)UnityEngine.Random.Range(1, 13));
+            if (!itemIgnoreList.Contains(generatedGameItem)) {
+                listToGenrate.Add(generatedGameItem);
+                itemIgnoreList.Add(generatedGameItem);
+            }
         }
+        _listListener.UpdateUI();
     }
 
     void Awake()
     {
+        _listListener = GameObject.Find("GAME_UI").GetComponent<ListListener>();
         //End of all GameItems
         guiSKIN.fontSize = 20;
         guiSKIN.normal.textColor = new Color(255.0f, 0.0f, 0.0f, 1.0f);
-        foreach (string s in Enum.GetNames(typeof(GameItem.ItemType)))
-        {
-            itemList += (s + " ");
-        }
-        foreach (string s in Enum.GetNames(typeof(GameItem.ItemType)))
-        {
-            player1Itemliststr += (s + " ");
-        }
-        foreach (string s in Enum.GetNames(typeof(GameItem.ItemType)))
-        {
-            player2Itemliststr += (s + " ");
-        }
-        foreach (string s in Enum.GetNames(typeof(GameItem.ItemType)))
-        {
-            player3Itemliststr += (s + " ");
-        }
-        foreach (string s in Enum.GetNames(typeof(GameItem.ItemType)))
-        {
-            player4Itemliststr += (s + " ");
-        }
-        player1Itemlist = new List<GameItem.ItemType>(4);
-        player2Itemlist = new List<GameItem.ItemType>(4);
-        player3Itemlist = new List<GameItem.ItemType>(4);
-        player4Itemlist = new List<GameItem.ItemType>(4);
+        
     }
 
     void OnGUI()
@@ -104,21 +85,25 @@ public class GameManager : MonoBehaviour
             case 1:
                 {
                     p1Won = true;
+                    Debug.Log("Player 1 has Validated his item list");
                 }
                 break;
             case 2:
                 {
                     p2Won = true;
+                    Debug.Log("Player 2 has Validated his item list");
                 }
                 break;
             case 3:
                 {
                     p3Won = true;
+                    Debug.Log("Player 3 has Validated his item list");
                 }
                 break;
             case 4:
                 {
                     p4Won = true;
+                    Debug.Log("Player 4 has Validated his item list");
                 }
                 break;
         }
@@ -159,7 +144,6 @@ public class GameManager : MonoBehaviour
     {
         SysShortcuts();
     }
-
     public void SysShortcuts()
     {
         if (Input.GetKeyDown(KeyCode.R))
