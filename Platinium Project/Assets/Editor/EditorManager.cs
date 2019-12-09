@@ -16,8 +16,9 @@ public class EditorManager : Editor
             _gameManager.isDebug = true;
             debugMessage = "Debug Enabled";
         }
+        base.OnInspectorGUI();
         if (EditorApplication.isPlaying) {
-            base.OnInspectorGUI();
+            
             EditorGUILayout.LabelField("");
             EditorGUILayout.LabelField("Select player");
             playerInspectorTarget = EditorGUILayout.Popup(playerInspectorTarget, playerIntList);
