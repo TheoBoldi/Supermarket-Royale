@@ -11,12 +11,12 @@ public class ItemSpawner : MonoBehaviour
     private float scaleX;
     private float scaleY;
     private float scaleZ;
-    
-    
+
+    public ParticleSystem smoke;
+
     // Start is called before the first frame update
     void Start()
     {
-
     }
 
     // Update is called once per frame
@@ -27,6 +27,9 @@ public class ItemSpawner : MonoBehaviour
             timer -= Time.deltaTime;
             if(timer <= 0)
             {
+                ParticleSystem effect2 = Instantiate(smoke) as ParticleSystem;
+                effect2.transform.position = this.transform.position;
+
                 GameObject b = Instantiate(item) as GameObject;
                 b.transform.GetChild(0).gameObject.SetActive(false);
                 b.GetComponent<Rigidbody>().isKinematic = true;
