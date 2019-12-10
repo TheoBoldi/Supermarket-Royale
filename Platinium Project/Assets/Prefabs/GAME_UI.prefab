@@ -679,7 +679,6 @@ GameObject:
   - component: {fileID: 279210073678844831}
   - component: {fileID: 279210073678844829}
   - component: {fileID: 279210073678844830}
-  - component: {fileID: 279210073678844828}
   m_Layer: 5
   m_Name: P10
   m_TagString: Untagged
@@ -742,54 +741,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &279210073678844828
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 279210073678844800}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 990c4bb329d98b74a8601a14f6b3de82, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player1item0: {fileID: 0}
-  player1item1: {fileID: 0}
-  player1item2: {fileID: 0}
-  player1item3: {fileID: 0}
-  player2item0: {fileID: 0}
-  player2item1: {fileID: 0}
-  player2item2: {fileID: 0}
-  player2item3: {fileID: 0}
-  player3item0: {fileID: 0}
-  player3item1: {fileID: 0}
-  player3item2: {fileID: 0}
-  player3item3: {fileID: 0}
-  player4item0: {fileID: 0}
-  player4item1: {fileID: 0}
-  player4item2: {fileID: 0}
-  player4item3: {fileID: 0}
-  banana: {fileID: 0}
-  carrot: {fileID: 0}
-  cheese: {fileID: 0}
-  cherrys: {fileID: 0}
-  chicken: {fileID: 0}
-  coconut: {fileID: 0}
-  cookie: {fileID: 0}
-  eggs: {fileID: 0}
-  fish: {fileID: 0}
-  hotdog: {fileID: 0}
-  kiwi: {fileID: 0}
-  milk: {fileID: 0}
-  mushrooms: {fileID: 0}
-  pear: {fileID: 0}
-  leek: {fileID: 0}
-  steak: {fileID: 0}
-  sushi: {fileID: 0}
-  tomato: {fileID: 0}
-  turnip: {fileID: 0}
-  yoghurt: {fileID: 0}
 --- !u!1 &279210073817271860
 GameObject:
   m_ObjectHideFlags: 0
@@ -802,7 +753,7 @@ GameObject:
   - component: {fileID: 279210073817271857}
   - component: {fileID: 279210073817271858}
   m_Layer: 5
-  m_Name: Text (2)
+  m_Name: P4Scr
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1213,7 +1164,7 @@ GameObject:
   - component: {fileID: 279210074175978088}
   - component: {fileID: 279210074175978089}
   m_Layer: 5
-  m_Name: Text
+  m_Name: P2Scr
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1624,7 +1575,7 @@ GameObject:
   - component: {fileID: 279210074487871240}
   - component: {fileID: 279210074487871241}
   m_Layer: 5
-  m_Name: Text (1)
+  m_Name: P3Scr
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1702,7 +1653,7 @@ GameObject:
   - component: {fileID: 279210074517100755}
   - component: {fileID: 279210074517100756}
   - component: {fileID: 279210074517100719}
-  - component: {fileID: 279210074517100752}
+  - component: {fileID: 7814059325502705877}
   m_Layer: 5
   m_Name: GAME_UI
   m_TagString: Untagged
@@ -1801,7 +1752,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 279210074517100757}
   m_CullTransparentMesh: 0
---- !u!114 &279210074517100752
+--- !u!114 &7814059325502705877
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1829,6 +1780,10 @@ MonoBehaviour:
   player4item1: {fileID: 0}
   player4item2: {fileID: 0}
   player4item3: {fileID: 0}
+  player1scoretxt: {fileID: 0}
+  player2scoretxt: {fileID: 0}
+  player3scoretxt: {fileID: 0}
+  player4scoretxt: {fileID: 0}
   banana: {fileID: 0}
   carrot: {fileID: 0}
   cheese: {fileID: 0}
@@ -2226,7 +2181,7 @@ GameObject:
   - component: {fileID: 279210074988070979}
   - component: {fileID: 279210074988070980}
   m_Layer: 5
-  m_Name: Text
+  m_Name: P1Scr
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

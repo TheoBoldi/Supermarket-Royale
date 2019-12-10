@@ -7,14 +7,20 @@ public class GameManager : MonoBehaviour
 {
     //GameLogicManager for Super Market Royale by Dorian Gélas 2019-2020
     public bool isDebug = false;
-    private ListListener _listListener;
+    private UIListener _UIListener;
     private bool p1Won;
     private bool p2Won;
     private bool p3Won;
     private bool p4Won;
     private CheckOutScript _checkoutscript;
+    private float time;
+    private int sequenceP1index = 0;
+    private int sequenceP2index = 0;
+    private int sequenceP3index = 0;
+    private int sequenceP4index = 0;
     #region VariablesScore
     [Header("Score Values")]
+    public int ptsPerList = 1;
     public int player1Score = 0;
     public int player2Score = 0;
     public int player3Score = 0;
@@ -26,10 +32,15 @@ public class GameManager : MonoBehaviour
     public List<GameItem.ItemType> player2Itemlist;
     public List<GameItem.ItemType> player3Itemlist;
     public List<GameItem.ItemType> player4Itemlist;
+    private List<GameItem.ItemType>[] sequenceP1;
+    private List<GameItem.ItemType>[] sequenceP2;
+    private List<GameItem.ItemType>[] sequenceP3;
+    private List<GameItem.ItemType>[] sequenceP4;
     [HideInInspector]
     public GUIStyle guiSKIN;
     private string itemList;
     #endregion
+
     public void GenerateItemLists(List<GameItem.ItemType> listToGenrate)
     {
         listToGenrate.Clear();
@@ -45,16 +56,103 @@ public class GameManager : MonoBehaviour
         }
         _listListener.UpdateUI();
     }
-
     void Awake()
     {
-        _listListener = GameObject.Find("GAME_UI").GetComponent<ListListener>();
+        _UIListener = GameObject.Find("GAME_UI").GetComponent<UIListener>();
         //End of all GameItems
         guiSKIN.fontSize = 20;
         guiSKIN.normal.textColor = new Color(255.0f, 0.0f, 0.0f, 1.0f);
-        
-    }
 
+        sequenceP1[0] = new List<GameItem.ItemType>(4);
+        sequenceP1[1] = new List<GameItem.ItemType>(4);
+        sequenceP1[2] = new List<GameItem.ItemType>(4);
+        sequenceP1[3] = new List<GameItem.ItemType>(4);
+
+        sequenceP2[0] = new List<GameItem.ItemType>(4);
+        sequenceP2[1] = new List<GameItem.ItemType>(4);
+        sequenceP2[2] = new List<GameItem.ItemType>(4);
+        sequenceP2[3] = new List<GameItem.ItemType>(4);
+
+        sequenceP3[0] = new List<GameItem.ItemType>(4);
+        sequenceP3[1] = new List<GameItem.ItemType>(4);
+        sequenceP3[2] = new List<GameItem.ItemType>(4);
+        sequenceP3[3] = new List<GameItem.ItemType>(4);
+
+        sequenceP4[0] = new List<GameItem.ItemType>(4);
+        sequenceP4[1] = new List<GameItem.ItemType>(4);
+        sequenceP4[2] = new List<GameItem.ItemType>(4);
+        sequenceP4[3] = new List<GameItem.ItemType>(4);
+
+        sequenceP1[0].Add(GameItem.ItemType.Fish);
+        sequenceP1[0].Add(GameItem.ItemType.Egg);
+        sequenceP1[0].Add(GameItem.ItemType.Turnip);
+        sequenceP1[0].Add(GameItem.ItemType.Cheese);
+
+        sequenceP1[1].Add(GameItem.ItemType.Milk);
+        sequenceP1[1].Add(GameItem.ItemType.Mushroom);
+        sequenceP1[1].Add(GameItem.ItemType.Yoghurt);
+        sequenceP1[1].Add(GameItem.ItemType.Cherry);
+
+        sequenceP1[2].Add(GameItem.ItemType.Leek);
+        sequenceP1[2].Add(GameItem.ItemType.Fish);
+        sequenceP1[2].Add(GameItem.ItemType.Chicken_Leg);
+        sequenceP1[2].Add(GameItem.ItemType.Cheese);
+
+        sequenceP2[0].Add(GameItem.ItemType.Fish);
+        sequenceP2[0].Add(GameItem.ItemType.Mushroom);
+        sequenceP2[0].Add(GameItem.ItemType.Chicken_Leg);
+        sequenceP2[0].Add(GameItem.ItemType.Cherry);
+
+        sequenceP2[1].Add(GameItem.ItemType.Pear);
+        sequenceP2[1].Add(GameItem.ItemType.Beef_Steak);
+        sequenceP2[1].Add(GameItem.ItemType.Sushi);
+        sequenceP2[1].Add(GameItem.ItemType.Turnip);
+
+        sequenceP2[2].Add(GameItem.ItemType.Chicken_Leg);
+        sequenceP2[2].Add(GameItem.ItemType.Pear);
+        sequenceP2[2].Add(GameItem.ItemType.Banana);
+        sequenceP2[2].Add(GameItem.ItemType.Cherry);
+
+        sequenceP3[0].Add(GameItem.ItemType.Cherry);
+        sequenceP3[0].Add(GameItem.ItemType.Beef_Steak);
+        sequenceP3[0].Add(GameItem.ItemType.Milk);
+        sequenceP3[0].Add(GameItem.ItemType.Coconut);
+
+        sequenceP3[1].Add(GameItem.ItemType.Carrot);
+        sequenceP3[1].Add(GameItem.ItemType.Fish);
+        sequenceP3[1].Add(GameItem.ItemType.Cherry);
+        sequenceP3[1].Add(GameItem.ItemType.Coconut);
+
+        sequenceP3[2].Add(GameItem.ItemType.Beef_Steak);
+        sequenceP3[2].Add(GameItem.ItemType.Pear);
+        sequenceP3[2].Add(GameItem.ItemType.Leek);
+        sequenceP3[2].Add(GameItem.ItemType.Chicken_Leg);
+
+        sequenceP4[0].Add(GameItem.ItemType.Coconut);
+        sequenceP4[0].Add(GameItem.ItemType.Carrot);
+        sequenceP4[0].Add(GameItem.ItemType.Sushi);
+        sequenceP4[0].Add(GameItem.ItemType.Kiwi);
+
+        sequenceP4[1].Add(GameItem.ItemType.Egg);
+        sequenceP4[1].Add(GameItem.ItemType.Milk);
+        sequenceP4[1].Add(GameItem.ItemType.Chicken_Leg);
+        sequenceP4[1].Add(GameItem.ItemType.Pear);
+
+        sequenceP4[2].Add(GameItem.ItemType.Cherry);
+        sequenceP4[2].Add(GameItem.ItemType.Mushroom);
+        sequenceP4[2].Add(GameItem.ItemType.Turnip);
+        sequenceP4[2].Add(GameItem.ItemType.Cherry);
+
+        sequenceP1[3] = sequenceP4[0];
+        sequenceP2[3] = sequenceP1[0];
+        sequenceP3[3] = sequenceP2[0];
+        sequenceP4[3] = sequenceP3[0];
+
+        player1Itemlist = sequenceP1[0];
+        player2Itemlist = sequenceP2[0];
+        player3Itemlist = sequenceP3[0];
+        player4Itemlist = sequenceP4[0];
+    }
     void OnGUI()
     {
         if (isDebug)
@@ -84,25 +182,53 @@ public class GameManager : MonoBehaviour
         {
             case 1:
                 {
-                    p1Won = true;
+                    sequenceP1index++;
+                    if(sequenceP1index == 4)
+                    {
+                        sequenceP1index = 0;
+                    }
+                    player1Itemlist = sequenceP1[sequenceP1index];
+                    player1Score += ptsPerList;
+                    _listListener.UpdateUI();
                     Debug.Log("Player 1 has Validated his item list");
                 }
                 break;
             case 2:
                 {
-                    p2Won = true;
+                    sequenceP2index++;
+                    if (sequenceP2index == 4)
+                    {
+                        sequenceP2index = 0;
+                    }
+                    player2Itemlist = sequenceP2[sequenceP2index];
+                    player2Score += ptsPerList;
+                    _listListener.UpdateUI();
                     Debug.Log("Player 2 has Validated his item list");
                 }
                 break;
             case 3:
                 {
-                    p3Won = true;
+                    sequenceP3index++;
+                    if (sequenceP3index == 4)
+                    {
+                        sequenceP3index = 0;
+                    }
+                    player3Itemlist = sequenceP3[sequenceP3index];
+                    player3Score += ptsPerList;
+                    _listListener.UpdateUI();
                     Debug.Log("Player 3 has Validated his item list");
                 }
                 break;
             case 4:
                 {
-                    p4Won = true;
+                    sequenceP4index++;
+                    if (sequenceP4index == 4)
+                    {
+                        sequenceP4index = 0;
+                    }
+                    player4Itemlist = sequenceP4[sequenceP4index];
+                    player4Score += ptsPerList;
+                    _listListener.UpdateUI();
                     Debug.Log("Player 4 has Validated his item list");
                 }
                 break;
@@ -140,11 +266,36 @@ public class GameManager : MonoBehaviour
     {
         return checkList.Contains(itemtoCheck);
     }
+    public void SelectWinner()
+    {
+        if(time >= 120.0f)
+        {
+            Time.timeScale = 0;
+            if (player1Score > player2Score && player1Score > player3Score && player1Score > player4Score)
+            {
+                p1Won = true;
+            }
+            else if (player2Score > player1Score && player2Score > player3Score && player2Score > player4Score)
+            {
+                p2Won = true;
+            }
+            else if (player3Score > player1Score && player3Score > player2Score && player3Score > player4Score)
+            {
+                p3Won = true;
+            }
+            else if (player4Score > player1Score && player4Score > player3Score && player4Score > player2Score)
+            {
+                p4Won = true;
+            }
+        }
+    }
     private void Update()
     {
         //SysShortcuts();
+        time += Time.deltaTime;
     }
-   /* public void SysShortcuts()
+
+    /*public void SysShortcuts()
     {
         if (Input.GetKeyDown(KeyCode.R))
         {

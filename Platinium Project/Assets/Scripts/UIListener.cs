@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ListListener : MonoBehaviour
+public class UIListener : MonoBehaviour
 {
     private GameManager _gameManager;
 
@@ -26,6 +26,11 @@ public class ListListener : MonoBehaviour
     public Image player4item1;
     public Image player4item2;
     public Image player4item3;
+
+    public Text player1scoretxt;
+    public Text player2scoretxt;
+    public Text player3scoretxt;
+    public Text player4scoretxt;
 
     public Sprite banana;
     public Sprite carrot;
@@ -73,6 +78,11 @@ public class ListListener : MonoBehaviour
         player4item1 = GameObject.Find("P41").GetComponent<Image>();
         player4item2 = GameObject.Find("P42").GetComponent<Image>();
         player4item3 = GameObject.Find("P43").GetComponent<Image>();
+
+        player1scoretxt = GameObject.Find("P1Scr").GetComponent<Text>();
+        player2scoretxt = GameObject.Find("P2Scr").GetComponent<Text>();
+        player3scoretxt = GameObject.Find("P3Scr").GetComponent<Text>();
+        player4scoretxt = GameObject.Find("P4Scr").GetComponent<Text>();
 
         banana = Resources.Load<Sprite>("Bananas");
         carrot = Resources.Load<Sprite>("Carrot");
@@ -139,5 +149,10 @@ public class ListListener : MonoBehaviour
         player4item1.sprite = spritedb[_gameManager.player4Itemlist[1]];
         player4item2.sprite = spritedb[_gameManager.player4Itemlist[2]];
         player4item3.sprite = spritedb[_gameManager.player4Itemlist[3]];
+
+        player1scoretxt.text = _gameManager.player1Score.ToString();
+        player2scoretxt.text = _gameManager.player2Score.ToString();
+        player3scoretxt.text = _gameManager.player3Score.ToString();
+        player4scoretxt.text = _gameManager.player4Score.ToString();
     }
 }

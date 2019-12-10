@@ -5,17 +5,17 @@ using UnityEngine;
 public class CheckOutScript : MonoBehaviour
 {
     public GameManager _gamemanager;
-        public void CheckOut(Caddie cartToCheck, int playerNumber)
+    public void CheckOut(Caddie cartToCheck, int playerNumber)
+    {
+        if (_gamemanager.CheckCart(cartToCheck.cartStorage, playerNumber))
         {
-            if (_gamemanager.CheckCart(cartToCheck.cartStorage, playerNumber))
-            {
-                _gamemanager.ValidateList(playerNumber);
-            }
+            _gamemanager.ValidateList(playerNumber);
         }
+    }
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Caddie") && other.transform.root.gameObject.name.Contains("PlayerEntity"))
+        if (other.CompareTag("Caddie") && other.transform.root.gameObject.name.Contains("PlayerEntity"))
         {
             Caddie cartToCheck = other.GetComponent<Caddie>();
             int playerNumber;
@@ -38,7 +38,7 @@ public class CheckOutScript : MonoBehaviour
                         playerNumber = 0;
                         Debug.LogError("Could not detect Player Checking in");
                     }
-                break;
+                    break;
             }
             CheckOut(cartToCheck, playerNumber);
         }
@@ -46,6 +46,6 @@ public class CheckOutScript : MonoBehaviour
 
     private void Awake()
     {
-        _gamemanager = GetComponent<GameManager>();
+        _gamemanager = GameObject.Find("EventSystem").GetComponent<GameManager>();
     }
 }
