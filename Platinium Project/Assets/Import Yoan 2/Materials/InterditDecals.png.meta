@@ -11,6 +11,33 @@ TextureImporter:
   - first:
       213: -4363938516198532184
     second: InterditDecals_2
+  - first:
+      213: 3573388626101772779
+    second: InterditDecals_3
+  - first:
+      213: 5986467093707834213
+    second: InterditDecals_4
+  - first:
+      213: 778471889630720591
+    second: InterditDecals_5
+  - first:
+      213: -1835586910781612018
+    second: InterditDecals_6
+  - first:
+      213: -8134790267805508944
+    second: InterditDecals_7
+  - first:
+      213: 2287654215168106450
+    second: InterditDecals_8
+  - first:
+      213: 1268600816274143217
+    second: InterditDecals_9
+  - first:
+      213: -5518228708620709437
+    second: InterditDecals_10
+  - first:
+      213: -670230558581349109
+    second: InterditDecals_11
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -99,6 +126,174 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 118
+        y: 4096
+        width: 1090
+        height: 1092
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 967ea24b7f58114459bcc0c856ab7ae5
+      internalID: 736302385768903506
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InterditDecals_1
+      rect:
+        serializedVersion: 2
+        x: 1563
+        y: 4106
+        width: 1082
+        height: 1082
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e41c64f04797d648a9751827a4130b0
+      internalID: -7916189448073672082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InterditDecals_2
+      rect:
+        serializedVersion: 2
+        x: 3041
+        y: 4106
+        width: 1081
+        height: 1082
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3bc3cf1e24714754087e63d30455e36d
+      internalID: -4363938516198532184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InterditDecals_3
+      rect:
+        serializedVersion: 2
+        x: 4518
+        y: 4101
+        width: 1082
+        height: 1082
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b523446aad7da7e45b83a2f8feded751
+      internalID: 3573388626101772779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InterditDecals_4
+      rect:
+        serializedVersion: 2
+        x: 5950
+        y: 4101
+        width: 1091
+        height: 1091
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14f13fb9ca79b974b8125f6803cefa58
+      internalID: 5986467093707834213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InterditDecals_5
+      rect:
+        serializedVersion: 2
+        x: 7437
+        y: 4106
+        width: 1091
+        height: 1096
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dae35b41d4fdd81409f4c40e68752ae1
+      internalID: 778471889630720591
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InterditDecals_6
+      rect:
+        serializedVersion: 2
+        x: 753
+        y: 3558
+        width: 2299
+        height: 235
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53ac83c2ef1f15e49a1d3438de8de312
+      internalID: -1835586910781612018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InterditDecals_7
+      rect:
+        serializedVersion: 2
+        x: 3409
+        y: 3558
+        width: 5612
+        height: 235
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13736ae22890e004590436a3fadcd82c
+      internalID: -8134790267805508944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InterditDecals_8
+      rect:
+        serializedVersion: 2
+        x: 118
         y: 325
         width: 1693
         height: 2932
@@ -109,20 +304,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fe373588f4912454ea2e4b6951b4b77d
-      internalID: 736302385768903506
+      spriteID: b4712f4a24fc13141b6c307869946030
+      internalID: 2287654215168106450
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: InterditDecals_1
+      name: InterditDecals_9
       rect:
         serializedVersion: 2
         x: 2014
         y: 2544
         width: 709
-        height: 711
+        height: 710
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -130,19 +325,40 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: abbc19c04b6724141983a73571a5dd69
-      internalID: -7916189448073672082
+      spriteID: 05dc2dda554d3d44ea23ad82cd4cb6d5
+      internalID: 1268600816274143217
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: InterditDecals_2
+      name: InterditDecals_10
       rect:
         serializedVersion: 2
-        x: 2710
+        x: 3565
+        y: 2549
+        width: 2937
+        height: 539
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04a14f5b6693068488b5b958a0f17bbf
+      internalID: -5518228708620709437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InterditDecals_11
+      rect:
+        serializedVersion: 2
+        x: 2709
         y: 357
-        width: 6587
+        width: 6588
         height: 2012
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -151,8 +367,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4449e110c9c75944c9fa27fd5083473b
-      internalID: -4363938516198532184
+      spriteID: 7c5d6c24fe864db49b269b7403d6987b
+      internalID: -670230558581349109
       vertices: []
       indices: 
       edges: []
@@ -160,7 +376,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: d061b777ddba3274c849864bf8991f8b
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
