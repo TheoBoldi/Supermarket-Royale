@@ -147,7 +147,9 @@ MonoBehaviour:
   stopMove: 0
   haveCaddie: 0
   animator: {fileID: 2412580639856702783}
-  soundCaddie: {fileID: 8305040323954989177}
+  moveSound: {fileID: 0}
+  soundWalk: {fileID: 8300000, guid: 64266a4a44f79d94e8840a49e8851402, type: 3}
+  soundCaddie: {fileID: 8300000, guid: 99a638ec94e38094aa28088f067c6259, type: 3}
 --- !u!54 &2412580639382729892
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -194,7 +196,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 99a638ec94e38094aa28088f067c6259, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 64266a4a44f79d94e8840a49e8851402, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1

@@ -11,7 +11,7 @@ public class ItemGrab : MonoBehaviour
     public bool canDropItemInCart = false;
 
     public float itemScaler = 2.0f;
-    
+   
     // Start is called before the first frame update
     void Start()
     {
@@ -36,6 +36,7 @@ public class ItemGrab : MonoBehaviour
     {
         if(item != null)
         {
+            SoundManager.instance.PickUpSound();
             item.GetComponent<Rigidbody>().isKinematic = true;
             item.GetComponent<MeshCollider>().enabled = false;
             item.transform.position = itemPos.transform.position;

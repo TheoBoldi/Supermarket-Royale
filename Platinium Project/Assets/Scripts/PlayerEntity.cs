@@ -59,7 +59,9 @@ public class PlayerEntity : MonoBehaviour
     private DetectionScript detection;
 
     public Animator animator;
-    public AudioSource soundCaddie;
+    public AudioSource moveSound;
+    public AudioClip soundWalk;
+    public AudioClip soundCaddie;
 
     private void Awake()
     {
@@ -76,6 +78,7 @@ public class PlayerEntity : MonoBehaviour
     {
         cartPos = modelObj.GetComponentInChildren<Transform>().GetChild(0);
         detection = GetComponentInChildren<DetectionScript>();
+        moveSound = GetComponent<AudioSource>();
     }
 
     private void FixedUpdate()
@@ -124,6 +127,7 @@ public class PlayerEntity : MonoBehaviour
 
     public void PlayerControls()
     {
+        moveSound.clip = soundWalk;
         nearestCaddie.GetComponent<BoxCollider>().isTrigger = false;
         nearestCaddie.GetComponent<Rigidbody>().isKinematic = false;
         CaddieCollider.SetActive(false);
@@ -140,6 +144,7 @@ public class PlayerEntity : MonoBehaviour
     {
         if (nearestCaddie != null)
         {
+            moveSound.clip = soundCaddie;
             nearestCaddie.transform.position = cartPos.position;
             nearestCaddie.transform.rotation = cartPos.rotation;
             nearestCaddie.transform.parent = cartPos;
@@ -257,24 +262,16 @@ public class PlayerEntity : MonoBehaviour
 
         if(_velocity != Vector3.zero)
         {
-            if (haveCaddie && !soundCaddie.isPlaying)
+            if (!moveSound.isPlaying)
             {
-                soundCaddie.Play();
-            }
-            else if(!haveCaddie && soundCaddie.isPlaying)
-            {
-                soundCaddie.Stop();
+                moveSound.Play();
             }
         }
         else if(_velocity == Vector3.zero)
         {
-            if (haveCaddie && soundCaddie.isPlaying)
+            if (moveSound.isPlaying)
             {
-                soundCaddie.Stop();
-            }
-            else if(!haveCaddie && soundCaddie.isPlaying)
-            {
-                soundCaddie.Stop();
+                moveSound.Stop();
             }
         }
     }

@@ -6,6 +6,7 @@ public class SoundManager : MonoBehaviour
 {
     public static SoundManager instance;
     public AudioSource backgroundMusic;
+    public AudioSource pickupSound;
 
     private void Awake()
     {
@@ -26,5 +27,10 @@ public class SoundManager : MonoBehaviour
     public void BackgroundMusic()
     {
         backgroundMusic.Play();
+    }
+
+    public void PickUpSound()
+    {
+        pickupSound.Play();
     }
 }
