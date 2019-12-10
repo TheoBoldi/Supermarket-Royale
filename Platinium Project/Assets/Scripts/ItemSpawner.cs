@@ -33,7 +33,7 @@ public class ItemSpawner : MonoBehaviour
                 GameObject b = Instantiate(item) as GameObject;
                 b.transform.GetChild(0).gameObject.SetActive(false);
                 b.GetComponent<Rigidbody>().isKinematic = true;
-                b.GetComponent<MeshCollider>().convex = true;
+                b.GetComponent<MeshCollider>().enabled = true;
                 b.transform.position = this.transform.position;
                 b.transform.rotation = this.transform.rotation;
                 b.transform.localScale = new Vector3(scaleX, scaleY, scaleZ);
