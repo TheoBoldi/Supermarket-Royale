@@ -217,7 +217,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 19611153}
-  m_Mesh: {fileID: 37470733}
+  m_Mesh: {fileID: 659751797}
 --- !u!4 &19611158
 Transform:
   m_ObjectHideFlags: 0
@@ -227,7 +227,7 @@ Transform:
   m_GameObject: {fileID: 19611153}
   m_LocalRotation: {x: 0.50000036, y: 0.49999976, z: -0.4999997, w: 0.5000001}
   m_LocalPosition: {x: 0.02, y: 0.33, z: 0.022}
-  m_LocalScale: {x: 4.073748, y: 7.070714, z: 2.406863}
+  m_LocalScale: {x: 4.073748, y: 4.0795937, z: 2.406863}
   m_Children: []
   m_Father: {fileID: 266388007}
   m_RootOrder: 0
@@ -279,6 +279,7 @@ MonoBehaviour:
   timer: 5
   isOnShelf: 1
   item: {fileID: 0}
+  smoke: {fileID: 0}
 --- !u!65 &30376357
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -317,169 +318,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 691893369}
   m_PrefabAsset: {fileID: 0}
---- !u!43 &37470733
-Mesh:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Decal
-  serializedVersion: 10
-  m_SubMeshes:
-  - serializedVersion: 2
-    firstByte: 0
-    indexCount: 12
-    topology: 0
-    baseVertex: 0
-    firstVertex: 0
-    vertexCount: 5
-    localAABB:
-      m_Center: {x: 0.000000074505806, y: -0.000000059604645, z: 0.08924314}
-      m_Extent: {x: 0.5, y: 0.5, z: 0.0000075772405}
-  m_Shapes:
-    vertices: []
-    shapes: []
-    channels: []
-    fullWeights: []
-  m_BindPose: []
-  m_BoneNameHashes: 
-  m_RootBoneNameHash: 0
-  m_BonesAABB: []
-  m_VariableBoneCountWeights:
-    m_Data: 
-  m_MeshCompression: 0
-  m_IsReadable: 1
-  m_KeepVertices: 1
-  m_KeepIndices: 1
-  m_IndexFormat: 0
-  m_IndexBuffer: 000001000200030001000100030001000000030000000400
-  m_VertexData:
-    serializedVersion: 3
-    m_VertexCount: 5
-    m_Channels:
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 3
-    - stream: 0
-      offset: 12
-      format: 0
-      dimension: 3
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 24
-      format: 0
-      dimension: 2
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    m_DataSize: 160
-    _typelessdata: 0100003f276299bddac7b63d83b52137e3d9b8b6000080bfafd0183f047aea3ed9e0ffbefeffff3e22c1b63d44c021375df2b8b6000080bf83c2263de4c7723f0100003ffeffff3e30c6b63dd8c921370ed1b8b6000080bfafd0183fe4c7723ffdffffbe010000bf06c4b63d58ab21374edeb8b6000080bfe937263d243fc33d0100003f010000bf14c9b63d00a02137f0a8b8b6000080bfafd0183f243fc33d
-  m_CompressedMesh:
-    m_Vertices:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_UV:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Normals:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Tangents:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Weights:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_NormalSigns:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_TangentSigns:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_FloatColors:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_BoneIndices:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Triangles:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_UVInfo: 0
-  m_LocalAABB:
-    m_Center: {x: 0.000000074505806, y: -0.000000059604645, z: 0.08924314}
-    m_Extent: {x: 0.5, y: 0.5, z: 0.0000075772405}
-  m_MeshUsageFlags: 0
-  m_BakedConvexCollisionMesh: 
-  m_BakedTriangleCollisionMesh: 
-  m_MeshMetrics[0]: 1
-  m_MeshMetrics[1]: 1
-  m_MeshOptimizationFlags: 1
-  m_StreamData:
-    offset: 0
-    size: 0
-    path: 
 --- !u!1001 &54249100
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -711,6 +549,7 @@ MonoBehaviour:
   timer: 5
   isOnShelf: 1
   item: {fileID: 0}
+  smoke: {fileID: 0}
 --- !u!65 &56506382
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -855,6 +694,7 @@ MonoBehaviour:
   timer: 5
   isOnShelf: 1
   item: {fileID: 0}
+  smoke: {fileID: 0}
 --- !u!65 &77870203
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -999,6 +839,7 @@ MonoBehaviour:
   timer: 5
   isOnShelf: 1
   item: {fileID: 0}
+  smoke: {fileID: 0}
 --- !u!65 &83809651
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1475,6 +1316,7 @@ MonoBehaviour:
   timer: 5
   isOnShelf: 1
   item: {fileID: 0}
+  smoke: {fileID: 0}
 --- !u!65 &193241161
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1825,6 +1667,7 @@ MonoBehaviour:
   timer: 5
   isOnShelf: 1
   item: {fileID: 0}
+  smoke: {fileID: 0}
 --- !u!65 &269450432
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2625,6 +2468,7 @@ MonoBehaviour:
   timer: 5
   isOnShelf: 1
   item: {fileID: 0}
+  smoke: {fileID: 0}
 --- !u!65 &352922506
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2685,6 +2529,7 @@ MonoBehaviour:
   timer: 5
   isOnShelf: 1
   item: {fileID: 0}
+  smoke: {fileID: 0}
 --- !u!65 &356806347
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2964,6 +2809,7 @@ MonoBehaviour:
   timer: 5
   isOnShelf: 1
   item: {fileID: 0}
+  smoke: {fileID: 0}
 --- !u!65 &405991140
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3055,6 +2901,7 @@ MonoBehaviour:
   timer: 5
   isOnShelf: 1
   item: {fileID: 0}
+  smoke: {fileID: 0}
 --- !u!65 &457524969
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3115,6 +2962,7 @@ MonoBehaviour:
   timer: 5
   isOnShelf: 1
   item: {fileID: 0}
+  smoke: {fileID: 0}
 --- !u!65 &461982868
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3251,6 +3099,7 @@ MonoBehaviour:
   timer: 5
   isOnShelf: 1
   item: {fileID: 0}
+  smoke: {fileID: 0}
 --- !u!65 &488615068
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3624,6 +3473,7 @@ MonoBehaviour:
   timer: 5
   isOnShelf: 1
   item: {fileID: 0}
+  smoke: {fileID: 0}
 --- !u!65 &526992982
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3881,6 +3731,7 @@ MonoBehaviour:
   timer: 5
   isOnShelf: 1
   item: {fileID: 0}
+  smoke: {fileID: 0}
 --- !u!65 &552851995
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4032,6 +3883,7 @@ MonoBehaviour:
   timer: 5
   isOnShelf: 1
   item: {fileID: 0}
+  smoke: {fileID: 0}
 --- !u!65 &580842260
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4148,6 +4000,7 @@ MonoBehaviour:
   timer: 5
   isOnShelf: 1
   item: {fileID: 0}
+  smoke: {fileID: 0}
 --- !u!65 &591156398
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4354,6 +4207,169 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1426983446}
   m_PrefabAsset: {fileID: 0}
+--- !u!43 &659751797
+Mesh:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Decal
+  serializedVersion: 10
+  m_SubMeshes:
+  - serializedVersion: 2
+    firstByte: 0
+    indexCount: 12
+    topology: 0
+    baseVertex: 0
+    firstVertex: 0
+    vertexCount: 6
+    localAABB:
+      m_Center: {x: 0.000000074505806, y: -0.000000014901161, z: 0.08924314}
+      m_Extent: {x: 0.5, y: 0.5, z: 0.00000641495}
+  m_Shapes:
+    vertices: []
+    shapes: []
+    channels: []
+    fullWeights: []
+  m_BindPose: []
+  m_BoneNameHashes: 
+  m_RootBoneNameHash: 0
+  m_BonesAABB: []
+  m_VariableBoneCountWeights:
+    m_Data: 
+  m_MeshCompression: 0
+  m_IsReadable: 1
+  m_KeepVertices: 1
+  m_KeepIndices: 1
+  m_IndexFormat: 0
+  m_IndexBuffer: 000001000200030004000100030001000000030000000500
+  m_VertexData:
+    serializedVersion: 3
+    m_VertexCount: 6
+    m_Channels:
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 3
+    - stream: 0
+      offset: 12
+      format: 0
+      dimension: 3
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 24
+      format: 0
+      dimension: 2
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    m_DataSize: 192
+    _typelessdata: 0100003ff2eb04bedac7b63d7db12137635a55b6000080bff8d0033e1519583fce1807beffffff3e9cc3b63d4fc62137c56255b6000080bf5777623d323c793f0100003fffffff3eccc6b63da19b2137c88e55b6000080bff8d0033e323c793ffdffffbe000000bf6ac3b63d6ed22137775555b6000080bf880f4d3ccb9e443ffdffffbeffffff3ebec1b63d72fe2137018055b6000080bf880f4d3c323c793f0100003f000000bf78c8b63d00c02137db6655b6000080bff8d0033ecb9e443f
+  m_CompressedMesh:
+    m_Vertices:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_UV:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Normals:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Tangents:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Weights:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_NormalSigns:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_TangentSigns:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_FloatColors:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_BoneIndices:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Triangles:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_UVInfo: 0
+  m_LocalAABB:
+    m_Center: {x: 0.000000074505806, y: -0.000000014901161, z: 0.08924314}
+    m_Extent: {x: 0.5, y: 0.5, z: 0.00000641495}
+  m_MeshUsageFlags: 0
+  m_BakedConvexCollisionMesh: 
+  m_BakedTriangleCollisionMesh: 
+  m_MeshMetrics[0]: 1
+  m_MeshMetrics[1]: 1
+  m_MeshOptimizationFlags: 1
+  m_StreamData:
+    offset: 0
+    size: 0
+    path: 
 --- !u!1 &666795329
 GameObject:
   m_ObjectHideFlags: 0
@@ -4401,6 +4417,7 @@ MonoBehaviour:
   timer: 5
   isOnShelf: 1
   item: {fileID: 0}
+  smoke: {fileID: 0}
 --- !u!65 &666795332
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4492,6 +4509,7 @@ MonoBehaviour:
   timer: 5
   isOnShelf: 1
   item: {fileID: 0}
+  smoke: {fileID: 0}
 --- !u!65 &678837210
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4631,6 +4649,7 @@ MonoBehaviour:
   timer: 5
   isOnShelf: 1
   item: {fileID: 0}
+  smoke: {fileID: 0}
 --- !u!65 &702646813
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4691,6 +4710,7 @@ MonoBehaviour:
   timer: 5
   isOnShelf: 1
   item: {fileID: 0}
+  smoke: {fileID: 0}
 --- !u!65 &714736368
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4835,6 +4855,7 @@ MonoBehaviour:
   timer: 5
   isOnShelf: 1
   item: {fileID: 0}
+  smoke: {fileID: 0}
 --- !u!65 &723993327
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4895,6 +4916,7 @@ MonoBehaviour:
   timer: 5
   isOnShelf: 1
   item: {fileID: 0}
+  smoke: {fileID: 0}
 --- !u!65 &772751629
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4967,6 +4989,7 @@ MonoBehaviour:
   timer: 5
   isOnShelf: 1
   item: {fileID: 0}
+  smoke: {fileID: 0}
 --- !u!65 &781686031
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5163,6 +5186,7 @@ MonoBehaviour:
   timer: 5
   isOnShelf: 1
   item: {fileID: 0}
+  smoke: {fileID: 0}
 --- !u!65 &817342834
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5481,6 +5505,7 @@ MonoBehaviour:
   timer: 5
   isOnShelf: 1
   item: {fileID: 0}
+  smoke: {fileID: 0}
 --- !u!65 &870069430
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5572,6 +5597,7 @@ MonoBehaviour:
   timer: 5
   isOnShelf: 1
   item: {fileID: 0}
+  smoke: {fileID: 0}
 --- !u!65 &910545959
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6550,6 +6576,7 @@ MonoBehaviour:
   timer: 5
   isOnShelf: 1
   item: {fileID: 0}
+  smoke: {fileID: 0}
 --- !u!65 &1030292080
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7146,6 +7173,7 @@ MonoBehaviour:
   timer: 5
   isOnShelf: 1
   item: {fileID: 0}
+  smoke: {fileID: 0}
 --- !u!65 &1144110980
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7493,6 +7521,7 @@ MonoBehaviour:
   timer: 5
   isOnShelf: 1
   item: {fileID: 0}
+  smoke: {fileID: 0}
 --- !u!65 &1224862981
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9493,6 +9522,7 @@ MonoBehaviour:
   timer: 5
   isOnShelf: 1
   item: {fileID: 0}
+  smoke: {fileID: 0}
 --- !u!65 &1278868975
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10387,6 +10417,7 @@ MonoBehaviour:
   timer: 5
   isOnShelf: 1
   item: {fileID: 0}
+  smoke: {fileID: 0}
 --- !u!65 &1396438247
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10643,6 +10674,7 @@ MonoBehaviour:
   timer: 5
   isOnShelf: 1
   item: {fileID: 0}
+  smoke: {fileID: 0}
 --- !u!65 &1417145142
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10981,6 +11013,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isDebug: 1
+  ptsPerList: 1
   player1Score: 0
   player2Score: 0
   player3Score: 0
@@ -12532,6 +12565,7 @@ MonoBehaviour:
   timer: 5
   isOnShelf: 1
   item: {fileID: 0}
+  smoke: {fileID: 0}
 --- !u!65 &1590345123
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12654,6 +12688,7 @@ MonoBehaviour:
   timer: 5
   isOnShelf: 1
   item: {fileID: 0}
+  smoke: {fileID: 0}
 --- !u!65 &1613564941
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12883,6 +12918,7 @@ MonoBehaviour:
   timer: 5
   isOnShelf: 1
   item: {fileID: 0}
+  smoke: {fileID: 0}
 --- !u!65 &1687708600
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12943,6 +12979,7 @@ MonoBehaviour:
   timer: 5
   isOnShelf: 1
   item: {fileID: 0}
+  smoke: {fileID: 0}
 --- !u!65 &1688749896
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13087,6 +13124,7 @@ MonoBehaviour:
   timer: 5
   isOnShelf: 1
   item: {fileID: 0}
+  smoke: {fileID: 0}
 --- !u!65 &1704692259
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13677,6 +13715,7 @@ MonoBehaviour:
   timer: 5
   isOnShelf: 1
   item: {fileID: 0}
+  smoke: {fileID: 0}
 --- !u!65 &1887837356
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14168,6 +14207,7 @@ MonoBehaviour:
   timer: 5
   isOnShelf: 1
   item: {fileID: 0}
+  smoke: {fileID: 0}
 --- !u!65 &1942529908
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14424,6 +14464,7 @@ MonoBehaviour:
   timer: 5
   isOnShelf: 1
   item: {fileID: 0}
+  smoke: {fileID: 0}
 --- !u!65 &1973346438
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14695,6 +14736,7 @@ MonoBehaviour:
   timer: 5
   isOnShelf: 1
   item: {fileID: 0}
+  smoke: {fileID: 0}
 --- !u!65 &2043273397
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15129,6 +15171,7 @@ MonoBehaviour:
   timer: 5
   isOnShelf: 1
   item: {fileID: 0}
+  smoke: {fileID: 0}
 --- !u!65 &2125843648
 BoxCollider:
   m_ObjectHideFlags: 0
