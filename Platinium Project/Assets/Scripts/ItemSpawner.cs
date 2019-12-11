@@ -38,8 +38,14 @@ public class ItemSpawner : MonoBehaviour
                 b.transform.rotation = this.transform.rotation;
                 b.transform.localScale = new Vector3(scaleX, scaleY, scaleZ);
                 isOnShelf = true;
+                item = null;
                 timer = 5.0f;
             }
+        }
+
+        if(item != null && item.transform.position != this.transform.position)
+        {
+            isOnShelf = false;
         }
     }
 
@@ -51,17 +57,6 @@ public class ItemSpawner : MonoBehaviour
             scaleX = item.transform.localScale.x;
             scaleY = item.transform.localScale.y;
             scaleZ = item.transform.localScale.z;
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if(other != null)
-        {
-            if (other.gameObject.GetComponent<ItemGrab>().item != null)
-            {
-                isOnShelf = false;
-            }
         }
     }
 }
