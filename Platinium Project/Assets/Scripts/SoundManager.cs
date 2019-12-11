@@ -7,6 +7,9 @@ public class SoundManager : MonoBehaviour
     public static SoundManager instance;
     public AudioSource backgroundMusic;
     public AudioSource pickupSound;
+    public AudioSource fallSound;
+    public AudioClip fall1;
+    public AudioClip fall2;
 
     private void Awake()
     {
@@ -32,5 +35,21 @@ public class SoundManager : MonoBehaviour
     public void PickUpSound()
     {
         pickupSound.Play();
+    }
+
+    public void FallSound()
+    {
+        int rand = Random.Range(0, 2);
+
+        if (rand == 0)
+        {
+            fallSound.clip = fall1;
+        }
+        else if (rand == 1)
+        {
+            fallSound.clip = fall2;
+        }
+
+        fallSound.Play();
     }
 }

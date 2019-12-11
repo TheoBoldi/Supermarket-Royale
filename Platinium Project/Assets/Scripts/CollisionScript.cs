@@ -52,6 +52,7 @@ public class CollisionScript : MonoBehaviour
                 Debug.Log("collision player-player");
                 otherPlayer = collision.gameObject;
                 p2pCol = true;
+                SoundManager.instance.FallSound();
             }
         }
     }
