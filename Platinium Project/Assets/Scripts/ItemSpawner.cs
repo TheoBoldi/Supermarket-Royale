@@ -56,9 +56,12 @@ public class ItemSpawner : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.GetComponent<ItemGrab>().itemPos.GetChild(0).name.Contains(item.name))
+        if(other != null)
         {
-            isOnShelf = false;
+            if (other.gameObject.GetComponent<ItemGrab>().item != null)
+            {
+                isOnShelf = false;
+            }
         }
     }
 }

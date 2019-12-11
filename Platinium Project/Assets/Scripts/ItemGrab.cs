@@ -5,6 +5,7 @@ using UnityEngine;
 public class ItemGrab : MonoBehaviour
 {
     public GameObject item;
+    public GameObject itemOutline;
     public Transform itemPos;
     public DetectionScript detection;
     public bool haveItem = false;
@@ -23,12 +24,7 @@ public class ItemGrab : MonoBehaviour
     {
         if (haveItem)
         {
-            item.transform.GetChild(0).gameObject.SetActive(false);
-        }
-
-        if(item == null)
-        {
-            item.transform.GetChild(0).gameObject.SetActive(false);
+            itemOutline.SetActive(false);
         }
     }
 
@@ -53,6 +49,7 @@ public class ItemGrab : MonoBehaviour
         item.GetComponent<MeshCollider>().enabled = true;
         haveItem = false;
         item = null;
+        itemOutline = null;
     }
 
     public void DropItemInCart()
@@ -67,8 +64,9 @@ public class ItemGrab : MonoBehaviour
                 item.transform.parent = detection.itemInCartPos1;
                 item.transform.localScale = new Vector3((item.transform.lossyScale.x / itemScaler), (item.transform.lossyScale.y / itemScaler), (item.transform.lossyScale.z / itemScaler));
                 item = null;
+                itemOutline = null;
                 //detection.GetComponent<Caddie>().PlaceInCart(item.GetComponent<GameItem>(), 0);
-                
+
             }
             else if (detection.itemInCartPos2.childCount < 1)
             {
@@ -78,6 +76,7 @@ public class ItemGrab : MonoBehaviour
                 item.transform.parent = detection.itemInCartPos2;
                 item.transform.localScale = new Vector3((item.transform.lossyScale.x / itemScaler), (item.transform.lossyScale.y / itemScaler), (item.transform.lossyScale.z / itemScaler));
                 item = null;
+                itemOutline = null;
                 //detection.GetComponent<Caddie>().PlaceInCart(item.GetComponent<GameItem>(), 1);
             }
             else if (detection.itemInCartPos3.childCount < 1)
@@ -88,6 +87,7 @@ public class ItemGrab : MonoBehaviour
                 item.transform.parent = detection.itemInCartPos3;
                 item.transform.localScale = new Vector3((item.transform.lossyScale.x / itemScaler), (item.transform.lossyScale.y / itemScaler), (item.transform.lossyScale.z / itemScaler));
                 item = null;
+                itemOutline = null;
                 //detection.GetComponent<Caddie>().PlaceInCart(item.GetComponent<GameItem>(), 2);
             }
             else if (detection.itemInCartPos4.childCount < 1)
@@ -98,6 +98,7 @@ public class ItemGrab : MonoBehaviour
                 item.transform.parent = detection.itemInCartPos4;
                 item.transform.localScale = new Vector3((item.transform.lossyScale.x / itemScaler), (item.transform.lossyScale.y / itemScaler), (item.transform.lossyScale.z / itemScaler));
                 item = null;
+                itemOutline = null;
                 //detection.GetComponent<Caddie>().PlaceInCart(item.GetComponent<GameItem>(), 3);
             }
         }
@@ -115,6 +116,7 @@ public class ItemGrab : MonoBehaviour
                 detection.itemInCartPos4.GetChild(0).transform.parent = itemPos;
                 //detection.GetComponent<Caddie>().RemoveFromCart(3);
                 item = itemPos.GetChild(0).gameObject;
+                itemOutline = item.transform.GetChild(0).gameObject;
                 item.transform.localScale = new Vector3((item.transform.lossyScale.x * itemScaler), (item.transform.lossyScale.y * itemScaler), (item.transform.lossyScale.z * itemScaler));
             }
             else if (detection.itemInCartPos3.childCount > 0)
@@ -125,6 +127,7 @@ public class ItemGrab : MonoBehaviour
                 detection.itemInCartPos3.GetChild(0).transform.parent = itemPos;
                 //detection.GetComponent<Caddie>().RemoveFromCart(2);
                 item = itemPos.GetChild(0).gameObject;
+                itemOutline = item.transform.GetChild(0).gameObject;
                 item.transform.localScale = new Vector3((item.transform.lossyScale.x * itemScaler), (item.transform.lossyScale.y * itemScaler), (item.transform.lossyScale.z * itemScaler));
             }
             else if (detection.itemInCartPos2.childCount > 0)
@@ -135,6 +138,7 @@ public class ItemGrab : MonoBehaviour
                 detection.itemInCartPos2.GetChild(0).transform.parent = itemPos;
                 //detection.GetComponent<Caddie>().RemoveFromCart(1);
                 item = itemPos.GetChild(0).gameObject;
+                itemOutline = item.transform.GetChild(0).gameObject;
                 item.transform.localScale = new Vector3((item.transform.lossyScale.x * itemScaler), (item.transform.lossyScale.y * itemScaler), (item.transform.lossyScale.z * itemScaler));
             }
             else if (detection.itemInCartPos1.childCount > 0)
@@ -145,6 +149,7 @@ public class ItemGrab : MonoBehaviour
                 detection.itemInCartPos1.GetChild(0).transform.parent = itemPos;
                 //detection.GetComponent<Caddie>().RemoveFromCart(0);
                 item = itemPos.GetChild(0).gameObject;
+                itemOutline = item.transform.GetChild(0).gameObject;
                 item.transform.localScale = new Vector3((item.transform.lossyScale.x * itemScaler), (item.transform.lossyScale.y * itemScaler), (item.transform.lossyScale.z * itemScaler));
             }
         }
@@ -158,7 +163,8 @@ public class ItemGrab : MonoBehaviour
             if (!haveItem)
             {
                 item = other.gameObject;
-                item.transform.GetChild(0).gameObject.SetActive(true);
+                itemOutline = item.transform.GetChild(0).gameObject;
+                itemOutline.SetActive(true);
             }
         }
         else if (other.gameObject.CompareTag("Caddie"))
@@ -169,10 +175,11 @@ public class ItemGrab : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.CompareTag("Item") && !haveItem)
+        if (other.gameObject.CompareTag("Item") && !haveItem && item != null && itemOutline != null)
         {
-            item.transform.GetChild(0).gameObject.SetActive(false);
+            itemOutline.SetActive(false);
             item = null;
+            itemOutline = null;
         }
         else if (other.gameObject.CompareTag("Caddie"))
         {
