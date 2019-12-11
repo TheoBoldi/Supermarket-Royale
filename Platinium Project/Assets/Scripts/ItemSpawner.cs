@@ -29,6 +29,7 @@ public class ItemSpawner : MonoBehaviour
             {
                 ParticleSystem effect2 = Instantiate(smoke) as ParticleSystem;
                 effect2.transform.position = this.transform.position;
+                SoundManager.instance.SpawnSound();
 
                 GameObject b = Instantiate(item) as GameObject;
                 b.transform.GetChild(0).gameObject.SetActive(false);
