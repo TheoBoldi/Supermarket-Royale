@@ -65,7 +65,7 @@ public class ItemGrab : MonoBehaviour
                 item.transform.localScale = new Vector3((item.transform.lossyScale.x / itemScaler), (item.transform.lossyScale.y / itemScaler), (item.transform.lossyScale.z / itemScaler));
                 item = null;
                 itemOutline = null;
-                //detection.GetComponent<Caddie>().PlaceInCart(item.GetComponent<GameItem>(), 0);
+                detection.GetComponent<Caddie>().PlaceInCart(item.GetComponent<GameItem>(), 0);
 
             }
             else if (detection.itemInCartPos2.childCount < 1)
@@ -77,7 +77,7 @@ public class ItemGrab : MonoBehaviour
                 item.transform.localScale = new Vector3((item.transform.lossyScale.x / itemScaler), (item.transform.lossyScale.y / itemScaler), (item.transform.lossyScale.z / itemScaler));
                 item = null;
                 itemOutline = null;
-                //detection.GetComponent<Caddie>().PlaceInCart(item.GetComponent<GameItem>(), 1);
+                detection.GetComponent<Caddie>().PlaceInCart(item.GetComponent<GameItem>(), 1);
             }
             else if (detection.itemInCartPos3.childCount < 1)
             {
@@ -88,7 +88,7 @@ public class ItemGrab : MonoBehaviour
                 item.transform.localScale = new Vector3((item.transform.lossyScale.x / itemScaler), (item.transform.lossyScale.y / itemScaler), (item.transform.lossyScale.z / itemScaler));
                 item = null;
                 itemOutline = null;
-                //detection.GetComponent<Caddie>().PlaceInCart(item.GetComponent<GameItem>(), 2);
+                detection.GetComponent<Caddie>().PlaceInCart(item.GetComponent<GameItem>(), 2);
             }
             else if (detection.itemInCartPos4.childCount < 1)
             {
@@ -99,7 +99,7 @@ public class ItemGrab : MonoBehaviour
                 item.transform.localScale = new Vector3((item.transform.lossyScale.x / itemScaler), (item.transform.lossyScale.y / itemScaler), (item.transform.lossyScale.z / itemScaler));
                 item = null;
                 itemOutline = null;
-                //detection.GetComponent<Caddie>().PlaceInCart(item.GetComponent<GameItem>(), 3);
+                detection.GetComponent<Caddie>().PlaceInCart(item.GetComponent<GameItem>(), 3);
             }
         }
     }
@@ -114,7 +114,7 @@ public class ItemGrab : MonoBehaviour
                 detection.itemInCartPos4.GetChild(0).transform.position = itemPos.transform.position;
                 detection.itemInCartPos4.GetChild(0).transform.rotation = itemPos.transform.rotation; ;
                 detection.itemInCartPos4.GetChild(0).transform.parent = itemPos;
-                //detection.GetComponent<Caddie>().RemoveFromCart(3);
+                detection.GetComponent<Caddie>().RemoveFromCart(3);
                 item = itemPos.GetChild(0).gameObject;
                 itemOutline = item.transform.GetChild(0).gameObject;
                 item.transform.localScale = new Vector3((item.transform.lossyScale.x * itemScaler), (item.transform.lossyScale.y * itemScaler), (item.transform.lossyScale.z * itemScaler));
@@ -125,7 +125,7 @@ public class ItemGrab : MonoBehaviour
                 detection.itemInCartPos3.GetChild(0).transform.position = itemPos.transform.position;
                 detection.itemInCartPos3.GetChild(0).transform.rotation = itemPos.transform.rotation; ;
                 detection.itemInCartPos3.GetChild(0).transform.parent = itemPos;
-                //detection.GetComponent<Caddie>().RemoveFromCart(2);
+                detection.GetComponent<Caddie>().RemoveFromCart(2);
                 item = itemPos.GetChild(0).gameObject;
                 itemOutline = item.transform.GetChild(0).gameObject;
                 item.transform.localScale = new Vector3((item.transform.lossyScale.x * itemScaler), (item.transform.lossyScale.y * itemScaler), (item.transform.lossyScale.z * itemScaler));
@@ -136,7 +136,7 @@ public class ItemGrab : MonoBehaviour
                 detection.itemInCartPos2.GetChild(0).transform.position = itemPos.transform.position;
                 detection.itemInCartPos2.GetChild(0).transform.rotation = itemPos.transform.rotation; ;
                 detection.itemInCartPos2.GetChild(0).transform.parent = itemPos;
-                //detection.GetComponent<Caddie>().RemoveFromCart(1);
+                detection.GetComponent<Caddie>().RemoveFromCart(1);
                 item = itemPos.GetChild(0).gameObject;
                 itemOutline = item.transform.GetChild(0).gameObject;
                 item.transform.localScale = new Vector3((item.transform.lossyScale.x * itemScaler), (item.transform.lossyScale.y * itemScaler), (item.transform.lossyScale.z * itemScaler));
@@ -147,7 +147,7 @@ public class ItemGrab : MonoBehaviour
                 detection.itemInCartPos1.GetChild(0).transform.position = itemPos.transform.position;
                 detection.itemInCartPos1.GetChild(0).transform.rotation = itemPos.transform.rotation; ;
                 detection.itemInCartPos1.GetChild(0).transform.parent = itemPos;
-                //detection.GetComponent<Caddie>().RemoveFromCart(0);
+                detection.GetComponent<Caddie>().RemoveFromCart(0);
                 item = itemPos.GetChild(0).gameObject;
                 itemOutline = item.transform.GetChild(0).gameObject;
                 item.transform.localScale = new Vector3((item.transform.lossyScale.x * itemScaler), (item.transform.lossyScale.y * itemScaler), (item.transform.lossyScale.z * itemScaler));

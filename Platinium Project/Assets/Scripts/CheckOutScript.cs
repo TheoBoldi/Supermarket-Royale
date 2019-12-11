@@ -17,6 +17,7 @@ public class CheckOutScript : MonoBehaviour
     {
         if (other.CompareTag("Caddie") && other.transform.root.gameObject.name.Contains("PlayerEntity"))
         {
+            Debug.Log(other.transform.root.gameObject.name + "has tried to check in");
             Caddie cartToCheck = other.GetComponent<Caddie>();
             int playerNumber;
             switch (other.transform.root.gameObject.tag)
