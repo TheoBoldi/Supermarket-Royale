@@ -51,6 +51,9 @@ MonoBehaviour:
   fallSound: {fileID: 5726165057523172652}
   fall1: {fileID: 8300000, guid: e07e2a4efa50eb14199b273543e07afb, type: 3}
   fall2: {fileID: 8300000, guid: 05c3950ff2a20104899910d44c53e64f, type: 3}
+  fall3: {fileID: 8300000, guid: 1592a4f46e1838e4eb67eb9fa701d844, type: 3}
+  fall4: {fileID: 8300000, guid: 4df4addb4fcde14449d70f94b7b73cc3, type: 3}
+  fall5: {fileID: 8300000, guid: b52be585325420043821eee8464e8b81, type: 3}
 --- !u!1 &1532329403395475290
 GameObject:
   m_ObjectHideFlags: 0

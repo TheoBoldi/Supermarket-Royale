@@ -10,6 +10,9 @@ public class SoundManager : MonoBehaviour
     public AudioSource fallSound;
     public AudioClip fall1;
     public AudioClip fall2;
+    public AudioClip fall3;
+    public AudioClip fall4;
+    public AudioClip fall5;
 
     private void Awake()
     {
@@ -39,7 +42,7 @@ public class SoundManager : MonoBehaviour
 
     public void FallSound()
     {
-        int rand = Random.Range(0, 2);
+        int rand = Random.Range(0, 5);
 
         if (rand == 0)
         {
@@ -48,6 +51,18 @@ public class SoundManager : MonoBehaviour
         else if (rand == 1)
         {
             fallSound.clip = fall2;
+        }
+        else if (rand == 2)
+        {
+            fallSound.clip = fall3;
+        }
+        else if (rand == 3)
+        {
+            fallSound.clip = fall4;
+        }
+        else if (rand == 4)
+        {
+            fallSound.clip = fall5;
         }
 
         fallSound.Play();
