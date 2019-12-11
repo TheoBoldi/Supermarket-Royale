@@ -54,7 +54,7 @@ public class GameManager : MonoBehaviour
                 itemIgnoreList.Add(generatedGameItem);
             }
         }
-        _listListener.UpdateUI();
+        _UIListener.UpdateUI();
     }
     void Awake()
     {
@@ -189,7 +189,7 @@ public class GameManager : MonoBehaviour
                     }
                     player1Itemlist = sequenceP1[sequenceP1index];
                     player1Score += ptsPerList;
-                    _listListener.UpdateUI();
+                    _UIListener.UpdateUI();
                     Debug.Log("Player 1 has Validated his item list");
                 }
                 break;
@@ -202,7 +202,7 @@ public class GameManager : MonoBehaviour
                     }
                     player2Itemlist = sequenceP2[sequenceP2index];
                     player2Score += ptsPerList;
-                    _listListener.UpdateUI();
+                    _UIListener.UpdateUI();
                     Debug.Log("Player 2 has Validated his item list");
                 }
                 break;
@@ -215,7 +215,7 @@ public class GameManager : MonoBehaviour
                     }
                     player3Itemlist = sequenceP3[sequenceP3index];
                     player3Score += ptsPerList;
-                    _listListener.UpdateUI();
+                    _UIListener.UpdateUI();
                     Debug.Log("Player 3 has Validated his item list");
                 }
                 break;
@@ -228,7 +228,7 @@ public class GameManager : MonoBehaviour
                     }
                     player4Itemlist = sequenceP4[sequenceP4index];
                     player4Score += ptsPerList;
-                    _listListener.UpdateUI();
+                    _UIListener.UpdateUI();
                     Debug.Log("Player 4 has Validated his item list");
                 }
                 break;
