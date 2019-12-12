@@ -48,7 +48,7 @@ public class GameManager : MonoBehaviour
         GameItem.ItemType generatedGameItem;
         while (listToGenrate.Count < 4)
         {
-            generatedGameItem = (GameItem.ItemType)((int)UnityEngine.Random.Range(1, 13));
+            generatedGameItem = (GameItem.ItemType)((int)UnityEngine.Random.Range(1, 21));
             if (!itemIgnoreList.Contains(generatedGameItem)) {
                 listToGenrate.Add(generatedGameItem);
                 itemIgnoreList.Add(generatedGameItem);
