@@ -27,7 +27,14 @@ public class NextScene : MonoBehaviour
     }
     private void nextSS()
     {
-        SceneManager.LoadScene(next);
+        if(next != 7)
+        {
+            SceneManager.LoadScene(next);
+        }
+        else
+        {
+            SceneManager.LoadScene(0);
+        }
     }
     
 }

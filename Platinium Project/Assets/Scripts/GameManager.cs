@@ -25,6 +25,22 @@ public class GameManager : MonoBehaviour
     public int player2Score = 0;
     public int player3Score = 0;
     public int player4Score = 0;
+
+    public static int player1scoreTour1 = 0;
+    public static int player2scoreTour1 = 0;
+    public static int player3scoreTour1 = 0;
+    public static int player4scoreTour1 = 0;
+
+    public static int player1scoreTour2 = 0;
+    public static int player2scoreTour2 = 0;
+    public static int player3scoreTour2 = 0;
+    public static int player4scoreTour2 = 0;
+
+    public static int player1scoreTour3 = 0;
+    public static int player2scoreTour3 = 0;
+    public static int player3scoreTour3 = 0;
+    public static int player4scoreTour3 = 0;
+
     #endregion
     #region ListeObjectif
     [Header("Required Item List")]
@@ -307,6 +323,30 @@ public class GameManager : MonoBehaviour
     {
         //SysShortcuts();
         time += Time.deltaTime;
+
+        if (SceneManager.GetActiveScene().name.Contains("1"))
+        {
+            player1scoreTour1 = player1Score;
+            player2scoreTour1 = player2Score;
+            player3scoreTour1 = player3Score;
+            player4scoreTour1 = player4Score;
+        }
+
+        if (SceneManager.GetActiveScene().name.Contains("2"))
+        {
+            player1scoreTour2 = player1Score + player1scoreTour1;
+            player2scoreTour2 = player2Score + player2scoreTour1;
+            player3scoreTour2 = player3Score + player3scoreTour1;
+            player4scoreTour2 = player4Score + player4scoreTour1;
+        }
+
+        if (SceneManager.GetActiveScene().name.Contains("3"))
+        {
+            player1scoreTour3 = player1Score + player1scoreTour2;
+            player2scoreTour3 = player2Score + player2scoreTour2;
+            player3scoreTour3 = player3Score + player3scoreTour2;
+            player4scoreTour3 = player4Score + player4scoreTour2;
+        }
     }
 
     /*public void SysShortcuts()
