@@ -56,11 +56,11 @@ public class PlayerControllerOne : MonoBehaviour
         {
             itemGrab.ItemDroping();
         }
-        if (_rewiredPlayer.GetButtonDown("DropItem") && itemGrab.canDropItemInCart && itemGrab.haveItem)
+        if (_rewiredPlayer.GetButtonDown("DropItem") && itemGrab.canDropItemInCart && itemGrab.haveItem && detection.closestCaddie != null && !detection.closestCaddie.GetComponentInChildren<ShoppingCartController>().cartIsUsed)
         {
             itemGrab.DropItemInCart();
         }
-        else if (_rewiredPlayer.GetButtonDown("DropItem") && itemGrab.canDropItemInCart && !itemGrab.haveItem && !entity.haveCaddie && canPick)
+        else if (_rewiredPlayer.GetButtonDown("DropItem") && itemGrab.canDropItemInCart && !itemGrab.haveItem && !entity.haveCaddie && canPick && detection.closestCaddie !=null && !detection.closestCaddie.GetComponentInChildren<ShoppingCartController>().cartIsUsed)
         {
             itemGrab.GrabItemFromCart();
         }

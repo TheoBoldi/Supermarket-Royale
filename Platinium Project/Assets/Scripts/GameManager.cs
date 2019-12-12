@@ -41,6 +41,9 @@ public class GameManager : MonoBehaviour
     private string itemList;
     #endregion
 
+    public AudioSource listevalidee;
+
+
     public void GenerateItemLists(List<GameItem.ItemType> listToGenrate)
     {
         listToGenrate.Clear();
@@ -198,6 +201,7 @@ public class GameManager : MonoBehaviour
                     player1Score += ptsPerList;
                     _UIListener.UpdateUI();
                     Debug.Log("Player 1 has Validated his item list");
+                    SoundManager.instance.CheckoutSound();
                 }
                 break;
             case 2:
@@ -211,6 +215,7 @@ public class GameManager : MonoBehaviour
                     player2Score += ptsPerList;
                     _UIListener.UpdateUI();
                     Debug.Log("Player 2 has Validated his item list");
+                    SoundManager.instance.CheckoutSound();
                 }
                 break;
             case 3:
@@ -224,6 +229,7 @@ public class GameManager : MonoBehaviour
                     player3Score += ptsPerList;
                     _UIListener.UpdateUI();
                     Debug.Log("Player 3 has Validated his item list");
+                    SoundManager.instance.CheckoutSound();
                 }
                 break;
             case 4:
@@ -237,6 +243,7 @@ public class GameManager : MonoBehaviour
                     player4Score += ptsPerList;
                     _UIListener.UpdateUI();
                     Debug.Log("Player 4 has Validated his item list");
+                    SoundManager.instance.CheckoutSound();
                 }
                 break;
         }

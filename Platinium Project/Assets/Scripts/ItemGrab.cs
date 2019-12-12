@@ -54,7 +54,7 @@ public class ItemGrab : MonoBehaviour
 
     public void DropItemInCart()
     {
-        if(detection.itemInCartPos1 != null && detection.itemInCartPos2 != null && detection.itemInCartPos3 != null && detection.itemInCartPos4 != null && item != null && !detection.closestCaddie.GetComponent<ShoppingCartController>().cartIsUsed)
+        if(detection.itemInCartPos1 != null && detection.itemInCartPos2 != null && detection.itemInCartPos3 != null && detection.itemInCartPos4 != null)
         {
             if (detection.itemInCartPos1.childCount < 1)
             {
@@ -105,7 +105,7 @@ public class ItemGrab : MonoBehaviour
 
     public void GrabItemFromCart()
     {
-        if (detection.itemInCartPos1 != null && detection.itemInCartPos2 != null && detection.itemInCartPos3 != null && detection.itemInCartPos4 != null && item == null && !detection.closestCaddie.GetComponent<ShoppingCartController>().cartIsUsed)
+        if (detection.itemInCartPos1 != null && detection.itemInCartPos2 != null && detection.itemInCartPos3 != null && detection.itemInCartPos4 != null && item == null)
         {
             if (detection.itemInCartPos4.childCount > 0)
             {

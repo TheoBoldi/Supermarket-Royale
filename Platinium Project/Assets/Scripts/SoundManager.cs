@@ -9,11 +9,17 @@ public class SoundManager : MonoBehaviour
     public AudioSource pickupSound;
     public AudioSource fallSound;
     public AudioSource spawnSound;
+    public AudioSource checkout;
     public AudioClip fall1;
     public AudioClip fall2;
     public AudioClip fall3;
     public AudioClip fall4;
     public AudioClip fall5;
+
+
+    public AudioClip background2;
+
+
 
     private void Awake()
     {
@@ -25,16 +31,11 @@ public class SoundManager : MonoBehaviour
         instance.BackgroundMusic();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     public void BackgroundMusic()
     {
         backgroundMusic.Play();
     }
+
 
     public void PickUpSound()
     {
@@ -72,5 +73,10 @@ public class SoundManager : MonoBehaviour
     public void SpawnSound()
     {
         spawnSound.Play();
+    }
+
+    public void CheckoutSound()
+    {
+        checkout.Play();
     }
 }
