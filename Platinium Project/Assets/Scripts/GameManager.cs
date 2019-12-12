@@ -63,6 +63,11 @@ public class GameManager : MonoBehaviour
         guiSKIN.fontSize = 20;
         guiSKIN.normal.textColor = new Color(255.0f, 0.0f, 0.0f, 1.0f);
 
+        sequenceP1 = new List<GameItem.ItemType>[4];
+        sequenceP2 = new List<GameItem.ItemType>[4];
+        sequenceP3 = new List<GameItem.ItemType>[4];
+        sequenceP4 = new List<GameItem.ItemType>[4];
+
         sequenceP1[0] = new List<GameItem.ItemType>(4);
         sequenceP1[1] = new List<GameItem.ItemType>(4);
         sequenceP1[2] = new List<GameItem.ItemType>(4);
