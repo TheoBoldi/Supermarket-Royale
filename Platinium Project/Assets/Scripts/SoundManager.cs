@@ -8,6 +8,7 @@ public class SoundManager : MonoBehaviour
     public AudioSource backgroundMusic;
     public AudioSource pickupSound;
     public AudioSource fallSound;
+    public AudioSource spawnSound;
     public AudioClip fall1;
     public AudioClip fall2;
     public AudioClip fall3;
@@ -66,5 +67,10 @@ public class SoundManager : MonoBehaviour
         }
 
         fallSound.Play();
+    }
+
+    public void SpawnSound()
+    {
+        spawnSound.Play();
     }
 }
