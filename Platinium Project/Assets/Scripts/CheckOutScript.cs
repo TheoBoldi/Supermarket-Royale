@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class CheckOutScript : MonoBehaviour
 {
-    public GameManager _gamemanager;
+    private Caddie _caddie;
+    private GameManager _gamemanager;
     public void CheckOut(Caddie cartToCheck, int playerNumber)
     {
         if (_gamemanager.CheckCart(cartToCheck.cartStorage, playerNumber))
         {
             _gamemanager.ValidateList(playerNumber);
+            cartToCheck.ClearCart();
         }
     }
 
@@ -17,21 +19,24 @@ public class CheckOutScript : MonoBehaviour
     {
         if (other.CompareTag("Caddie") && other.transform.root.gameObject.name.Contains("PlayerEntity"))
         {
-            Debug.Log(other.transform.root.gameObject.name + "has tried to check in");
+            Debug.Log(other.transform.root.gameObject.name + "has entered checkin area");
             Caddie cartToCheck = other.GetComponent<Caddie>();
             int playerNumber;
-            switch (other.transform.root.gameObject.tag)
+            string nameofentity = other.transform.root.gameObject.name;
+            string s = "PlayerEntity";
+            nameofentity = nameofentity.Replace(s, "");
+            switch (nameofentity)
             {
-                case "Player 1":
+                case "1":
                     playerNumber = 1;
                     break;
-                case "Player 2":
+                case "2":
                     playerNumber = 2;
                     break;
-                case "Player 3":
+                case "3":
                     playerNumber = 3;
                     break;
-                case "Player 4":
+                case "4":
                     playerNumber = 4;
                     break;
                 default:
@@ -41,7 +46,11 @@ public class CheckOutScript : MonoBehaviour
                     }
                     break;
             }
-            CheckOut(cartToCheck, playerNumber);
+            if (playerNumber > 0)
+            {
+                Debug.Log(other.transform.root.gameObject.name + "has tried to check in");
+                CheckOut(cartToCheck, playerNumber);
+            }
         }
     }
 
