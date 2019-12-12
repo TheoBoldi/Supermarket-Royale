@@ -62,22 +62,22 @@ public class UIListener : MonoBehaviour
         player1item0 = GameObject.Find("P10").GetComponent<Image>();
         player1item1 = GameObject.Find("P11").GetComponent<Image>();
         player1item2 = GameObject.Find("P12").GetComponent<Image>();
-        player1item3 = GameObject.Find("P13").GetComponent<Image>();
+        //player1item3 = GameObject.Find("P13").GetComponent<Image>();
 
         player2item0 = GameObject.Find("P20").GetComponent<Image>();
         player2item1 = GameObject.Find("P21").GetComponent<Image>();
         player2item2 = GameObject.Find("P22").GetComponent<Image>();
-        player2item3 = GameObject.Find("P23").GetComponent<Image>();
+        //player2item3 = GameObject.Find("P23").GetComponent<Image>();
 
         player3item0 = GameObject.Find("P30").GetComponent<Image>();
         player3item1 = GameObject.Find("P31").GetComponent<Image>();
         player3item2 = GameObject.Find("P32").GetComponent<Image>();
-        player3item3 = GameObject.Find("P33").GetComponent<Image>();
+        //player3item3 = GameObject.Find("P33").GetComponent<Image>();
 
         player4item0 = GameObject.Find("P40").GetComponent<Image>();
         player4item1 = GameObject.Find("P41").GetComponent<Image>();
         player4item2 = GameObject.Find("P42").GetComponent<Image>();
-        player4item3 = GameObject.Find("P43").GetComponent<Image>();
+        //player4item3 = GameObject.Find("P43").GetComponent<Image>();
 
         player1scoretxt = GameObject.Find("P1Scr").GetComponent<Text>();
         player2scoretxt = GameObject.Find("P2Scr").GetComponent<Text>();
@@ -133,22 +133,22 @@ public class UIListener : MonoBehaviour
         player1item0.sprite = spritedb[_gameManager.player1Itemlist[0]];
         player1item1.sprite = spritedb[_gameManager.player1Itemlist[1]];
         player1item2.sprite = spritedb[_gameManager.player1Itemlist[2]];
-        player1item3.sprite = spritedb[_gameManager.player1Itemlist[3]];
+        //player1item3.sprite = spritedb[_gameManager.player1Itemlist[3]];
 
         player2item0.sprite = spritedb[_gameManager.player2Itemlist[0]];
         player2item1.sprite = spritedb[_gameManager.player2Itemlist[1]];
         player2item2.sprite = spritedb[_gameManager.player2Itemlist[2]];
-        player2item3.sprite = spritedb[_gameManager.player2Itemlist[3]];
+        //player2item3.sprite = spritedb[_gameManager.player2Itemlist[3]];
 
         player3item0.sprite = spritedb[_gameManager.player3Itemlist[0]];
         player3item1.sprite = spritedb[_gameManager.player3Itemlist[1]];
         player3item2.sprite = spritedb[_gameManager.player3Itemlist[2]];
-        player3item3.sprite = spritedb[_gameManager.player3Itemlist[3]];
+        //player3item3.sprite = spritedb[_gameManager.player3Itemlist[3]];
 
         player4item0.sprite = spritedb[_gameManager.player4Itemlist[0]];
         player4item1.sprite = spritedb[_gameManager.player4Itemlist[1]];
         player4item2.sprite = spritedb[_gameManager.player4Itemlist[2]];
-        player4item3.sprite = spritedb[_gameManager.player4Itemlist[3]];
+        //player4item3.sprite = spritedb[_gameManager.player4Itemlist[3]];
 
         player1scoretxt.text = _gameManager.player1Score.ToString();
         player2scoretxt.text = _gameManager.player2Score.ToString();

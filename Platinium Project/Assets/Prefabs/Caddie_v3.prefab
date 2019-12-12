@@ -252,7 +252,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cartHP: 100
-  cartStorage: 00000000000000000000000000000000
+  cartStorage: 000000000000000000000000
 --- !u!1 &5622827460283702619
 GameObject:
   m_ObjectHideFlags: 0

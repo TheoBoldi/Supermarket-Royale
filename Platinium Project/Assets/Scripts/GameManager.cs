@@ -49,7 +49,7 @@ public class GameManager : MonoBehaviour
         listToGenrate.Clear();
         List<GameItem.ItemType> itemIgnoreList = new List<GameItem.ItemType>();
         GameItem.ItemType generatedGameItem;
-        while (listToGenrate.Count < 4)
+        while (listToGenrate.Count < 3)
         {
             generatedGameItem = (GameItem.ItemType)((int)UnityEngine.Random.Range(1, 21));
             if (!itemIgnoreList.Contains(generatedGameItem)) {
@@ -71,85 +71,85 @@ public class GameManager : MonoBehaviour
         sequenceP3 = new List<GameItem.ItemType>[4];
         sequenceP4 = new List<GameItem.ItemType>[4];
 
-        sequenceP1[0] = new List<GameItem.ItemType>(4);
-        sequenceP1[1] = new List<GameItem.ItemType>(4);
-        sequenceP1[2] = new List<GameItem.ItemType>(4);
-        sequenceP1[3] = new List<GameItem.ItemType>(4);
+        sequenceP1[0] = new List<GameItem.ItemType>(3);
+        sequenceP1[1] = new List<GameItem.ItemType>(3);
+        sequenceP1[2] = new List<GameItem.ItemType>(3);
+        sequenceP1[3] = new List<GameItem.ItemType>(3);
 
-        sequenceP2[0] = new List<GameItem.ItemType>(4);
-        sequenceP2[1] = new List<GameItem.ItemType>(4);
-        sequenceP2[2] = new List<GameItem.ItemType>(4);
-        sequenceP2[3] = new List<GameItem.ItemType>(4);
+        sequenceP2[0] = new List<GameItem.ItemType>(3);
+        sequenceP2[1] = new List<GameItem.ItemType>(3);
+        sequenceP2[2] = new List<GameItem.ItemType>(3);
+        sequenceP2[3] = new List<GameItem.ItemType>(3);
 
-        sequenceP3[0] = new List<GameItem.ItemType>(4);
-        sequenceP3[1] = new List<GameItem.ItemType>(4);
-        sequenceP3[2] = new List<GameItem.ItemType>(4);
-        sequenceP3[3] = new List<GameItem.ItemType>(4);
+        sequenceP3[0] = new List<GameItem.ItemType>(3);
+        sequenceP3[1] = new List<GameItem.ItemType>(3);
+        sequenceP3[2] = new List<GameItem.ItemType>(3);
+        sequenceP3[3] = new List<GameItem.ItemType>(3);
 
-        sequenceP4[0] = new List<GameItem.ItemType>(4);
-        sequenceP4[1] = new List<GameItem.ItemType>(4);
-        sequenceP4[2] = new List<GameItem.ItemType>(4);
-        sequenceP4[3] = new List<GameItem.ItemType>(4);
+        sequenceP4[0] = new List<GameItem.ItemType>(3);
+        sequenceP4[1] = new List<GameItem.ItemType>(3);
+        sequenceP4[2] = new List<GameItem.ItemType>(3);
+        sequenceP4[3] = new List<GameItem.ItemType>(3);
 
         sequenceP1[0].Add(GameItem.ItemType.Fish);
         sequenceP1[0].Add(GameItem.ItemType.Egg);
         sequenceP1[0].Add(GameItem.ItemType.Turnip);
-        sequenceP1[0].Add(GameItem.ItemType.Cheese);
+        //sequenceP1[0].Add(GameItem.ItemType.Cheese);
 
         sequenceP1[1].Add(GameItem.ItemType.Milk);
         sequenceP1[1].Add(GameItem.ItemType.Mushroom);
         sequenceP1[1].Add(GameItem.ItemType.Yoghurt);
-        sequenceP1[1].Add(GameItem.ItemType.Cherry);
+        //sequenceP1[1].Add(GameItem.ItemType.Cherry);
 
         sequenceP1[2].Add(GameItem.ItemType.Leek);
         sequenceP1[2].Add(GameItem.ItemType.Fish);
         sequenceP1[2].Add(GameItem.ItemType.Chicken_Leg);
-        sequenceP1[2].Add(GameItem.ItemType.Cheese);
+        //sequenceP1[2].Add(GameItem.ItemType.Cheese);
 
         sequenceP2[0].Add(GameItem.ItemType.Fish);
         sequenceP2[0].Add(GameItem.ItemType.Mushroom);
         sequenceP2[0].Add(GameItem.ItemType.Chicken_Leg);
-        sequenceP2[0].Add(GameItem.ItemType.Cherry);
+        //sequenceP2[0].Add(GameItem.ItemType.Cherry);
 
         sequenceP2[1].Add(GameItem.ItemType.Pear);
         sequenceP2[1].Add(GameItem.ItemType.Beef_Steak);
         sequenceP2[1].Add(GameItem.ItemType.Sushi);
-        sequenceP2[1].Add(GameItem.ItemType.Turnip);
+        //sequenceP2[1].Add(GameItem.ItemType.Turnip);
 
         sequenceP2[2].Add(GameItem.ItemType.Chicken_Leg);
         sequenceP2[2].Add(GameItem.ItemType.Pear);
         sequenceP2[2].Add(GameItem.ItemType.Banana);
-        sequenceP2[2].Add(GameItem.ItemType.Cherry);
+        //sequenceP2[2].Add(GameItem.ItemType.Cherry);
 
         sequenceP3[0].Add(GameItem.ItemType.Cherry);
         sequenceP3[0].Add(GameItem.ItemType.Beef_Steak);
         sequenceP3[0].Add(GameItem.ItemType.Milk);
-        sequenceP3[0].Add(GameItem.ItemType.Coconut);
+        //sequenceP3[0].Add(GameItem.ItemType.Coconut);
 
         sequenceP3[1].Add(GameItem.ItemType.Carrot);
         sequenceP3[1].Add(GameItem.ItemType.Fish);
         sequenceP3[1].Add(GameItem.ItemType.Cherry);
-        sequenceP3[1].Add(GameItem.ItemType.Coconut);
+        //sequenceP3[1].Add(GameItem.ItemType.Coconut);
 
         sequenceP3[2].Add(GameItem.ItemType.Beef_Steak);
         sequenceP3[2].Add(GameItem.ItemType.Pear);
         sequenceP3[2].Add(GameItem.ItemType.Leek);
-        sequenceP3[2].Add(GameItem.ItemType.Chicken_Leg);
+        //sequenceP3[2].Add(GameItem.ItemType.Chicken_Leg);
 
         sequenceP4[0].Add(GameItem.ItemType.Coconut);
         sequenceP4[0].Add(GameItem.ItemType.Carrot);
         sequenceP4[0].Add(GameItem.ItemType.Sushi);
-        sequenceP4[0].Add(GameItem.ItemType.Kiwi);
+        //sequenceP4[0].Add(GameItem.ItemType.Kiwi);
 
         sequenceP4[1].Add(GameItem.ItemType.Egg);
         sequenceP4[1].Add(GameItem.ItemType.Milk);
         sequenceP4[1].Add(GameItem.ItemType.Chicken_Leg);
-        sequenceP4[1].Add(GameItem.ItemType.Pear);
+        //sequenceP4[1].Add(GameItem.ItemType.Pear);
 
         sequenceP4[2].Add(GameItem.ItemType.Cherry);
         sequenceP4[2].Add(GameItem.ItemType.Mushroom);
         sequenceP4[2].Add(GameItem.ItemType.Turnip);
-        sequenceP4[2].Add(GameItem.ItemType.Cherry);
+        //sequenceP4[2].Add(GameItem.ItemType.Cherry);
 
         sequenceP1[3] = sequenceP4[0];
         sequenceP2[3] = sequenceP1[0];
@@ -250,7 +250,7 @@ public class GameManager : MonoBehaviour
     }
     public bool CheckCart(List<GameItem.ItemType> listToCheck, int playerToCheck)
     {
-        if (listToCheck.Count == 4)
+        if (listToCheck.Count == 3)
         {
             //Check-in Process
             if (playerToCheck == 1)
