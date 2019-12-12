@@ -27,6 +27,6 @@ public class Caddie : MonoBehaviour
         Destroy(this.gameObject.transform.GetChild(2).GetChild(0).gameObject);
         Destroy(this.gameObject.transform.GetChild(3).GetChild(0).gameObject);
         Destroy(this.gameObject.transform.GetChild(4).GetChild(0).gameObject);
-        Destroy(this.gameObject.transform.GetChild(5).GetChild(0).gameObject);
+        //Destroy(this.gameObject.transform.GetChild(5).GetChild(0).gameObject);
     }
 }

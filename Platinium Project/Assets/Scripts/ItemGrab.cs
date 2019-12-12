@@ -54,7 +54,7 @@ public class ItemGrab : MonoBehaviour
 
     public void DropItemInCart()
     {
-        if(detection.itemInCartPos1 != null && detection.itemInCartPos2 != null && detection.itemInCartPos3 != null && detection.itemInCartPos4 != null)
+        if(detection.itemInCartPos1 != null && detection.itemInCartPos2 != null && detection.itemInCartPos3 != null)
         {
             if (detection.itemInCartPos1.childCount < 1)
             {
@@ -89,36 +89,36 @@ public class ItemGrab : MonoBehaviour
                 item = null;
                 itemOutline = null;
             }
-            else if (detection.itemInCartPos4.childCount < 1)
+            /*else if (detection.itemInCartPos4.childCount < 1)
             {
                 haveItem = false;
                 item.transform.position = detection.itemInCartPos4.transform.position;
                 item.transform.rotation = detection.itemInCartPos4.transform.rotation;
                 item.transform.parent = detection.itemInCartPos4;
                 item.transform.localScale = new Vector3((item.transform.lossyScale.x / itemScaler), (item.transform.lossyScale.y / itemScaler), (item.transform.lossyScale.z / itemScaler));
-                detection.caddie_data.PlaceInCart(item.GetComponent<GameItem>(), 3);
+                //detection.caddie_data.PlaceInCart(item.GetComponent<GameItem>(), 3);
                 item = null;
                 itemOutline = null;
-            }
+            }*/
         }
     }
 
     public void GrabItemFromCart()
     {
-        if (detection.itemInCartPos1 != null && detection.itemInCartPos2 != null && detection.itemInCartPos3 != null && detection.itemInCartPos4 != null && item == null)
+        if (detection.itemInCartPos1 != null && detection.itemInCartPos2 != null && detection.itemInCartPos3 != null && item == null)
         {
-            if (detection.itemInCartPos4.childCount > 0)
+            /*if (detection.itemInCartPos4.childCount > 0)
             {
                 haveItem = true;
                 detection.itemInCartPos4.GetChild(0).transform.position = itemPos.transform.position;
                 detection.itemInCartPos4.GetChild(0).transform.rotation = itemPos.transform.rotation; ;
                 detection.itemInCartPos4.GetChild(0).transform.parent = itemPos;
-                detection.caddie_data.RemoveFromCart(3);
+                //detection.caddie_data.RemoveFromCart(3);
                 item = itemPos.GetChild(0).gameObject;
                 itemOutline = item.transform.GetChild(0).gameObject;
                 item.transform.localScale = new Vector3((item.transform.lossyScale.x * itemScaler), (item.transform.lossyScale.y * itemScaler), (item.transform.lossyScale.z * itemScaler));
             }
-            else if (detection.itemInCartPos3.childCount > 0)
+            else*/ if (detection.itemInCartPos3.childCount > 0)
             {
                 haveItem = true;
                 detection.itemInCartPos3.GetChild(0).transform.position = itemPos.transform.position;

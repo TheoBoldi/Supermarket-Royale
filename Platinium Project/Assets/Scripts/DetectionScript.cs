@@ -12,7 +12,7 @@ public class DetectionScript : MonoBehaviour
     public Transform itemInCartPos1;
     public Transform itemInCartPos2;
     public Transform itemInCartPos3;
-    public Transform itemInCartPos4;
+    //public Transform itemInCartPos4;
 
 
     // Start is called before the first frame update
@@ -32,7 +32,7 @@ public class DetectionScript : MonoBehaviour
             itemInCartPos1 = closestCaddie.GetChild(2);
             itemInCartPos2 = closestCaddie.GetChild(3);
             itemInCartPos3 = closestCaddie.GetChild(4);
-            itemInCartPos4 = closestCaddie.GetChild(5);
+            //itemInCartPos4 = closestCaddie.GetChild(5);
         }
         else if(closestCaddie == null)
         {
@@ -40,7 +40,7 @@ public class DetectionScript : MonoBehaviour
             itemInCartPos1 = null;
             itemInCartPos2 = null;
             itemInCartPos3 = null;
-            itemInCartPos4 = null;
+            //itemInCartPos4 = null;
         }
 
         if(closestCaddie == null)
