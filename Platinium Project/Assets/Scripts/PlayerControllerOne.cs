@@ -65,6 +65,11 @@ public class PlayerControllerOne : MonoBehaviour
             itemGrab.GrabItemFromCart();
         }
 
+        if (entity.GetComponentInChildren<CollisionScript>().p2pCol)
+        {
+            _rewiredPlayer.SetVibration(0, 1.0f, 0.3f);
+        }
+
         /*if ((_rewiredPlayer.GetAxis("RightTrigger") > 0))
         {
             Vector3 refvector = entity.GetComponentInChildren<Transform>().GetChild(0).transform.rotation.eulerAngles;
