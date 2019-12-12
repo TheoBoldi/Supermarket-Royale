@@ -773,7 +773,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 130
+    m_StopTime: 127
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -2510,15 +2510,15 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 124
-    functionName: HideUI
+  - time: 5.85
+    functionName: NextS
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 130
-    functionName: NextS
+  - time: 124
+    functionName: HideUI
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
