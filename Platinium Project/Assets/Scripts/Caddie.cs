@@ -13,13 +13,9 @@ public class Caddie : MonoBehaviour
         itemtoPlace.cartSlotPosition = cartSlotSelcted;
         cartStorage[cartSlotSelcted] = itemtoPlace.ID;
     }
-    public GameItem RemoveFromCart(int cartSlotSelcted)
+    public void RemoveFromCart(int cartSlotSelcted)
     {
-        GameItem gameItemToReturn = _gameItem.CreateGameItem(cartStorage[cartSlotSelcted]);
         cartStorage[cartSlotSelcted] = GameItem.ItemType.Empty;
-        gameItemToReturn.cartSlotPosition = 0;
-        gameItemToReturn.isInCart = false;
-        return gameItemToReturn;
     }
     public void ClearCart()
     {
@@ -28,9 +24,9 @@ public class Caddie : MonoBehaviour
         cartStorage[2] = GameItem.ItemType.Empty;
         cartStorage[3] = GameItem.ItemType.Empty;
 
-        Destroy(this.gameObject.transform.GetChild(2).GetChild(0));
-        Destroy(this.gameObject.transform.GetChild(3).GetChild(0));
-        Destroy(this.gameObject.transform.GetChild(4).GetChild(0));
-        Destroy(this.gameObject.transform.GetChild(5).GetChild(0));
+        Destroy(this.gameObject.transform.GetChild(2).GetChild(0).gameObject);
+        Destroy(this.gameObject.transform.GetChild(3).GetChild(0).gameObject);
+        Destroy(this.gameObject.transform.GetChild(4).GetChild(0).gameObject);
+        Destroy(this.gameObject.transform.GetChild(5).GetChild(0).gameObject);
     }
 }

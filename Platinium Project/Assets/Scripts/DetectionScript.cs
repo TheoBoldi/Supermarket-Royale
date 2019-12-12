@@ -28,6 +28,7 @@ public class DetectionScript : MonoBehaviour
 
         if(closestCaddie != null)
         {
+            caddie_data = closestCaddie.GetComponent<Caddie>();
             itemInCartPos1 = closestCaddie.GetChild(2);
             itemInCartPos2 = closestCaddie.GetChild(3);
             itemInCartPos3 = closestCaddie.GetChild(4);
@@ -35,6 +36,7 @@ public class DetectionScript : MonoBehaviour
         }
         else if(closestCaddie == null)
         {
+            caddie_data = null;
             itemInCartPos1 = null;
             itemInCartPos2 = null;
             itemInCartPos3 = null;

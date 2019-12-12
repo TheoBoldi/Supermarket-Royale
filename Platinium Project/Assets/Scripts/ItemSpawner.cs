@@ -25,7 +25,7 @@ public class ItemSpawner : MonoBehaviour
         if(isOnShelf == false)
         {
             timer -= Time.deltaTime;
-            if(timer <= 0)
+            if(timer <= 0 && item != null)
             {
                 ParticleSystem effect2 = Instantiate(smoke) as ParticleSystem;
                 effect2.transform.position = this.transform.position;
