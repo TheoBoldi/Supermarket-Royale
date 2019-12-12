@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ItemSpawner : MonoBehaviour
 {
-    public float timer = 5.0f;
+    private float timer = 2.0f;
     public bool isOnShelf = true;
     public GameObject item;
 
