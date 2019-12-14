@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class ScoreRecap : MonoBehaviour
@@ -20,6 +21,13 @@ public class ScoreRecap : MonoBehaviour
     public Text player2scoreTour3;
     public Text player3scoreTour3;
     public Text player4scoreTour3;
+
+    public GameObject Cadre1;
+    public GameObject Cadre2;
+    public GameObject Cadre3;
+    public GameObject Cadre4;
+    public GameObject Cadre5;
+    public GameObject Cadre6;
 
     /*private void Awake()
     {
@@ -56,4 +64,38 @@ public class ScoreRecap : MonoBehaviour
         player3scoreTour3.text = GameManager.player3scoreTour3.ToString();
         player4scoreTour3.text = GameManager.player4scoreTour3.ToString();
     }
+
+    public void CadreUI()
+    {
+        if (SceneManager.GetActiveScene().name.Contains("1"))
+        {
+            Cadre1.SetActive(true);
+        }
+
+        if (SceneManager.GetActiveScene().name.Contains("2"))
+        {
+            Cadre2.SetActive(true);
+        }
+
+        if (SceneManager.GetActiveScene().name.Contains("3"))
+        {
+            Cadre3.SetActive(true);
+        }
+
+        if (SceneManager.GetActiveScene().name.Contains("4"))
+        {
+            Cadre4.SetActive(true);
+        }
+
+        if (SceneManager.GetActiveScene().name.Contains("5"))
+        {
+            Cadre5.SetActive(true);
+        }
+
+        if (SceneManager.GetActiveScene().name.Contains("6"))
+        {
+            Cadre6.SetActive(true);
+        }
+    }
+    
 }

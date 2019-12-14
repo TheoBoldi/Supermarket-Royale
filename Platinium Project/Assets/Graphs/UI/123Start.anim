@@ -2591,6 +2591,13 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
+  - time: 114
+    functionName: PlayEndCountdown
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 124
     functionName: HideUI
     data: 
@@ -2600,6 +2607,13 @@ AnimationClip:
     messageOptions: 0
   - time: 126
     functionName: ChangeBackground
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 127
+    functionName: CadreUI
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

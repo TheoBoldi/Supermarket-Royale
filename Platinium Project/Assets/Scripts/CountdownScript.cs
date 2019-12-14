@@ -13,9 +13,16 @@ public class CountdownScript : MonoBehaviour
     public GameObject UIJ4;
 
     public AudioClip background2;
+    public AudioClip endtictac;
 
     public void PlayCountdown()
     {
+        Countdown.Play();
+    }
+
+    public void PlayEndCountdown()
+    {
+        Countdown.clip = endtictac;
         Countdown.Play();
     }
 
