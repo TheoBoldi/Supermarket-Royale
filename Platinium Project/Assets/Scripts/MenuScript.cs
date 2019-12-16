@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class MenuScript : MonoBehaviour
 {
+    public GameObject btplay;
+
     public void PlayGame()
     {
         SceneManager.LoadScene(1);
@@ -44,8 +46,6 @@ public class MenuScript : MonoBehaviour
         GameManager.p3Won = false;
         GameManager.p4Won = false;
     }
-
-
 
     public void QuitGame()
     {
