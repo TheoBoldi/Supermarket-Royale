@@ -22,6 +22,26 @@ public class ScoreRecap : MonoBehaviour
     public Text player3scoreTour3;
     public Text player4scoreTour3;
 
+    public Text player1scoreTour4;
+    public Text player2scoreTour4;
+    public Text player3scoreTour4;
+    public Text player4scoreTour4;
+
+    public Text player1scoreTour5;
+    public Text player2scoreTour5;
+    public Text player3scoreTour5;
+    public Text player4scoreTour5;
+
+    public Text player1scoreTour6;
+    public Text player2scoreTour6;
+    public Text player3scoreTour6;
+    public Text player4scoreTour6;
+
+    public GameObject p1win;
+    public GameObject p2win;
+    public GameObject p3win;
+    public GameObject p4win;
+
     public GameObject Cadre1;
     public GameObject Cadre2;
     public GameObject Cadre3;
@@ -63,36 +83,68 @@ public class ScoreRecap : MonoBehaviour
         player2scoreTour3.text = GameManager.player2scoreTour3.ToString();
         player3scoreTour3.text = GameManager.player3scoreTour3.ToString();
         player4scoreTour3.text = GameManager.player4scoreTour3.ToString();
+
+        player1scoreTour4.text = GameManager.player1scoreTour4.ToString();
+        player2scoreTour4.text = GameManager.player2scoreTour4.ToString();
+        player3scoreTour4.text = GameManager.player3scoreTour4.ToString();
+        player4scoreTour4.text = GameManager.player4scoreTour4.ToString();
+
+        player1scoreTour5.text = GameManager.player1scoreTour5.ToString();
+        player2scoreTour5.text = GameManager.player2scoreTour5.ToString();
+        player3scoreTour5.text = GameManager.player3scoreTour5.ToString();
+        player4scoreTour5.text = GameManager.player4scoreTour5.ToString();
+
+        player1scoreTour6.text = GameManager.player1scoreTour6.ToString();
+        player2scoreTour6.text = GameManager.player2scoreTour6.ToString();
+        player3scoreTour6.text = GameManager.player3scoreTour6.ToString();
+        player4scoreTour6.text = GameManager.player4scoreTour6.ToString();
+
+        if (GameManager.p1Won)
+        {
+            p1win.SetActive(true);
+        }
+        else if (GameManager.p1Won)
+        {
+            p2win.SetActive(true);
+        }
+        else if (GameManager.p1Won)
+        {
+            p3win.SetActive(true);
+        }
+        else if (GameManager.p1Won)
+        {
+            p4win.SetActive(true);
+        }
     }
 
     public void CadreUI()
     {
-        if (SceneManager.GetActiveScene().name.Contains("1"))
+        if (SceneManager.GetActiveScene().buildIndex == 1)
         {
             Cadre1.SetActive(true);
         }
 
-        if (SceneManager.GetActiveScene().name.Contains("2"))
+        if (SceneManager.GetActiveScene().buildIndex == 2)
         {
             Cadre2.SetActive(true);
         }
 
-        if (SceneManager.GetActiveScene().name.Contains("3"))
+        if (SceneManager.GetActiveScene().buildIndex == 3)
         {
             Cadre3.SetActive(true);
         }
 
-        if (SceneManager.GetActiveScene().name.Contains("4"))
+        if (SceneManager.GetActiveScene().buildIndex == 4)
         {
             Cadre4.SetActive(true);
         }
 
-        if (SceneManager.GetActiveScene().name.Contains("5"))
+        if (SceneManager.GetActiveScene().buildIndex == 5)
         {
             Cadre5.SetActive(true);
         }
 
-        if (SceneManager.GetActiveScene().name.Contains("6"))
+        if (SceneManager.GetActiveScene().buildIndex == 6)
         {
             Cadre6.SetActive(true);
         }
