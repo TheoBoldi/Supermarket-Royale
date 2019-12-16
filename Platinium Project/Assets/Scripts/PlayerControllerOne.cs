@@ -67,7 +67,7 @@ public class PlayerControllerOne : MonoBehaviour
 
         if (entity.GetComponentInChildren<CollisionScript>().p2pCol)
         {
-            _rewiredPlayer.SetVibration(0, 1.0f, 0.3f);
+            _rewiredPlayer.SetVibration(0, 1.0f, 0.03f);
         }
 
         /*if ((_rewiredPlayer.GetAxis("RightTrigger") > 0))
