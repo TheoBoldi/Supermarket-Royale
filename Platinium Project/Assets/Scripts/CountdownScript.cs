@@ -15,6 +15,13 @@ public class CountdownScript : MonoBehaviour
     public AudioClip background2;
     public AudioClip endtictac;
 
+
+
+    public void PlayBGSound()
+    {
+        backgroundMusic.Play();
+    }
+
     public void PlayCountdown()
     {
         Countdown.Play();
