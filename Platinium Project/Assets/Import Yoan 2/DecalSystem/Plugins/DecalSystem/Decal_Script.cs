@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+#if UNITY_EDITOR
 using DecalSystem;
+#endif
 
 public class Decal_Script : MonoBehaviour
 {
@@ -23,6 +25,8 @@ public class Decal_Script : MonoBehaviour
 
     void CreatePrefab()
     {
+#if UNITY_EDITOR  
+
         // instantiate decal
 
         GameObject obj = Instantiate(ThisDecal, ThisDecal.transform.position, ThisDecal.transform.rotation);
@@ -41,6 +45,6 @@ public class Decal_Script : MonoBehaviour
             DecalBuilder.Build(decal);
 
         }
-
+#endif
     }
 }

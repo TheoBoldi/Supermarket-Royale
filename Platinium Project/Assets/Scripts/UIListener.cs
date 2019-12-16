@@ -54,10 +54,19 @@ public class UIListener : MonoBehaviour
     public Sprite yoghurt;
 
     private Dictionary<GameItem.ItemType, Sprite> spritedb = new Dictionary<GameItem.ItemType, Sprite>();
+
+    private bool isInitialized = false;
     
     // Start is called before the first frame update
     void Awake()
     {
+        Init();
+    }
+
+    public void Init()
+    {
+        if (isInitialized) return;
+
         _gameManager = GameObject.Find("EventSystem").GetComponent<GameManager>();
         player1item0 = GameObject.Find("P10").GetComponent<Image>();
         player1item1 = GameObject.Find("P11").GetComponent<Image>();
@@ -126,6 +135,8 @@ public class UIListener : MonoBehaviour
         spritedb.Add(GameItem.ItemType.Tomato, tomato);
         spritedb.Add(GameItem.ItemType.Turnip, turnip);
         spritedb.Add(GameItem.ItemType.Yoghurt, yoghurt);
+
+        isInitialized = true;
     }
     
     public void UpdateUI()

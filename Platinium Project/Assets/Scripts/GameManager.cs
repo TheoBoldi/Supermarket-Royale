@@ -8,10 +8,10 @@ public class GameManager : MonoBehaviour
     //GameLogicManager for Super Market Royale by Dorian Gélas 2019-2020
     public bool isDebug = false;
     private UIListener _UIListener;
-    private bool p1Won;
-    private bool p2Won;
-    private bool p3Won;
-    private bool p4Won;
+    public static bool p1Won;
+    public static bool p2Won;
+    public static bool p3Won;
+    public static bool p4Won;
     private CheckOutScript _checkoutscript;
     private float time;
     private int sequenceP1index = 0;
@@ -40,6 +40,21 @@ public class GameManager : MonoBehaviour
     public static int player2scoreTour3 = 0;
     public static int player3scoreTour3 = 0;
     public static int player4scoreTour3 = 0;
+
+    public static int player1scoreTour4 = 0;
+    public static int player2scoreTour4 = 0;
+    public static int player3scoreTour4 = 0;
+    public static int player4scoreTour4 = 0;
+
+    public static int player1scoreTour5 = 0;
+    public static int player2scoreTour5 = 0;
+    public static int player3scoreTour5 = 0;
+    public static int player4scoreTour5 = 0;
+
+    public static int player1scoreTour6 = 0;
+    public static int player2scoreTour6 = 0;
+    public static int player3scoreTour6 = 0;
+    public static int player4scoreTour6 = 0;
 
     #endregion
     #region ListeObjectif
@@ -73,6 +88,7 @@ public class GameManager : MonoBehaviour
                 itemIgnoreList.Add(generatedGameItem);
             }
         }
+        _UIListener.Init();
         _UIListener.UpdateUI();
     }
     void Awake()
@@ -177,6 +193,7 @@ public class GameManager : MonoBehaviour
         player3Itemlist = sequenceP3[0];
         player4Itemlist = sequenceP4[0];
 
+        _UIListener.Init();
         _UIListener.UpdateUI();
     }
     void OnGUI()
@@ -184,22 +201,23 @@ public class GameManager : MonoBehaviour
         if (isDebug)
         {
             GUI.Label(new Rect(10.0f, Screen.height - 25.0f, 1000.0f, Screen.width), itemList, guiSKIN);
-        }
-        if (p1Won) 
-        {
-            GUI.Label(new Rect(10.0f, 10.0f, 900.0f, Screen.width), "Player 1 Completed his list", guiSKIN);
-        }
-        if (p2Won)
-        {
-            GUI.Label(new Rect(10.0f, 30.0f, 900.0f, Screen.width), "Player 2 Completed his list", guiSKIN);
-        }
-        if (p3Won)
-        {
-            GUI.Label(new Rect(10.0f, 50.0f, 900.0f, Screen.width), "Player 3 Completed his list", guiSKIN);
-        }
-        if (p4Won)
-        {
-            GUI.Label(new Rect(10.0f, 70.0f, 900.0f, Screen.width), "Player 4 Completed his list", guiSKIN);
+
+            if (p1Won)
+            {
+                GUI.Label(new Rect(10.0f, 10.0f, 900.0f, Screen.width), "Player 1 Completed his list", guiSKIN);
+            }
+            if (p2Won)
+            {
+                GUI.Label(new Rect(10.0f, 30.0f, 900.0f, Screen.width), "Player 2 Completed his list", guiSKIN);
+            }
+            if (p3Won)
+            {
+                GUI.Label(new Rect(10.0f, 50.0f, 900.0f, Screen.width), "Player 3 Completed his list", guiSKIN);
+            }
+            if (p4Won)
+            {
+                GUI.Label(new Rect(10.0f, 70.0f, 900.0f, Screen.width), "Player 4 Completed his list", guiSKIN);
+            }
         }
     }
     public void ValidateList(int playerWhoValidated)
@@ -324,7 +342,7 @@ public class GameManager : MonoBehaviour
         //SysShortcuts();
         time += Time.deltaTime;
 
-        if (SceneManager.GetActiveScene().name.Contains("1"))
+        if (SceneManager.GetActiveScene().buildIndex == 1)
         {
             player1scoreTour1 = player1Score;
             player2scoreTour1 = player2Score;
@@ -332,7 +350,7 @@ public class GameManager : MonoBehaviour
             player4scoreTour1 = player4Score;
         }
 
-        if (SceneManager.GetActiveScene().name.Contains("2"))
+        if (SceneManager.GetActiveScene().buildIndex == 2)
         {
             player1scoreTour2 = player1Score + player1scoreTour1;
             player2scoreTour2 = player2Score + player2scoreTour1;
@@ -340,12 +358,53 @@ public class GameManager : MonoBehaviour
             player4scoreTour2 = player4Score + player4scoreTour1;
         }
 
-        if (SceneManager.GetActiveScene().name.Contains("3"))
+        if (SceneManager.GetActiveScene().buildIndex == 3)
         {
             player1scoreTour3 = player1Score + player1scoreTour2;
             player2scoreTour3 = player2Score + player2scoreTour2;
             player3scoreTour3 = player3Score + player3scoreTour2;
             player4scoreTour3 = player4Score + player4scoreTour2;
+        }
+
+        if (SceneManager.GetActiveScene().buildIndex == 4)
+        {
+            player1scoreTour4 = player1Score + player1scoreTour3;
+            player2scoreTour4 = player2Score + player2scoreTour3;
+            player3scoreTour4 = player3Score + player3scoreTour3;
+            player4scoreTour4 = player4Score + player4scoreTour3;
+        }
+
+        if (SceneManager.GetActiveScene().buildIndex == 5)
+        {
+            player1scoreTour5 = player1Score + player1scoreTour4;
+            player2scoreTour5 = player2Score + player2scoreTour4;
+            player3scoreTour5 = player3Score + player3scoreTour4;
+            player4scoreTour5 = player4Score + player4scoreTour4;
+        }
+
+        if (SceneManager.GetActiveScene().buildIndex == 6)
+        {
+            player1scoreTour6 = player1Score + player1scoreTour5;
+            player2scoreTour6 = player2Score + player2scoreTour5;
+            player3scoreTour6 = player3Score + player3scoreTour5;
+            player4scoreTour6 = player4Score + player4scoreTour5;
+
+            if (player1scoreTour6 > player2scoreTour6 && player1scoreTour6 > player3scoreTour6 && player1scoreTour6 > player4scoreTour6)
+            {
+                p1Won = true;
+            }
+            else if (player2scoreTour6 > player1scoreTour6 && player2scoreTour6 > player3scoreTour6 && player2scoreTour6 > player4scoreTour6)
+            {
+                p2Won = true;
+            }
+            else if (player3scoreTour6 > player1scoreTour6 && player3scoreTour6 > player2scoreTour6 && player3scoreTour6 > player4scoreTour6)
+            {
+                p3Won = true;
+            }
+            else if (player4scoreTour6 > player1scoreTour6 && player4scoreTour6 > player3scoreTour6 && player4scoreTour6 > player2scoreTour6)
+            {
+                p4Won = true;
+            }
         }
     }
 
