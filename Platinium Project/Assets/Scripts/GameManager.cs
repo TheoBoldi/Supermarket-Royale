@@ -193,6 +193,7 @@ public class GameManager : MonoBehaviour
         player3Itemlist = sequenceP3[0];
         player4Itemlist = sequenceP4[0];
 
+        _UIListener.Init();
         _UIListener.UpdateUI();
     }
     void OnGUI()
