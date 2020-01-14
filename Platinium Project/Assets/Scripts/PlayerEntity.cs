@@ -128,6 +128,7 @@ public class PlayerEntity : MonoBehaviour
     public void PlayerControls()
     {
         moveSound.clip = soundWalk;
+        moveSound.volume = 1.0f;
         nearestCaddie.GetComponent<BoxCollider>().isTrigger = false;
         nearestCaddie.GetComponent<Rigidbody>().isKinematic = false;
         CaddieCollider.SetActive(false);
@@ -145,6 +146,7 @@ public class PlayerEntity : MonoBehaviour
         if (nearestCaddie != null)
         {
             moveSound.clip = soundCaddie;
+            moveSound.volume = 0.75f;
             nearestCaddie.transform.position = cartPos.position;
             nearestCaddie.transform.rotation = cartPos.rotation;
             nearestCaddie.transform.parent = cartPos;

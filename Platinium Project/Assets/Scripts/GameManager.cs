@@ -198,7 +198,7 @@ public class GameManager : MonoBehaviour
     }
     void OnGUI()
     {
-        if (isDebug)
+        /* (isDebug)
         {
             GUI.Label(new Rect(10.0f, Screen.height - 25.0f, 1000.0f, Screen.width), itemList, guiSKIN);
 
@@ -218,7 +218,7 @@ public class GameManager : MonoBehaviour
             {
                 GUI.Label(new Rect(10.0f, 70.0f, 900.0f, Screen.width), "Player 4 Completed his list", guiSKIN);
             }
-        }
+        }*/
     }
     public void ValidateList(int playerWhoValidated)
     {

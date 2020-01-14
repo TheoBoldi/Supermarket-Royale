@@ -103,15 +103,15 @@ public class ScoreRecap : MonoBehaviour
         {
             p1win.SetActive(true);
         }
-        else if (GameManager.p1Won)
+        if (GameManager.p2Won)
         {
             p2win.SetActive(true);
         }
-        else if (GameManager.p1Won)
+        if (GameManager.p3Won)
         {
             p3win.SetActive(true);
         }
-        else if (GameManager.p1Won)
+        if (GameManager.p4Won)
         {
             p4win.SetActive(true);
         }

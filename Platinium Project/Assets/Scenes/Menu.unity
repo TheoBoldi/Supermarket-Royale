@@ -311,6 +311,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cdc1b697efb60e44bb54068ba1f1857, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  btplay: {fileID: 0}
 --- !u!95 &221497783
 Animator:
   serializedVersion: 3
@@ -646,6 +647,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cdc1b697efb60e44bb54068ba1f1857, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  btplay: {fileID: 0}
 --- !u!1 &550546642
 GameObject:
   m_ObjectHideFlags: 0
@@ -756,7 +758,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: f6aa377c611706b42af3cf196ce3a344, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 35c5432005f40aa41ba6d44e8b05b3e5, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
